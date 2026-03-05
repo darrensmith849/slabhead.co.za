@@ -1,0 +1,1330 @@
+{
+  "https://slabhead.co.za/wp-content/et-cache/354/et-core-unified-deferred-354.min.css": {
+    "localPath": "/slabhead-import/home/91ba80a3e175b464-et-core-unified-deferred-354.min.css",
+    "bytes": 14688,
+    "contentType": "text/css",
+    "sha256": "91ba80a3e175b464708729cc9bebf5d9c66ea2929a52b3af03d565912abbd3c6",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.131Z"
+  },
+  "https://slabhead.co.za/wp-content/et-cache/354/et-divi-builder-dynamic-354.css": {
+    "localPath": "/slabhead-import/home/c614ce4d308c043c-et-divi-builder-dynamic-354.css",
+    "bytes": 4048,
+    "contentType": "text/css",
+    "sha256": "c614ce4d308c043c540637f5b192c996fd92585460473b08fb601217bb2395f7",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.128Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/breeze/assets/js/js-front-end/breeze-prefetch-links.min.js": {
+    "localPath": "/slabhead-import/home/068d8900d613e640-breeze-prefetch-links.min.js",
+    "bytes": 1369,
+    "contentType": "text/javascript",
+    "sha256": "068d8900d613e6405a49516186440e6de3128d13cbc5c6e398201977ab3e7407",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.479Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/assets/css/index.min.css": {
+    "localPath": "/slabhead-import/home/52caf5cfee6d1ddb-index.min.css",
+    "bytes": 5363,
+    "contentType": "text/css",
+    "sha256": "52caf5cfee6d1ddb089e0790ca0faa4c299e192b777422aa3b0fcff8970f4a11",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.381Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/assets/js/bb-countdown.min.js": {
+    "localPath": "/slabhead-import/home/e268ffc48fac8551-bb-countdown.min.js",
+    "bytes": 1705,
+    "contentType": "text/javascript",
+    "sha256": "e268ffc48fac855180b79ba929894a11c0f609e9ac3adce6fcfdc1f118bd6202",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.687Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/assets/js/vendor/jquery.mask.js": {
+    "localPath": "/slabhead-import/home/a199620fe981df00-jquery.mask.js",
+    "bytes": 23176,
+    "contentType": "text/javascript",
+    "sha256": "a199620fe981df00a825f78761d3f7c8870f8117daa4a890e08018dec386dae8",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.559Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/includes/access-control/assets/css/bb-access-control.min.css": {
+    "localPath": "/slabhead-import/home/a6f884ecc776ebd8-bb-access-control.min.css",
+    "bytes": 469,
+    "contentType": "text/css",
+    "sha256": "a6f884ecc776ebd86901df2ed08da6ee70dd7c6029b37aafa1fe96b01e19ab9e",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.529Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/includes/integrations/meprlms/assets/css/bb-meprlms-admin.min.css": {
+    "localPath": "/slabhead-import/home/820e36a3a895ce89-bb-meprlms-admin.min.css",
+    "bytes": 6245,
+    "contentType": "text/css",
+    "sha256": "820e36a3a895ce895f508a33fca2c9b45980785644df802e45e43009662349fb",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.793Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/includes/integrations/meprlms/assets/css/meprlms-frontend.min.css": {
+    "localPath": "/slabhead-import/home/5cbc1d9ac728e728-meprlms-frontend.min.css",
+    "bytes": 62134,
+    "contentType": "text/css",
+    "sha256": "5cbc1d9ac728e728c10daf63f787bb75f0244ded2519ce7a843f018defba4e2b",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.594Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/includes/integrations/meprlms/assets/js/bb-meprlms-admin.min.js": {
+    "localPath": "/slabhead-import/home/165be683fe9d74c5-bb-meprlms-admin.min.js",
+    "bytes": 2250,
+    "contentType": "text/javascript",
+    "sha256": "165be683fe9d74c5bb0f642576d9df41cc440c84bea7acb36efd0f48047a8782",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.914Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/includes/integrations/meprlms/assets/js/bb-meprlms-frontend.min.js": {
+    "localPath": "/slabhead-import/home/c59dd3216d99ce08-bb-meprlms-frontend.min.js",
+    "bytes": 273,
+    "contentType": "text/javascript",
+    "sha256": "c59dd3216d99ce08ada1a7cf21427905422d41c9551a9bbc46e1f97d4484cce3",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.892Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/includes/integrations/tutorlms/assets/css/bb-tutorlms-admin.min.css": {
+    "localPath": "/slabhead-import/home/c0c1cf8389357f0b-bb-tutorlms-admin.min.css",
+    "bytes": 5755,
+    "contentType": "text/css",
+    "sha256": "c0c1cf8389357f0b0973a0cd05bec8283a982c59d745ad4d04894c62e5f3f24d",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.807Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/includes/integrations/tutorlms/assets/js/bb-tutorlms-admin.min.js": {
+    "localPath": "/slabhead-import/home/b831402d1c758882-bb-tutorlms-admin.min.js",
+    "bytes": 2266,
+    "contentType": "text/javascript",
+    "sha256": "b831402d1c75888253c67c8fdb8f7b07b1291bfe3bbf2472a071a17cb65cc633",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.901Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/includes/integrations/zoom/assets/css/bp-zoom.min.css": {
+    "localPath": "/slabhead-import/home/2ff357770caf1fbc-bp-zoom.min.css",
+    "bytes": 85820,
+    "contentType": "text/css",
+    "sha256": "2ff357770caf1fbc57f986e6c7aa788f4201df33a6d94d73f12e725b06be1cf4",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.181Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/includes/integrations/zoom/assets/js/bp-zoom.min.js": {
+    "localPath": "/slabhead-import/home/e25133cca6950f5c-bp-zoom.min.js",
+    "bytes": 64365,
+    "contentType": "text/javascript",
+    "sha256": "e25133cca6950f5ce60b1422c9c2a0286a32221c7c14bf07939eef825ffb74fd",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.652Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/includes/polls/assets/css/bb-polls.min.css": {
+    "localPath": "/slabhead-import/home/8e985d55a5cf6450-bb-polls.min.css",
+    "bytes": 13222,
+    "contentType": "text/css",
+    "sha256": "8e985d55a5cf64505f10faa21875cf78b07ddad614ca27bcbe2e2a80b67c7a27",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.592Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/includes/polls/assets/js/bb-poll.min.js": {
+    "localPath": "/slabhead-import/home/422edfd9a1894512-bb-poll.min.js",
+    "bytes": 15471,
+    "contentType": "text/javascript",
+    "sha256": "422edfd9a189451261cfecdef6155da8287132a7e76d1d6b0f592d7f0cd6a1f3",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.314Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/includes/reactions/assets/js/bb-reaction.min.js": {
+    "localPath": "/slabhead-import/home/ae1a5535dc4f84b9-bb-reaction.min.js",
+    "bytes": 2407,
+    "contentType": "text/javascript",
+    "sha256": "ae1a5535dc4f84b91673df2f40e3ce232e3dc1ab494011588f2787e91132c42a",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.682Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/includes/schedule-posts/assets/css/bb-schedule-posts.min.css": {
+    "localPath": "/slabhead-import/home/f77ff54a94ed366a-bb-schedule-posts.min.css",
+    "bytes": 10593,
+    "contentType": "text/css",
+    "sha256": "f77ff54a94ed366aef09de08b399e4986b6c8e1432e041db00f0ccf072a51cad",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.583Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform-pro/includes/schedule-posts/assets/js/bb-schedule-posts.min.js": {
+    "localPath": "/slabhead-import/home/50ecb644306c256c-bb-schedule-posts.min.js",
+    "bytes": 14730,
+    "contentType": "text/javascript",
+    "sha256": "50ecb644306c256c4d42ac4d05d401ff67c6b0079c2eb41a71372d3fa067ec5b",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.323Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-core/css/vendor/select2.min.css": {
+    "localPath": "/slabhead-import/home/15d6ad4dfdb43d0a-select2.min.css",
+    "bytes": 14966,
+    "contentType": "text/css",
+    "sha256": "15d6ad4dfdb43d0affad683e70029f97a8f8fc8637a28845009ee0542dccdf81",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.747Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-core/js/bb-emoji-loader.min.js": {
+    "localPath": "/slabhead-import/home/7ba4e7c4db9628e8-bb-emoji-loader.min.js",
+    "bytes": 2922,
+    "contentType": "text/javascript",
+    "sha256": "7ba4e7c4db9628e8f635d88ce88b56a4d81f3926c6f2e426524fdb235ce88263",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.618Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-core/js/jquery-query.min.js": {
+    "localPath": "/slabhead-import/home/8dbed73b48689ff2-jquery-query.min.js",
+    "bytes": 388,
+    "contentType": "text/javascript",
+    "sha256": "8dbed73b48689ff231ff15a9e1ca0bc242a44226052745cf08d6f87a2c24a509",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.692Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-core/js/livestamp.min.js": {
+    "localPath": "/slabhead-import/home/c65733614fd49db9-livestamp.min.js",
+    "bytes": 2945,
+    "contentType": "text/javascript",
+    "sha256": "c65733614fd49db97dc3ffc89ac1f7c6ac613f7b9b74cec423b0281d479ca490",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.201Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/jquery-cookie.min.js": {
+    "localPath": "/slabhead-import/home/62f2f3e642ef54a5-jquery-cookie.min.js",
+    "bytes": 1260,
+    "contentType": "text/javascript",
+    "sha256": "62f2f3e642ef54a52909525af5a51cec84a1543d3899bee8d169095c2bc73287",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.692Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/jquery-scroll-to.min.js": {
+    "localPath": "/slabhead-import/home/1c649986870e0841-jquery-scroll-to.min.js",
+    "bytes": 3393,
+    "contentType": "text/javascript",
+    "sha256": "1c649986870e0841ef8aaeecddaf75ecbca331aa9707be42ee42d50ea94c7dd7",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.829Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/magnific-popup.js": {
+    "localPath": "/slabhead-import/home/3fddc6d28aba3c13-magnific-popup.js",
+    "bytes": 20216,
+    "contentType": "text/javascript",
+    "sha256": "3fddc6d28aba3c13d64cfd4847c333ff48c71d4a5a58bd1a0494ca6ae8ac1bb4",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.544Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/select2.min.js": {
+    "localPath": "/slabhead-import/home/c8467b98f112bb1b-select2.min.js",
+    "bytes": 70891,
+    "contentType": "text/javascript",
+    "sha256": "c8467b98f112bb1b06a33cde66a70de85c05d22a455f91f592554c804a50a729",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.913Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-core/js/widget-members.min.js": {
+    "localPath": "/slabhead-import/home/1a4fba57416e2026-widget-members.min.js",
+    "bytes": 3870,
+    "contentType": "text/javascript",
+    "sha256": "1a4fba57416e2026797c822a1fc12b9f6589a35a1dcc561bce271717db2ebc1b",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.692Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/css/buddypress.min.css": {
+    "localPath": "/slabhead-import/home/177ad633ce05c3e7-buddypress.min.css",
+    "bytes": 839497,
+    "contentType": "text/css",
+    "sha256": "177ad633ce05c3e763e3618cb86e6ba37ac8ab1a8f209ff825866c98b3e30040",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.165Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/icons/css/bb-icons.min.css": {
+    "localPath": "/slabhead-import/home/e06801fb07f4c811-bb-icons.min.css",
+    "bytes": 26366,
+    "contentType": "text/css",
+    "sha256": "e06801fb07f4c8113bf0111cee2b964d0c91c51e73c6bfa12203bd52715c6c88",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.881Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/icons/css/icons-map.min.css": {
+    "localPath": "/slabhead-import/home/ebd1f92f9740a427-icons-map.min.css",
+    "bytes": 15260,
+    "contentType": "text/css",
+    "sha256": "ebd1f92f9740a427aefb5554f9ad727d94b1e74be3acf45d3d2e7131019cbc11",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.838Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/icons/fonts/filled.woff2": {
+    "localPath": "/slabhead-import/home/6fa4ba1b3483b427-filled.woff2",
+    "bytes": 75404,
+    "contentType": "font/woff2",
+    "sha256": "6fa4ba1b3483b427a340dcf1e0ef34b1635a7a72ccd4765823023cf0abd212ba",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:41.432Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/icons/fonts/lined.woff2": {
+    "localPath": "/slabhead-import/home/603e4f3f91f8fdad-lined.woff2",
+    "bytes": 94724,
+    "contentType": "font/woff2",
+    "sha256": "603e4f3f91f8fdad54a5c97c985d7b71c01abf9f6345548cbd046a0f34b7465e",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:41.248Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/icons/fonts/round-filled.woff2": {
+    "localPath": "/slabhead-import/home/e977d39948e84012-round-filled.woff2",
+    "bytes": 77288,
+    "contentType": "font/woff2",
+    "sha256": "e977d39948e84012dad68e4203a437ff6f09f7239102c15001eb85aca577a332",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:41.333Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/js/buddypress-nouveau.min.js": {
+    "localPath": "/slabhead-import/home/f73c5ae361f544db-buddypress-nouveau.min.js",
+    "bytes": 100208,
+    "contentType": "text/javascript",
+    "sha256": "f73c5ae361f544db87210e189fe5e196b0e46eaf00b3e6fb2fe1fb74762056e0",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.263Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/js/buddypress-search.min.js": {
+    "localPath": "/slabhead-import/home/324c6a3207baf20c-buddypress-search.min.js",
+    "bytes": 5347,
+    "contentType": "text/javascript",
+    "sha256": "324c6a3207baf20c272d50d45a90c8301c4f7f991c76ca64d7c205a904d8fd54",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.344Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/js/jquery.guillotine.min.js": {
+    "localPath": "/slabhead-import/home/4f673d53db18d7f8-jquery.guillotine.min.js",
+    "bytes": 7452,
+    "contentType": "text/javascript",
+    "sha256": "4f673d53db18d7f8fc2f4c5feaa0657be8542c924a80e98e4317ee4a24d6416b",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.333Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/divi-builder/core/admin/fonts/modules/all/modules.woff": {
+    "localPath": "/slabhead-import/home/fe67b77ac7e0ef4b-modules.woff",
+    "bytes": 92084,
+    "contentType": "font/woff",
+    "sha256": "fe67b77ac7e0ef4b482dafb86adfa403db1b89a2f337d2dc8bd1278cfe975196",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:41.290Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/divi-builder/core/admin/js/common.js": {
+    "localPath": "/slabhead-import/home/1ca76922f55b389b-common.js",
+    "bytes": 1343,
+    "contentType": "text/javascript",
+    "sha256": "1ca76922f55b389b8f590ae7e3bcc3a2dccdce3aff1e5a4335af081b76a414ea",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.533Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/divi-builder/js/scripts.min.js": {
+    "localPath": "/slabhead-import/home/4d3dd899d93d8e46-scripts.min.js",
+    "bytes": 233074,
+    "contentType": "text/javascript",
+    "sha256": "4d3dd899d93d8e46980c75ca4c07ecad4e2903671cdb476910d23340686f7635",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.438Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/woocommerce-subscriptions/build/index.css": {
+    "localPath": "/slabhead-import/home/aa64339046277c7f-index.css",
+    "bytes": 1410,
+    "contentType": "text/css",
+    "sha256": "aa64339046277c7f35ee20e7eb68d3ca696bc3fdf145375a00021ee186544842",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.840Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks.css": {
+    "localPath": "/slabhead-import/home/a04c1e2aa1df2d91-wc-blocks.css",
+    "bytes": 13882,
+    "contentType": "text/css",
+    "sha256": "a04c1e2aa1df2d918f75b85ed18996b8368eb9d077c44956824e4cbd1cdb0b8c",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.381Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/woocommerce/assets/css/brands.css": {
+    "localPath": "/slabhead-import/home/00faab274a47c51c-brands.css",
+    "bytes": 2279,
+    "contentType": "text/css",
+    "sha256": "00faab274a47c51cf6c4ad12d5398ac8a6f04c096f056ad26b90d987e628f0f6",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.000Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css": {
+    "localPath": "/slabhead-import/home/88b9926f308c1b69-woocommerce-layout.css",
+    "bytes": 19727,
+    "contentType": "text/css",
+    "sha256": "88b9926f308c1b694f61a23f1c80f2ef3a9980f98084bfc0f273b7049611db2b",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.801Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css": {
+    "localPath": "/slabhead-import/home/8de5b2ae100f00d7-woocommerce-smallscreen.css",
+    "bytes": 7527,
+    "contentType": "text/css",
+    "sha256": "8de5b2ae100f00d7a4e18f42cb12e8b5562d387f6b5c0ed09332cd5cec389ac0",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.051Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/woocommerce/assets/css/woocommerce.css": {
+    "localPath": "/slabhead-import/home/98929ef9e050f340-woocommerce.css",
+    "bytes": 85792,
+    "contentType": "text/css",
+    "sha256": "98929ef9e050f3403fdd9dfb90587ef77d0a631f4a8711d6142c87666ae77e9b",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.841Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js": {
+    "localPath": "/slabhead-import/home/1f00e7386753e699-add-to-cart.min.js",
+    "bytes": 4035,
+    "contentType": "text/javascript",
+    "sha256": "1f00e7386753e6994b5ff5ee61a772c3b5d9742694d00041e28fff83fee413cd",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.043Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js": {
+    "localPath": "/slabhead-import/home/2cc140c784aa49b9-order-attribution.min.js",
+    "bytes": 2346,
+    "contentType": "text/javascript",
+    "sha256": "2cc140c784aa49b9aee51bd9de96a6cdf2c5ca057ab768ec6e6a98a9a7c429f6",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.525Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js": {
+    "localPath": "/slabhead-import/home/5059ef9da98a2b33-woocommerce.min.js",
+    "bytes": 3915,
+    "contentType": "text/javascript",
+    "sha256": "5059ef9da98a2b33aabd52c74b0e641a6881e77f5a246ac5bfa63e88a7076631",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.122Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js": {
+    "localPath": "/slabhead-import/home/d151f8c0b2659cfb-jquery.blockUI.min.js",
+    "bytes": 9636,
+    "contentType": "text/javascript",
+    "sha256": "d151f8c0b2659cfb63704d68654ad8d9437ae9da4410536f63ddec21689a0620",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.991Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js": {
+    "localPath": "/slabhead-import/home/8b083f64f2e9e8ac-js.cookie.min.js",
+    "bytes": 1720,
+    "contentType": "text/javascript",
+    "sha256": "8b083f64f2e9e8ac445c730dfce7013cc6449ce155fd1c2f42b60edba4ecb4b1",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.104Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js": {
+    "localPath": "/slabhead-import/home/c50a0b33030ba0ec-sourcebuster.min.js",
+    "bytes": 15315,
+    "contentType": "text/javascript",
+    "sha256": "c50a0b33030ba0ec063be642c297f48af94359e2222ff140817248d591faf837",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.475Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/yith-woocommerce-ajax-product-filter-premium/assets/css/ion.range-slider.css": {
+    "localPath": "/slabhead-import/home/83b1e0a0cc92672a-ion.range-slider.css",
+    "bytes": 11084,
+    "contentType": "text/css",
+    "sha256": "83b1e0a0cc92672a27b8fc074ce45ffae18711e3a6ed5448da47d75979499dca",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.918Z"
+  },
+  "https://slabhead.co.za/wp-content/plugins/yith-woocommerce-ajax-product-filter-premium/assets/css/shortcodes.css": {
+    "localPath": "/slabhead-import/home/d5ecf28fc7243224-shortcodes.css",
+    "bytes": 46063,
+    "contentType": "text/css",
+    "sha256": "d5ecf28fc7243224d08d7c93f0117f6314b37ade4dfd27ef13545f1e32b6af1f",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.961Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme-child/assets/css/custom.css": {
+    "localPath": "/slabhead-import/home/818a1a81ed3cb063-custom.css",
+    "bytes": 474,
+    "contentType": "text/css",
+    "sha256": "818a1a81ed3cb063feb6d1213342d3f181b5cdc157b9cb8eeee15dbba337eda1",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.480Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme-child/assets/js/custom.js": {
+    "localPath": "/slabhead-import/home/39c5fa900f92e9e6-custom.js",
+    "bytes": 36,
+    "contentType": "text/javascript",
+    "sha256": "39c5fa900f92e9e6dae41b8337cabf70f52255b7b8ebbb7f90fd1815b02f6632",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.111Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/css/buddypress.min.css": {
+    "localPath": "/slabhead-import/home/824467f844cbf2d8-buddypress.min.css",
+    "bytes": 986269,
+    "contentType": "text/css",
+    "sha256": "824467f844cbf2d86692b4f28551382cae02c5b8e7f5a6c12f85d1ceecde0199",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.772Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/css/divi.min.css": {
+    "localPath": "/slabhead-import/home/82b3ad190b4fdb65-divi.min.css",
+    "bytes": 236,
+    "contentType": "text/css",
+    "sha256": "82b3ad190b4fdb65394c46d1f52254c90057c908844e814a02a0d39fabc8ec30",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.467Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/css/template-v1.min.css": {
+    "localPath": "/slabhead-import/home/e3b0c44298fc1c14-template-v1.min.css",
+    "bytes": 0,
+    "contentType": "text/css",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.265Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/css/theme.min.css": {
+    "localPath": "/slabhead-import/home/e7e6e1a6d9af25bf-theme.min.css",
+    "bytes": 353678,
+    "contentType": "text/css",
+    "sha256": "e7e6e1a6d9af25bf2d9dc3e203f0cf268fa6e18ddd390fc2754a3b08fdc17179",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.481Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/css/vendors/magnific-popup.min.css": {
+    "localPath": "/slabhead-import/home/f2e16b09282550d9-magnific-popup.min.css",
+    "bytes": 62820,
+    "contentType": "text/css",
+    "sha256": "f2e16b09282550d9122fbaad5dd8a5d85138e377f350bf25538f020bce005c0b",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.236Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/css/vendors/select2.min.css": {
+    "localPath": "/slabhead-import/home/15d6ad4dfdb43d0a-select2.min.css",
+    "bytes": 14966,
+    "contentType": "text/css",
+    "sha256": "15d6ad4dfdb43d0affad683e70029f97a8f8fc8637a28845009ee0542dccdf81",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.246Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/css/woocommerce.min.css": {
+    "localPath": "/slabhead-import/home/96d2410ea52a31cf-woocommerce.min.css",
+    "bytes": 139380,
+    "contentType": "text/css",
+    "sha256": "96d2410ea52a31cf066aa546dc6af8097d1bb72c956cbdd4c83954f359f84eae",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.408Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/fonts/fonts.css": {
+    "localPath": "/slabhead-import/home/70152c99ab9cf4e4-fonts.css",
+    "bytes": 3496,
+    "contentType": "text/css",
+    "sha256": "70152c99ab9cf4e4b481f4fc22fb9c4ce4909c1ff4640153f576e014c073ea54",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.026Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/images/adminbar-background.png": {
+    "localPath": "/slabhead-import/home/d278f077ccca1a27-adminbar-background.png",
+    "bytes": 83,
+    "contentType": "image/png",
+    "sha256": "d278f077ccca1a27937055ae9a8175f56b559f9707f89dbdb1960c7b3e14b323",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:41.218Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/images/svg/search.svg": {
+    "localPath": "/slabhead-import/home/c94795a306ed9974-search.svg",
+    "bytes": 375,
+    "contentType": "image/svg+xml",
+    "sha256": "c94795a306ed99741ea0f72c3832318c2d05b646142bb5d4534fe2acc508c9f8",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:41.219Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/js/main.min.js": {
+    "localPath": "/slabhead-import/home/e16c14c487c200c3-main.min.js",
+    "bytes": 48018,
+    "contentType": "text/javascript",
+    "sha256": "e16c14c487c200c3d3287223274df4dfafc779a660704a619a790566ac1150b7",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:41.000Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/js/plugins/bb-woocommerce.min.js": {
+    "localPath": "/slabhead-import/home/325ebddda02e8958-bb-woocommerce.min.js",
+    "bytes": 4198,
+    "contentType": "text/javascript",
+    "sha256": "325ebddda02e895863385c7f507af395538d09630f465a4d679504fba37a299a",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:41.114Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/js/vendors/fitvids.js": {
+    "localPath": "/slabhead-import/home/7f9093d67b6b3351-fitvids.js",
+    "bytes": 5627,
+    "contentType": "text/javascript",
+    "sha256": "7f9093d67b6b335108a7a7aa7e8cff79f30d2ef6cc7716b07a48d5d213e44a58",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.749Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/js/vendors/jssocials.min.js": {
+    "localPath": "/slabhead-import/home/42117fc65978a55d-jssocials.min.js",
+    "bytes": 8893,
+    "contentType": "text/javascript",
+    "sha256": "42117fc65978a55da00d1b4027596f8bd60836ac92a403fed0d233217e6fa19c",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.900Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/js/vendors/menu.js": {
+    "localPath": "/slabhead-import/home/d1f62494e8926148-menu.js",
+    "bytes": 3543,
+    "contentType": "text/javascript",
+    "sha256": "d1f62494e8926148e13df10780d998cb55cfa3933a73e635e216bc44044fd87f",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.735Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/js/vendors/mousewheel.min.js": {
+    "localPath": "/slabhead-import/home/8e73a30d35c83ea6-mousewheel.min.js",
+    "bytes": 2771,
+    "contentType": "text/javascript",
+    "sha256": "8e73a30d35c83ea6a597c3343324d2b7df097ad26e67b62efb5266ee12d317b5",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:41.070Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/js/vendors/panelslider.min.js": {
+    "localPath": "/slabhead-import/home/f09f55b8f01e0851-panelslider.min.js",
+    "bytes": 1318,
+    "contentType": "text/javascript",
+    "sha256": "f09f55b8f01e0851ed0972c48a6a23e8811da8297bb5b97262f4923d52604404",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.756Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/js/vendors/progressbar.min.js": {
+    "localPath": "/slabhead-import/home/3029f6c73eb2fa7b-progressbar.min.js",
+    "bytes": 22496,
+    "contentType": "text/javascript",
+    "sha256": "3029f6c73eb2fa7bd400b813a2aa324775cf5c19bece555d3a962a7a2f3bf332",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:41.033Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/js/vendors/select2.full.min.js": {
+    "localPath": "/slabhead-import/home/5c6fdab80cb86a27-select2.full.min.js",
+    "bytes": 79212,
+    "contentType": "text/javascript",
+    "sha256": "5c6fdab80cb86a279695dccc226a1fac50e2c922bea70242edaa28f52b7bad2d",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:41.032Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/js/vendors/slick.min.js": {
+    "localPath": "/slabhead-import/home/357452f2a55c999d-slick.min.js",
+    "bytes": 43881,
+    "contentType": "text/javascript",
+    "sha256": "357452f2a55c999ddd3afdcbce2c339d41cf7a01613d9d45ff88a753bb82f21d",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.780Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/js/vendors/sticky-kit.js": {
+    "localPath": "/slabhead-import/home/828975d22b3e8af2-sticky-kit.js",
+    "bytes": 3267,
+    "contentType": "text/javascript",
+    "sha256": "828975d22b3e8af285d3885248884273e11c09d6406874ed4793164eef285f9c",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:40.861Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/assets/js/vendors/validate.min.js": {
+    "localPath": "/slabhead-import/home/ba66d3685c4fdf51-validate.min.js",
+    "bytes": 25308,
+    "contentType": "text/javascript",
+    "sha256": "ba66d3685c4fdf516fe8ed62b692d2ff7fafe5f3805832ce533966bce19a295e",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:41.004Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/inc/admin/framework/redux-core/assets/css/extendify-utilities.css": {
+    "localPath": "/slabhead-import/home/c89fbb7c3991d609-extendify-utilities.css",
+    "bytes": 53435,
+    "contentType": "text/css",
+    "sha256": "c89fbb7c3991d609883de7c21412f6b27f44b0d049c72e49011d9a0311ac2eba",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:39.016Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/inc/plugins/buddyboss-menu-icons/vendor/kucrut/icon-picker/css/types/buddyboss_legacy.css": {
+    "localPath": "/slabhead-import/home/6d6d85ef6f836644-buddyboss_legacy.css",
+    "bytes": 31774,
+    "contentType": "text/css",
+    "sha256": "6d6d85ef6f83664437e425cf75bbc37ca5bd18ccca196f69aacc62610aefff8b",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.084Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/inc/plugins/buddyboss-menu-icons/vendor/kucrut/icon-picker/css/types/elusive.css": {
+    "localPath": "/slabhead-import/home/a287db096ee74794-elusive.css",
+    "bytes": 15000,
+    "contentType": "text/css",
+    "sha256": "a287db096ee74794812556494d929dd768f170238428cfea229ce496170eb6bc",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.168Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/inc/plugins/buddyboss-menu-icons/vendor/kucrut/icon-picker/css/types/font-awesome.css": {
+    "localPath": "/slabhead-import/home/2e6992699efb8789-font-awesome.css",
+    "bytes": 37372,
+    "contentType": "text/css",
+    "sha256": "2e6992699efb87895cae41af6253b8cb9892c37330980200fc0b146c38180a91",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.167Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/inc/plugins/buddyboss-menu-icons/vendor/kucrut/icon-picker/css/types/foundation-icons.css": {
+    "localPath": "/slabhead-import/home/f0293546740f94cc-foundation-icons.css",
+    "bytes": 19518,
+    "contentType": "text/css",
+    "sha256": "f0293546740f94cc934aeeb99709be0c023105b7d8e0eb3fa0a1bfcab63fec08",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.317Z"
+  },
+  "https://slabhead.co.za/wp-content/themes/buddyboss-theme/inc/plugins/buddyboss-menu-icons/vendor/kucrut/icon-picker/css/types/genericons.css": {
+    "localPath": "/slabhead-import/home/1d1b10e57f0f5456-genericons.css",
+    "bytes": 28234,
+    "contentType": "text/css",
+    "sha256": "1d1b10e57f0f5456093448e771e44fe50b6266edcbc2c93ca47cce0af0b3418c",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.380Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/003-SH-Neon-03-1024x585.jpg": {
+    "localPath": "/slabhead-import/home/1050ff4f53235f2d-003-SH-Neon-03-1024x585.jpg",
+    "bytes": 177088,
+    "contentType": "image/jpeg",
+    "sha256": "1050ff4f53235f2db86614c3c03754933d5c8435859881c6251278638ac896d7",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.975Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/003-SH-Neon-03-1080x617.jpg": {
+    "localPath": "/slabhead-import/home/fef65971ffcaf791-003-SH-Neon-03-1080x617.jpg",
+    "bytes": 194160,
+    "contentType": "image/jpeg",
+    "sha256": "fef65971ffcaf791007ca9a13e4344790afad274539765e11345df9923d92baa",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:36.253Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/003-SH-Neon-03-1536x878.jpg": {
+    "localPath": "/slabhead-import/home/16ac962f824408dd-003-SH-Neon-03-1536x878.jpg",
+    "bytes": 356058,
+    "contentType": "image/jpeg",
+    "sha256": "16ac962f824408ddd5ab169f8c00233b8e6c8ee51022b63e9a01bb9098950a72",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:36.642Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/003-SH-Neon-03-300x171.jpg": {
+    "localPath": "/slabhead-import/home/adf7ccb01b807ff6-003-SH-Neon-03-300x171.jpg",
+    "bytes": 20677,
+    "contentType": "image/jpeg",
+    "sha256": "adf7ccb01b807ff6140f86a5dcff030c98b134b751cffa44ab776554a2d69809",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.977Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/003-SH-Neon-03-600x343.jpg": {
+    "localPath": "/slabhead-import/home/57de2e606a0a44dc-003-SH-Neon-03-600x343.jpg",
+    "bytes": 67492,
+    "contentType": "image/jpeg",
+    "sha256": "57de2e606a0a44dca7c959e748de9760dd6f3b136e52c2f2d219a06adeef8a85",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:36.254Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/003-SH-Neon-03-624x357.jpg": {
+    "localPath": "/slabhead-import/home/6150dbbda86e1f21-003-SH-Neon-03-624x357.jpg",
+    "bytes": 72650,
+    "contentType": "image/jpeg",
+    "sha256": "6150dbbda86e1f21e0e8705250b047cb5777f32431a755d38119b3f5f422ab8f",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:36.251Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/003-SH-Neon-03-768x439.jpg": {
+    "localPath": "/slabhead-import/home/c886721030d07649-003-SH-Neon-03-768x439.jpg",
+    "bytes": 105335,
+    "contentType": "image/jpeg",
+    "sha256": "c886721030d076497d93e66aa64eaf9714cb3ef0f2ba48fd5c820c4518f77ae8",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:36.250Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/003-SH-Neon-03.jpg": {
+    "localPath": "/slabhead-import/home/38d9a98c88dc94e5-003-SH-Neon-03.jpg",
+    "bytes": 1596360,
+    "contentType": "image/jpeg",
+    "sha256": "38d9a98c88dc94e525445b71f398d00d6b877cd163a9963d6aec3c6f6bf44941",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.902Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/E3.jpg": {
+    "localPath": "/slabhead-import/home/04c97ff2da5ddce7-E3.jpg",
+    "bytes": 815501,
+    "contentType": "image/jpeg",
+    "sha256": "04c97ff2da5ddce7a6bb01d10192348798b4435cd379a3e16e4d124d12f8bc48",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.622Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.44-1024x578.jpg": {
+    "localPath": "/slabhead-import/home/9d89290e04d738be-Screenshot-2025-01-16-at-14.34.44-1024x578.jpg",
+    "bytes": 119121,
+    "contentType": "image/jpeg",
+    "sha256": "9d89290e04d738be890853f0fa7d3b052a63df1f85cf87fc9dd09cd2523b9da1",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:34.840Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.44-1080x609.jpg": {
+    "localPath": "/slabhead-import/home/4dc8bf0970dd70ba-Screenshot-2025-01-16-at-14.34.44-1080x609.jpg",
+    "bytes": 129933,
+    "contentType": "image/jpeg",
+    "sha256": "4dc8bf0970dd70ba8c7eb3b2ec46543d6888d8c153f12b91b1ea8b865542df6f",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:34.922Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.44-1536x866.jpg": {
+    "localPath": "/slabhead-import/home/2804c3af88dc810e-Screenshot-2025-01-16-at-14.34.44-1536x866.jpg",
+    "bytes": 229515,
+    "contentType": "image/jpeg",
+    "sha256": "2804c3af88dc810e8ebaee1b0366a17740601d5aaa12898dab3669a38b0586b8",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:34.907Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.44-2048x1155.jpg": {
+    "localPath": "/slabhead-import/home/4f67b4b67954c9d8-Screenshot-2025-01-16-at-14.34.44-2048x1155.jpg",
+    "bytes": 358433,
+    "contentType": "image/jpeg",
+    "sha256": "4f67b4b67954c9d8c0a4ddc8caee89d24a934f32f76ebc17f0e4d51703e822a0",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.760Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.44-300x169.jpg": {
+    "localPath": "/slabhead-import/home/08f22ec7ef254e9a-Screenshot-2025-01-16-at-14.34.44-300x169.jpg",
+    "bytes": 18320,
+    "contentType": "image/jpeg",
+    "sha256": "08f22ec7ef254e9a27c658050a7823e27b81cb72647fd7db293c8fe78ad92dc8",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:34.657Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.44-600x338.jpg": {
+    "localPath": "/slabhead-import/home/3673adb81710d58c-Screenshot-2025-01-16-at-14.34.44-600x338.jpg",
+    "bytes": 50100,
+    "contentType": "image/jpeg",
+    "sha256": "3673adb81710d58c529fe3bcec0f107888f336370764428d54df0d9716a3bca7",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.045Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.44-624x352.jpg": {
+    "localPath": "/slabhead-import/home/c14de4a0c8c0a537-Screenshot-2025-01-16-at-14.34.44-624x352.jpg",
+    "bytes": 52527,
+    "contentType": "image/jpeg",
+    "sha256": "c14de4a0c8c0a537b939dd99a411a675ba8ad09f83763d848245898c021110a3",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.059Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.44-768x433.jpg": {
+    "localPath": "/slabhead-import/home/8fe45c45a19a9d3b-Screenshot-2025-01-16-at-14.34.44-768x433.jpg",
+    "bytes": 74228,
+    "contentType": "image/jpeg",
+    "sha256": "8fe45c45a19a9d3b2f6c1f10240ceee309a0c3225c60dd32766f1b97fd05336b",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:34.838Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.44.jpg": {
+    "localPath": "/slabhead-import/home/81eecda311e38ab9-Screenshot-2025-01-16-at-14.34.44.jpg",
+    "bytes": 704551,
+    "contentType": "image/jpeg",
+    "sha256": "81eecda311e38ab91c1c29b8b21648f5c5c6c499bc2390950dc59d61cd111f21",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.504Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.54-1024x581.jpg": {
+    "localPath": "/slabhead-import/home/50c14935b18d134b-Screenshot-2025-01-16-at-14.34.54-1024x581.jpg",
+    "bytes": 151505,
+    "contentType": "image/jpeg",
+    "sha256": "50c14935b18d134bef90cedc00db4b65e282a7d43390e3069f42248932253da9",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:34.145Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.54-1080x613.jpg": {
+    "localPath": "/slabhead-import/home/99c34222384ab31c-Screenshot-2025-01-16-at-14.34.54-1080x613.jpg",
+    "bytes": 164824,
+    "contentType": "image/jpeg",
+    "sha256": "99c34222384ab31c63f2be3e08cf96e63db23b228438cbc9de63060eee5d7b1c",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:34.656Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.54-1536x872.jpg": {
+    "localPath": "/slabhead-import/home/69770ef4e981684a-Screenshot-2025-01-16-at-14.34.54-1536x872.jpg",
+    "bytes": 282475,
+    "contentType": "image/jpeg",
+    "sha256": "69770ef4e981684a9406a30c5ceec93ce619b3fbac399387ac50c4e80af9be02",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:34.601Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.54-2048x1162.jpg": {
+    "localPath": "/slabhead-import/home/bd9fc14f9bcecf36-Screenshot-2025-01-16-at-14.34.54-2048x1162.jpg",
+    "bytes": 433670,
+    "contentType": "image/jpeg",
+    "sha256": "bd9fc14f9bcecf361a323b85cc130d93d785385371b14f0061f8335d485d26a9",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:34.603Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.54-300x170.jpg": {
+    "localPath": "/slabhead-import/home/0003e4a037c9909d-Screenshot-2025-01-16-at-14.34.54-300x170.jpg",
+    "bytes": 22455,
+    "contentType": "image/jpeg",
+    "sha256": "0003e4a037c9909d8780b788605a6e3a86cfec8eab1f3c9c86a66e1f7d0ab88a",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.928Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.54-600x340.jpg": {
+    "localPath": "/slabhead-import/home/b7bbd0a1c22c6d17-Screenshot-2025-01-16-at-14.34.54-600x340.jpg",
+    "bytes": 64214,
+    "contentType": "image/jpeg",
+    "sha256": "b7bbd0a1c22c6d177086952df7a0c84f03ad5c857cb4e027039552e06c7db9b6",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:34.432Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.54-624x354.jpg": {
+    "localPath": "/slabhead-import/home/1554cc65ced194dd-Screenshot-2025-01-16-at-14.34.54-624x354.jpg",
+    "bytes": 68524,
+    "contentType": "image/jpeg",
+    "sha256": "1554cc65ced194dd3f435548d1c0cfb2d1f1395b39350adf73c4f7d5036f3ce5",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:34.431Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.54-768x436.jpg": {
+    "localPath": "/slabhead-import/home/aa11fba5ae0da492-Screenshot-2025-01-16-at-14.34.54-768x436.jpg",
+    "bytes": 95535,
+    "contentType": "image/jpeg",
+    "sha256": "aa11fba5ae0da49235170ab90f3048c4801d684765cd18392115066d71964e7b",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:34.182Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/Screenshot-2025-01-16-at-14.34.54.jpg": {
+    "localPath": "/slabhead-import/home/8266e5af9c9f1e95-Screenshot-2025-01-16-at-14.34.54.jpg",
+    "bytes": 811611,
+    "contentType": "image/jpeg",
+    "sha256": "8266e5af9c9f1e95b0d98566b5c6481ab9a6c0d5bd61a22273133d645bbbc2ba",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:34.660Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-15-at-14.12.08-1024x922.jpeg": {
+    "localPath": "/slabhead-import/home/259d94049891601f-WhatsApp-Image-2025-01-15-at-14.12.08-1024x922.jpeg",
+    "bytes": 41546,
+    "contentType": "image/jpeg",
+    "sha256": "259d94049891601f454e40f025fbd78efbc1dfd34160e332698e64ecb4a93fa7",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.271Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-15-at-14.12.08-1080x972.jpeg": {
+    "localPath": "/slabhead-import/home/57af291c3a652210-WhatsApp-Image-2025-01-15-at-14.12.08-1080x972.jpeg",
+    "bytes": 44597,
+    "contentType": "image/jpeg",
+    "sha256": "57af291c3a652210fae80deb29ed9c3cf1a3002e55fcbbec3a0a04dce011374a",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.270Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-15-at-14.12.08-300x270.jpeg": {
+    "localPath": "/slabhead-import/home/30d7c481b9e9db01-WhatsApp-Image-2025-01-15-at-14.12.08-300x270.jpeg",
+    "bytes": 11296,
+    "contentType": "image/jpeg",
+    "sha256": "30d7c481b9e9db01565847d23789a2c1e76c0f209be12471e0d115677888ac26",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:32.973Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-15-at-14.12.08-600x540.jpeg": {
+    "localPath": "/slabhead-import/home/d8244c7ac0b4fc3a-WhatsApp-Image-2025-01-15-at-14.12.08-600x540.jpeg",
+    "bytes": 23231,
+    "contentType": "image/jpeg",
+    "sha256": "d8244c7ac0b4fc3aa1cff335326b05ef47943b934b47bc8b6a2bd17cba74f077",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.264Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-15-at-14.12.08-624x562.jpeg": {
+    "localPath": "/slabhead-import/home/6608ac9ff1f4f5b7-WhatsApp-Image-2025-01-15-at-14.12.08-624x562.jpeg",
+    "bytes": 24068,
+    "contentType": "image/jpeg",
+    "sha256": "6608ac9ff1f4f5b7cc8bb02630bec2eef394c4839c6c6c50dd9449e4d5ad88b4",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:32.950Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-15-at-14.12.08-768x692.jpeg": {
+    "localPath": "/slabhead-import/home/fa8cc8b9cd6c4b55-WhatsApp-Image-2025-01-15-at-14.12.08-768x692.jpeg",
+    "bytes": 30052,
+    "contentType": "image/jpeg",
+    "sha256": "fa8cc8b9cd6c4b550ae897d482a9206ffe0e7df3c6b25b717279ca16eba75d6c",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:32.948Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/WhatsApp-Image-2025-01-15-at-14.12.08.jpeg": {
+    "localPath": "/slabhead-import/home/3f08c4e777974109-WhatsApp-Image-2025-01-15-at-14.12.08.jpeg",
+    "bytes": 77174,
+    "contentType": "image/jpeg",
+    "sha256": "3f08c4e777974109c5e4751e938b4611686fe68b0777831439e1b03b3a1c74d6",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.269Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745-300x172.jpg": {
+    "localPath": "/slabhead-import/home/40300fff54922d28-ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745-300x172.jpg",
+    "bytes": 19236,
+    "contentType": "image/jpeg",
+    "sha256": "40300fff54922d2824b3ad15d8c9142b52492905a87f3d16974ea21e017b7eb6",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.139Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745-600x344.jpg": {
+    "localPath": "/slabhead-import/home/971ecd51bd553b16-ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745-600x344.jpg",
+    "bytes": 56955,
+    "contentType": "image/jpeg",
+    "sha256": "971ecd51bd553b164feaf13cea9006ae09ebb11b63b867107e19cf3f2d5dddb9",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.348Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745-624x357.jpg": {
+    "localPath": "/slabhead-import/home/ef840f0d587e3dd6-ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745-624x357.jpg",
+    "bytes": 60927,
+    "contentType": "image/jpeg",
+    "sha256": "ef840f0d587e3dd623edbee05e396e9b5965b76793e4e425a1666a65e322212d",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.268Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745-768x440.jpg": {
+    "localPath": "/slabhead-import/home/87cca9fdb6b61f8a-ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745-768x440.jpg",
+    "bytes": 84651,
+    "contentType": "image/jpeg",
+    "sha256": "87cca9fdb6b61f8a0eeae2de4af30153bf790292903991d2d4f9b16cebbc96f8",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.263Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745.jpg": {
+    "localPath": "/slabhead-import/home/7651aa96c5aea126-ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745.jpg",
+    "bytes": 98145,
+    "contentType": "image/jpeg",
+    "sha256": "7651aa96c5aea1260fe57b0881a42e19dcf139e5e18c091235119f70972cdca6",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.129Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/cropped-SH-Logo-2025-Black-01-01-180x180.png": {
+    "localPath": "/slabhead-import/home/f7ba3df38d0ad9f9-cropped-SH-Logo-2025-Black-01-01-180x180.png",
+    "bytes": 9781,
+    "contentType": "image/png",
+    "sha256": "f7ba3df38d0ad9f9301ba946567a6e124689e537cadc9f900185cf1eacbc3db1",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.670Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/cropped-SH-Logo-2025-Black-01-01-192x192.png": {
+    "localPath": "/slabhead-import/home/0e068db94e397de6-cropped-SH-Logo-2025-Black-01-01-192x192.png",
+    "bytes": 10604,
+    "contentType": "image/png",
+    "sha256": "0e068db94e397de68096cc3b03131af9f70e3bceee121f597ff178c2d8572dec",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.614Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/cropped-SH-Logo-2025-Black-01-01-32x32.png": {
+    "localPath": "/slabhead-import/home/c83507025f003a59-cropped-SH-Logo-2025-Black-01-01-32x32.png",
+    "bytes": 1496,
+    "contentType": "image/png",
+    "sha256": "c83507025f003a594f316fc7907aaa17beca21791b4833b1d510f26ba1d5a640",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.615Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/01/cropped-SH-Logo-2025-Black-01-01.png": {
+    "localPath": "/slabhead-import/home/8bcf71ff05666548-cropped-SH-Logo-2025-Black-01-01.png",
+    "bytes": 29748,
+    "contentType": "image/png",
+    "sha256": "8bcf71ff05666548ffcc969eaca119a3713a9f6ddffc7c3a51b73456f70068dd",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.581Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/DALL%C2%B7E-2025-01-16-12.23.34-A-cyberpunk-inspired-cover-photo-for-a-trading-card-platform-set-in-a-secretive-back-alley.-Two-silhouettes-are-trading-cards-under-the-glow-of-neon-1-2.jpg": {
+    "localPath": "/slabhead-import/home/00295d55087f890f-DALL-C2-B7E-2025-01-16-12.23.34-A-cyberpunk-inspired-cover-photo-for-a-trading-card-platform-set-in-a-secretive-back-alley.-Two-silhouettes-are-trading-cards-under-the-glow-of-neon-1-2.jpg",
+    "bytes": 255696,
+    "contentType": "image/jpeg",
+    "sha256": "00295d55087f890f01ac9689292aa948e52237aa6f9ee5c8ea933eb7c644abb3",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:36.609Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/DALL%C2%B7E-2025-02-10-04.37.48-A-minimalistic-cyberpunk-inspired-desk-setup-with-a-few-carefully-placed-stationery-items.-The-desk-has-a-sleek-futuristic-design-with-subtle-neon-li.webp": {
+    "localPath": "/slabhead-import/home/db8082df8cab1a05-DALL-C2-B7E-2025-02-10-04.37.48-A-minimalistic-cyberpunk-inspired-desk-setup-with-a-few-carefully-placed-stationery-items.-The-desk-has-a-sleek-futuristic-design-with-subtle-neon-li.webp",
+    "bytes": 421286,
+    "contentType": "image/webp",
+    "sha256": "db8082df8cab1a05fc80271632757bc1bb72219d2ec967a9c951a68de8c5847c",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.450Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Scene-02-1024x585.jpg": {
+    "localPath": "/slabhead-import/home/aa4181184938c942-Scene-02-1024x585.jpg",
+    "bytes": 180577,
+    "contentType": "image/jpeg",
+    "sha256": "aa4181184938c942c09f98ca7ec83b580586850c364d9ff70f482ae76490d651",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.707Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Scene-02-1080x617.jpg": {
+    "localPath": "/slabhead-import/home/addad60c6f889565-Scene-02-1080x617.jpg",
+    "bytes": 195457,
+    "contentType": "image/jpeg",
+    "sha256": "addad60c6f889565e47f67c55e0242847207978569ad9a3d4f599c9a9f217fa0",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.976Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Scene-02-1536x878.jpg": {
+    "localPath": "/slabhead-import/home/b250815306c315bd-Scene-02-1536x878.jpg",
+    "bytes": 332632,
+    "contentType": "image/jpeg",
+    "sha256": "b250815306c315bdc415b8479e1eb14ebd95052bdcbb374c2d02893a83b8f84e",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.728Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Scene-02-300x171.jpg": {
+    "localPath": "/slabhead-import/home/9c61e092be27e485-Scene-02-300x171.jpg",
+    "bytes": 24849,
+    "contentType": "image/jpeg",
+    "sha256": "9c61e092be27e48539f1bdf6e667cb407b86e0b69ae93e5a7c05c17e4612cad0",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.482Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Scene-02-600x343.jpg": {
+    "localPath": "/slabhead-import/home/08a2d5019e919adc-Scene-02-600x343.jpg",
+    "bytes": 76823,
+    "contentType": "image/jpeg",
+    "sha256": "08a2d5019e919adceaaa1924f1b25e309b16bcd95f8f78b5f1cdfa23f350d944",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.938Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Scene-02-624x357.jpg": {
+    "localPath": "/slabhead-import/home/8105a131e297b685-Scene-02-624x357.jpg",
+    "bytes": 81987,
+    "contentType": "image/jpeg",
+    "sha256": "8105a131e297b685aae982d26f1f0d14a575d2a1307466eab0cad912b91e4e14",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.809Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Scene-02-768x439.jpg": {
+    "localPath": "/slabhead-import/home/40f7cce8a1a36515-Scene-02-768x439.jpg",
+    "bytes": 114370,
+    "contentType": "image/jpeg",
+    "sha256": "40f7cce8a1a365157f5af8403eac5f52b0f6b508b424109725771c648e035e9e",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:35.575Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Scene-02.jpg": {
+    "localPath": "/slabhead-import/home/97230e83adb5c635-Scene-02.jpg",
+    "bytes": 1490730,
+    "contentType": "image/jpeg",
+    "sha256": "97230e83adb5c6353bbe3a7f5bd160a4205039276d62306d25bae9a0408cbd1f",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:36.621Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Scene-03.jpg": {
+    "localPath": "/slabhead-import/home/5b847058d8d8a3ea-Scene-03.jpg",
+    "bytes": 1712561,
+    "contentType": "image/jpeg",
+    "sha256": "5b847058d8d8a3eae7a15fba3e859ca1d11356805a99feb6c8ee3d47f6796a5c",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:38.708Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Slab-Hunter-Edit-1024x585.jpg": {
+    "localPath": "/slabhead-import/home/8300c74b0f2a750b-Slab-Hunter-Edit-1024x585.jpg",
+    "bytes": 173224,
+    "contentType": "image/jpeg",
+    "sha256": "8300c74b0f2a750b746a0f63e79bd62e8a6d27daf6e47c24a96f7f55f7bdd602",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.155Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Slab-Hunter-Edit-1080x617.jpg": {
+    "localPath": "/slabhead-import/home/21e98c7a8f00b482-Slab-Hunter-Edit-1080x617.jpg",
+    "bytes": 190161,
+    "contentType": "image/jpeg",
+    "sha256": "21e98c7a8f00b48219d8bf9521f649a94d7c717b615a497dce61e12c89ea985e",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.575Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Slab-Hunter-Edit-1536x878.jpg": {
+    "localPath": "/slabhead-import/home/0caacaf1647e6762-Slab-Hunter-Edit-1536x878.jpg",
+    "bytes": 353419,
+    "contentType": "image/jpeg",
+    "sha256": "0caacaf1647e676227c89dcf0487dd6ec82990c0fa492fa17d19edc8fd74d0a0",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.364Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Slab-Hunter-Edit-300x171.jpg": {
+    "localPath": "/slabhead-import/home/fd8cccffc5a03de2-Slab-Hunter-Edit-300x171.jpg",
+    "bytes": 19734,
+    "contentType": "image/jpeg",
+    "sha256": "fd8cccffc5a03de2e470feffc62764d960bf86163e9dc50ac323de47130db880",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:36.873Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Slab-Hunter-Edit-600x343.jpg": {
+    "localPath": "/slabhead-import/home/df0c1a9b03b1eb71-Slab-Hunter-Edit-600x343.jpg",
+    "bytes": 65255,
+    "contentType": "image/jpeg",
+    "sha256": "df0c1a9b03b1eb716d457973d2ffa0a2ab4fa9b2e5d56b7df93fd8d62742ed70",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.392Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Slab-Hunter-Edit-624x357.jpg": {
+    "localPath": "/slabhead-import/home/3740048ec7aba29f-Slab-Hunter-Edit-624x357.jpg",
+    "bytes": 70074,
+    "contentType": "image/jpeg",
+    "sha256": "3740048ec7aba29fbf3784a0274a4c634bbdf38aee88fea7b2bac764cf10c0d6",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.389Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Slab-Hunter-Edit-768x439.jpg": {
+    "localPath": "/slabhead-import/home/8e8d5e795787a597-Slab-Hunter-Edit-768x439.jpg",
+    "bytes": 102410,
+    "contentType": "image/jpeg",
+    "sha256": "8e8d5e795787a597448c482202692cf3b4f06a321c61b7648ae253506b272364",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.156Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/Slab-Hunter-Edit.jpg": {
+    "localPath": "/slabhead-import/home/0ec44a2beb73b382-Slab-Hunter-Edit.jpg",
+    "bytes": 1523452,
+    "contentType": "image/jpeg",
+    "sha256": "0ec44a2beb73b38211b13862a6d7a1407810417e93fbba2bc4311ed5e8bf282a",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:37.162Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-5122w434w-100x100.png": {
+    "localPath": "/slabhead-import/home/82074f5712bc8687-pokemon-pokeball-5122w434w-100x100.png",
+    "bytes": 7284,
+    "contentType": "image/png",
+    "sha256": "82074f5712bc868790d93d9201c76dfde2bdff9c27328dc50a85ef3369d08c81",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.697Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-5122w434w-150x150.png": {
+    "localPath": "/slabhead-import/home/525a7b223dc96b4e-pokemon-pokeball-5122w434w-150x150.png",
+    "bytes": 11935,
+    "contentType": "image/png",
+    "sha256": "525a7b223dc96b4edc946f1c365d9d93a40ad43764dbe548ae3807278d663c7b",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.693Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-5122w434w-300x300.png": {
+    "localPath": "/slabhead-import/home/5fcfb23979d3c0af-pokemon-pokeball-5122w434w-300x300.png",
+    "bytes": 27894,
+    "contentType": "image/png",
+    "sha256": "5fcfb23979d3c0af607bc02f02f5334da3cf1c527aa2ebd0b2e58c9172ddfbfb",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.700Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-5122w434w.png": {
+    "localPath": "/slabhead-import/home/f1b2595e596b96ef-pokemon-pokeball-5122w434w.png",
+    "bytes": 35673,
+    "contentType": "image/png",
+    "sha256": "f1b2595e596b96ef0d669ad6462c94ee41fe9fbc252196003e7784784d8a528e",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.693Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-5123q4earstgd-100x100.png": {
+    "localPath": "/slabhead-import/home/7197d9e99c97ff60-pokemon-pokeball-5123q4earstgd-100x100.png",
+    "bytes": 5123,
+    "contentType": "image/png",
+    "sha256": "7197d9e99c97ff60145ec707d43bea2afee92fd776cdcca74517fac4f71fdabe",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.485Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-5123q4earstgd-150x150.png": {
+    "localPath": "/slabhead-import/home/579aefee6dee1774-pokemon-pokeball-5123q4earstgd-150x150.png",
+    "bytes": 8237,
+    "contentType": "image/png",
+    "sha256": "579aefee6dee1774fda0aef524eed0f7ce721117e58bf93f4d50614c49f2672c",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.271Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-5123q4earstgd-300x300.png": {
+    "localPath": "/slabhead-import/home/6272abfee3b27a78-pokemon-pokeball-5123q4earstgd-300x300.png",
+    "bytes": 19580,
+    "contentType": "image/png",
+    "sha256": "6272abfee3b27a78c961240c47ca22b2721e114f1cf4262c373cfd932dc8563d",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.272Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-5123q4earstgd.png": {
+    "localPath": "/slabhead-import/home/27f8394ef4a4c323-pokemon-pokeball-5123q4earstgd.png",
+    "bytes": 24376,
+    "contentType": "image/png",
+    "sha256": "27f8394ef4a4c3238b54a2607ccd8b492dff61a7f2b9a2717a10a7f0c6a6c636",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.488Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-5124-100x100.png": {
+    "localPath": "/slabhead-import/home/ee779c272cae48c3-pokemon-pokeball-5124-100x100.png",
+    "bytes": 9387,
+    "contentType": "image/png",
+    "sha256": "ee779c272cae48c30be17bf77f92d31bb99a6f4546479d59110f3f878f0834c9",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.488Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-5124-150x150.png": {
+    "localPath": "/slabhead-import/home/3729790be2a9c55e-pokemon-pokeball-5124-150x150.png",
+    "bytes": 15756,
+    "contentType": "image/png",
+    "sha256": "3729790be2a9c55e3a479d042f1323f45a9a01fb34bbc4555a517247f558bc71",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.486Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-5124-300x300.png": {
+    "localPath": "/slabhead-import/home/244fa9f35e0f2256-pokemon-pokeball-5124-300x300.png",
+    "bytes": 37084,
+    "contentType": "image/png",
+    "sha256": "244fa9f35e0f2256d86da7f6e8fd13a42ecbff7d9f24f369de5ab10e6a5be31f",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.486Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-5124.png": {
+    "localPath": "/slabhead-import/home/bb257441702e8168-pokemon-pokeball-5124.png",
+    "bytes": 40135,
+    "contentType": "image/png",
+    "sha256": "bb257441702e816804d2c39a1634a813cba7d6a00963c32ce570ead9ad3a74c9",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.487Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-512sd-100x100.png": {
+    "localPath": "/slabhead-import/home/72bb2dfe93370a47-pokemon-pokeball-512sd-100x100.png",
+    "bytes": 6514,
+    "contentType": "image/png",
+    "sha256": "72bb2dfe93370a47baba422522691e96504efd8b5a5f75b0b1f83963fc39bf77",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.924Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-512sd-150x150.png": {
+    "localPath": "/slabhead-import/home/d5d2fe8bb7b6908a-pokemon-pokeball-512sd-150x150.png",
+    "bytes": 10681,
+    "contentType": "image/png",
+    "sha256": "d5d2fe8bb7b6908a503174e705e1ed5dc1b9988161adebf25b384dbcc535dec4",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.698Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-512sd-300x300.png": {
+    "localPath": "/slabhead-import/home/8d91198da499599f-pokemon-pokeball-512sd-300x300.png",
+    "bytes": 24512,
+    "contentType": "image/png",
+    "sha256": "8d91198da499599f09b236e92cc22d75e9748a84fc315bbb35934c053ffccad0",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.698Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/02/pokemon-pokeball-512sd.png": {
+    "localPath": "/slabhead-import/home/64d2e368263e5f9b-pokemon-pokeball-512sd.png",
+    "bytes": 32411,
+    "contentType": "image/png",
+    "sha256": "64d2e368263e5f9bb8ca5becc114cc42d9c8a39f0b1aa47868a0445af5435ae6",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:33.926Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/03/DALL%C2%B7E-2025-02-10-04.37.48-A-minimalistic-cyberpunk-inspired-desk-setup-with-a-few-carefully-placed-stationery-items.-The-desk-has-a-sleek-futuristic-design-with-subtle-neon-li.jpg": {
+    "localPath": "/slabhead-import/home/9be39e42e3727198-DALL-C2-B7E-2025-02-10-04.37.48-A-minimalistic-cyberpunk-inspired-desk-setup-with-a-few-carefully-placed-stationery-items.-The-desk-has-a-sleek-futuristic-design-with-subtle-neon-li.jpg",
+    "bytes": 251071,
+    "contentType": "image/jpeg",
+    "sha256": "9be39e42e37271980b2c2e0cc7c23892b7db44eb5e4bdd6fa74134fbd5455188",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:36.569Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/2025/03/DALL%C2%B7E-2025-02-10-04.37.48-A-minimalistic-cyberpunk-inspired-desk-setup-with-a-few-carefully-placed-stationery-items.-The-desk-has-a-sleek-futuristic-design-with-subtle-neon-li3.jpg": {
+    "localPath": "/slabhead-import/home/6fdb9718613ab807-DALL-C2-B7E-2025-02-10-04.37.48-A-minimalistic-cyberpunk-inspired-desk-setup-with-a-few-carefully-placed-stationery-items.-The-desk-has-a-sleek-futuristic-design-with-subtle-neon-li3.jpg",
+    "bytes": 154321,
+    "contentType": "image/jpeg",
+    "sha256": "6fdb9718613ab807be32a3d2f34dc2b43bfabd8de22a8d88de7e06e77eed67a1",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:36.855Z"
+  },
+  "https://slabhead.co.za/wp-content/uploads/et-fonts/Anja-Eliane.ttf": {
+    "localPath": "/slabhead-import/home/23822120b8b7e3a9-Anja-Eliane.ttf",
+    "bytes": 16500,
+    "contentType": "font/ttf",
+    "sha256": "23822120b8b7e3a95843f8eb887ab89b328d212fa1ddc0112ad247da6d609912",
+    "source": "homepage",
+    "downloadedAt": "2026-03-05T08:53:41.248Z"
+  }
+}

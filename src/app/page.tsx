@@ -21,9 +21,17 @@ export default function Home() {
   return (
     <>
       {/* ── 1. HERO ── */}
-      <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-gradient-to-br from-slab-black via-slab-charcoal to-slab-black">
-        {/* Background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-slab-crimson/10 blur-[120px]" />
+      <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-slab-black">
+        {/* Background image */}
+        <Image
+          src="/slabhead-import/home/16ac962f824408dd-003-SH-Neon-03-1536x878.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover opacity-30"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slab-black via-slab-black/80 to-transparent" />
 
         <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="flex flex-col justify-center">
@@ -52,7 +60,11 @@ export default function Home() {
           {/* Featured card showcase */}
           <div className="hidden items-center justify-center lg:flex">
             <div className="relative">
-              {grails.slice(0, 3).map((product, i) => {
+              {[
+                { src: "/slabhead-import/home/97230e83adb5c635-Scene-02.jpg", alt: "Graded card collection" },
+                { src: "/slabhead-import/home/3f08c4e777974109-WhatsApp-Image-2025-01-15-at-14.12.08.jpeg", alt: "PSA graded slab" },
+                { src: "/slabhead-import/home/5b847058d8d8a3ea-Scene-03.jpg", alt: "Premium slabs" },
+              ].map((card, i) => {
                 const offsets = [
                   "rotate-[-6deg] translate-x-[-40px]",
                   "rotate-0 z-10 scale-105",
@@ -60,16 +72,16 @@ export default function Home() {
                 ];
                 return (
                   <div
-                    key={product.slug}
+                    key={card.src}
                     className={`${i === 1 ? "relative" : "absolute top-0"} ${offsets[i]} transition-transform duration-500`}
                   >
                     <div className="h-[360px] w-[260px] overflow-hidden rounded-xl border border-white/10 bg-slab-surface shadow-2xl">
                       <Image
-                        src={product.images[0]?.localPath || "/images/placeholder.svg"}
-                        alt={product.name}
+                        src={card.src}
+                        alt={card.alt}
                         width={260}
                         height={360}
-                        className="h-full w-full object-contain p-3"
+                        className="h-full w-full object-cover"
                       />
                     </div>
                   </div>
@@ -150,6 +162,7 @@ export default function Home() {
               href="/pokemon"
               count={(categoryCounts["Pokemon"] || 0) + (categoryCounts["TCG Accessories"] || 0)}
               icon={<span>⚡</span>}
+              bgImage="/slabhead-import/home/7651aa96c5aea126-ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745.jpg"
             />
             <CategoryCard
               title="Yu-Gi-Oh"
@@ -157,6 +170,7 @@ export default function Home() {
               href="/yu-gi-oh"
               count={categoryCounts["Yu-Gi-Oh"] || 0}
               icon={<span>🃏</span>}
+              bgImage="/slabhead-import/home/bd9fc14f9bcecf36-Screenshot-2025-01-16-at-14.34.54-2048x1162.jpg"
             />
             <CategoryCard
               title="Magic: The Gathering"
@@ -164,6 +178,7 @@ export default function Home() {
               href="/mtg"
               count={categoryCounts["Magic the Gathering"] || 0}
               icon={<span>🧙</span>}
+              bgImage="/slabhead-import/home/4f67b4b67954c9d8-Screenshot-2025-01-16-at-14.34.44-2048x1155.jpg"
             />
             <CategoryCard
               title="Culture & Books"
@@ -171,6 +186,7 @@ export default function Home() {
               href="/culture"
               count={(categoryCounts["Books"] || 0) + (categoryCounts["Stationery"] || 0)}
               icon={<span>📚</span>}
+              bgImage="/slabhead-import/home/db8082df8cab1a05-DALL-C2-B7E-2025-02-10-04.37.48-A-minimalistic-cyberpunk-inspired-desk-setup-with-a-few-carefully-placed-stationery-items.-The-desk-has-a-sleek-futuristic-design-with-subtle-neon-li.webp"
             />
           </div>
         </div>
@@ -285,7 +301,38 @@ export default function Home() {
               Explore Culture →
             </Link>
           </div>
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-6">
+
+          {/* Culture visual banner */}
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Link href="/culture" className="group relative overflow-hidden rounded-xl aspect-[16/9]">
+              <Image
+                src="/slabhead-import/home/00295d55087f890f-DALL-C2-B7E-2025-01-16-12.23.34-A-cyberpunk-inspired-cover-photo-for-a-trading-card-platform-set-in-a-secretive-back-alley.-Two-silhouettes-are-trading-cards-under-the-glow-of-neon-1-2.jpg"
+                alt="Trading card culture"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slab-black/80 to-transparent" />
+              <div className="absolute bottom-4 left-4">
+                <span className="text-lg font-bold text-slab-white">The Trading Scene</span>
+              </div>
+            </Link>
+            <Link href="/culture" className="group relative overflow-hidden rounded-xl aspect-[16/9]">
+              <Image
+                src="/slabhead-import/home/0ec44a2beb73b382-Slab-Hunter-Edit.jpg"
+                alt="SlabHunter service"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slab-black/80 to-transparent" />
+              <div className="absolute bottom-4 left-4">
+                <span className="text-lg font-bold text-slab-white">Collector Culture</span>
+              </div>
+            </Link>
+          </div>
+
+          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-6">
             {[
               ...getNewDrops(28).filter((p) => ["Books", "Stationery", "Art"].includes(p.category)),
             ]
