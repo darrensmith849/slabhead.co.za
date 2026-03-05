@@ -43,9 +43,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Slabhead",
+    url: "https://slabhead.co.za",
+    description:
+      "South Africa's home for graded Pokémon, Yu-Gi-Oh and Magic: The Gathering cards, plus Japanese culture collectables.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Cape Town",
+      addressCountry: "ZA",
+    },
+  };
+
   return (
     <html lang="en-ZA">
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
         <Navbar />
         <main className="min-h-screen pt-16">{children}</main>
         <Footer />
