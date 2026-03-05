@@ -24,7 +24,7 @@ export default function Home() {
       <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-slab-black">
         {/* Background image */}
         <Image
-          src="/slabhead-import/home/16ac962f824408dd-003-SH-Neon-03-1536x878.jpg"
+          src="/slabhead-import/home/1050ff4f53235f2d-003-SH-Neon-03-1024x585.jpg"
           alt=""
           fill
           priority
@@ -61,9 +61,9 @@ export default function Home() {
           <div className="hidden items-center justify-center lg:flex">
             <div className="relative">
               {[
-                { src: "/slabhead-import/home/97230e83adb5c635-Scene-02.jpg", alt: "Graded card collection" },
-                { src: "/slabhead-import/home/3f08c4e777974109-WhatsApp-Image-2025-01-15-at-14.12.08.jpeg", alt: "PSA graded slab" },
-                { src: "/slabhead-import/home/5b847058d8d8a3ea-Scene-03.jpg", alt: "Premium slabs" },
+                { src: "/slabhead-import/home/8105a131e297b685-Scene-02-624x357.jpg", alt: "Graded card collection" },
+                { src: "/slabhead-import/home/30d7c481b9e9db01-WhatsApp-Image-2025-01-15-at-14.12.08-300x270.jpeg", alt: "PSA graded slab" },
+                { src: "/slabhead-import/home/5b847058d8d8a3ea-Scene-03-resized.jpg", alt: "Premium slabs" },
               ].map((card, i) => {
                 const offsets = [
                   "rotate-[-6deg] translate-x-[-40px]",
@@ -162,7 +162,7 @@ export default function Home() {
               href="/pokemon"
               count={(categoryCounts["Pokemon"] || 0) + (categoryCounts["TCG Accessories"] || 0)}
               icon={<span>⚡</span>}
-              bgImage="/slabhead-import/home/7651aa96c5aea126-ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745.jpg"
+              bgImage="/slabhead-import/home/87cca9fdb6b61f8a-ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745-768x440.jpg"
             />
             <CategoryCard
               title="Yu-Gi-Oh"
@@ -170,7 +170,7 @@ export default function Home() {
               href="/yu-gi-oh"
               count={categoryCounts["Yu-Gi-Oh"] || 0}
               icon={<span>🃏</span>}
-              bgImage="/slabhead-import/home/bd9fc14f9bcecf36-Screenshot-2025-01-16-at-14.34.54-2048x1162.jpg"
+              bgImage="/slabhead-import/home/1554cc65ced194dd-Screenshot-2025-01-16-at-14.34.54-624x354.jpg"
             />
             <CategoryCard
               title="Magic: The Gathering"
@@ -178,7 +178,7 @@ export default function Home() {
               href="/mtg"
               count={categoryCounts["Magic the Gathering"] || 0}
               icon={<span>🧙</span>}
-              bgImage="/slabhead-import/home/4f67b4b67954c9d8-Screenshot-2025-01-16-at-14.34.44-2048x1155.jpg"
+              bgImage="/slabhead-import/home/c14de4a0c8c0a537-Screenshot-2025-01-16-at-14.34.44-624x352.jpg"
             />
             <CategoryCard
               title="Culture & Books"
@@ -319,7 +319,7 @@ export default function Home() {
             </Link>
             <Link href="/culture" className="group relative overflow-hidden rounded-xl aspect-[16/9]">
               <Image
-                src="/slabhead-import/home/0ec44a2beb73b382-Slab-Hunter-Edit.jpg"
+                src="/slabhead-import/home/8300c74b0f2a750b-Slab-Hunter-Edit-1024x585.jpg"
                 alt="SlabHunter service"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
