@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# wp-content/uploads — synced from MA130 mirror at deploy time, not source-tracked
+/public/wp-uploads/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

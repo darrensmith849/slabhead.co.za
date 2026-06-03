@@ -12,11 +12,14 @@ import {
 } from "@/lib/products";
 import { formatPrice } from "@/lib/utils";
 
-export default function Home() {
-  const newDrops = getNewDrops(8);
-  const hotProducts = getFeaturedProducts(6);
-  const grails = getGrailProducts(3);
-  const categoryCounts = getCategoryCounts();
+export default async function Home() {
+  const [newDrops, hotProducts, grails, categoryCounts, cultureProducts] = await Promise.all([
+    getNewDrops(8),
+    getFeaturedProducts(6),
+    getGrailProducts(3),
+    getCategoryCounts(),
+    getNewDrops(28),
+  ]);
 
   return (
     <>
@@ -24,7 +27,7 @@ export default function Home() {
       <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-slab-black">
         {/* Background image */}
         <Image
-          src="/slabhead-import/home/1050ff4f53235f2d-003-SH-Neon-03-1024x585.jpg"
+          src="/wp-uploads/2025/01/003-SH-Neon-03-1024x585.jpg"
           alt=""
           fill
           priority
@@ -61,9 +64,9 @@ export default function Home() {
           <div className="hidden items-center justify-center lg:flex">
             <div className="relative">
               {[
-                { src: "/slabhead-import/home/8105a131e297b685-Scene-02-624x357.jpg", alt: "Graded card collection" },
-                { src: "/slabhead-import/home/30d7c481b9e9db01-WhatsApp-Image-2025-01-15-at-14.12.08-300x270.jpeg", alt: "PSA graded slab" },
-                { src: "/slabhead-import/home/5b847058d8d8a3ea-Scene-03-resized.jpg", alt: "Premium slabs" },
+                { src: "/wp-uploads/2025/02/Scene-02-624x357.jpg", alt: "Graded card collection" },
+                { src: "/wp-uploads/2025/01/WhatsApp-Image-2025-01-15-at-14.12.08-300x270.jpeg", alt: "PSA graded slab" },
+                { src: "/wp-uploads/2025/02/Slab-Hunter-Edit-624x357.jpg", alt: "Premium slabs" },
               ].map((card, i) => {
                 const offsets = [
                   "rotate-[-6deg] translate-x-[-40px]",
@@ -162,7 +165,7 @@ export default function Home() {
               href="/pokemon"
               count={(categoryCounts["Pokemon"] || 0) + (categoryCounts["TCG Accessories"] || 0)}
               icon={<span>⚡</span>}
-              bgImage="/slabhead-import/home/87cca9fdb6b61f8a-ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745-768x440.jpg"
+              bgImage="/wp-uploads/2025/01/ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745-768x440.jpg"
             />
             <CategoryCard
               title="Yu-Gi-Oh"
@@ -170,7 +173,7 @@ export default function Home() {
               href="/yu-gi-oh"
               count={categoryCounts["Yu-Gi-Oh"] || 0}
               icon={<span>🃏</span>}
-              bgImage="/slabhead-import/home/1554cc65ced194dd-Screenshot-2025-01-16-at-14.34.54-624x354.jpg"
+              bgImage="/wp-uploads/2025/01/Screenshot-2025-01-16-at-14.34.54-624x354.jpg"
             />
             <CategoryCard
               title="Magic: The Gathering"
@@ -178,7 +181,7 @@ export default function Home() {
               href="/mtg"
               count={categoryCounts["Magic the Gathering"] || 0}
               icon={<span>🧙</span>}
-              bgImage="/slabhead-import/home/c14de4a0c8c0a537-Screenshot-2025-01-16-at-14.34.44-624x352.jpg"
+              bgImage="/wp-uploads/2025/01/Screenshot-2025-01-16-at-14.34.44-624x352.jpg"
             />
             <CategoryCard
               title="Culture & Books"
@@ -186,7 +189,7 @@ export default function Home() {
               href="/culture"
               count={(categoryCounts["Books"] || 0) + (categoryCounts["Stationery"] || 0)}
               icon={<span>📚</span>}
-              bgImage="/slabhead-import/home/db8082df8cab1a05-DALL-C2-B7E-2025-02-10-04.37.48-A-minimalistic-cyberpunk-inspired-desk-setup-with-a-few-carefully-placed-stationery-items.-The-desk-has-a-sleek-futuristic-design-with-subtle-neon-li.webp"
+              bgImage="/wp-uploads/2025/02/DALLE-2025-02-10-04.37.48-A-minimalistic-cyberpunk-inspired-desk-setup-with-a-few-carefully-placed-stationery-items.-The-desk-has-a-sleek-futuristic-design-with-subtle-neon-li.webp"
             />
           </div>
         </div>
@@ -306,7 +309,7 @@ export default function Home() {
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <Link href="/culture" className="group relative overflow-hidden rounded-xl aspect-[16/9]">
               <Image
-                src="/slabhead-import/home/00295d55087f890f-DALL-C2-B7E-2025-01-16-12.23.34-A-cyberpunk-inspired-cover-photo-for-a-trading-card-platform-set-in-a-secretive-back-alley.-Two-silhouettes-are-trading-cards-under-the-glow-of-neon-1-2.jpg"
+                src="/wp-uploads/2025/02/DALLE-2025-01-16-12.23.34-A-cyberpunk-inspired-cover-photo-for-a-trading-card-platform-set-in-a-secretive-back-alley.-Two-silhouettes-are-trading-cards-under-the-glow-of-neon-1-2.jpg"
                 alt="Trading card culture"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -319,7 +322,7 @@ export default function Home() {
             </Link>
             <Link href="/culture" className="group relative overflow-hidden rounded-xl aspect-[16/9]">
               <Image
-                src="/slabhead-import/home/8300c74b0f2a750b-Slab-Hunter-Edit-1024x585.jpg"
+                src="/wp-uploads/2025/02/Slab-Hunter-Edit-1024x585.jpg"
                 alt="SlabHunter service"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -334,7 +337,7 @@ export default function Home() {
 
           <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-6">
             {[
-              ...getNewDrops(28).filter((p) => ["Books", "Stationery", "Art"].includes(p.category)),
+              ...cultureProducts.filter((p) => ["Books", "Stationery", "Art"].includes(p.category)),
             ]
               .slice(0, 4)
               .map((product) => (
