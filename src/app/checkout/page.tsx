@@ -1,16 +1,34 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { useCart } from "@/lib/cart-context";
-import { formatPrice } from "@/lib/utils";
+import { useState } from "react";
 import Link from "next/link";
+import { useCart } from "@/lib/cart-context";
+import { formatPrice, cn } from "@/lib/utils";
+import Button from "@/components/ui/Button";
+import NeonBadge from "@/components/atmosphere/NeonBadge";
+import NeonDivider from "@/components/atmosphere/NeonDivider";
+
+const labelStyle = "font-mono text-[10px] uppercase tracking-widest text-slab-neon-cyan/70";
+const inputStyle =
+  "w-full rounded border border-white/10 bg-slab-black/40 px-3 py-2.5 font-mono text-sm text-slab-white placeholder:text-slab-muted/40 transition-colors focus:border-slab-neon-cyan focus:outline-none focus:ring-1 focus:ring-slab-neon-cyan/30";
+
+const PROVINCES = [
+  "Eastern Cape",
+  "Free State",
+  "Gauteng",
+  "KwaZulu-Natal",
+  "Limpopo",
+  "Mpumalanga",
+  "North West",
+  "Northern Cape",
+  "Western Cape",
+];
 
 export default function CheckoutPage() {
   const { items, total, loading } = useCart();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
-  const formRef = useRef<HTMLFormElement>(null);
-  const payFastFormRef = useRef<HTMLFormElement>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
   const [form, setForm] = useState({
     email: "",
@@ -26,10 +44,32 @@ export default function CheckoutPage() {
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+    if (fieldErrors[e.target.name]) {
+      setFieldErrors((errs) => {
+        const copy = { ...errs };
+        delete copy[e.target.name];
+        return copy;
+      });
+    }
+  }
+
+  function validate(): boolean {
+    const errs: Record<string, string> = {};
+    if (!form.firstName.trim()) errs.firstName = "Required";
+    if (!form.lastName.trim()) errs.lastName = "Required";
+    if (!form.email.trim()) errs.email = "Required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = "Invalid email";
+    if (!form.addressLine1.trim()) errs.addressLine1 = "Required";
+    if (!form.city.trim()) errs.city = "Required";
+    if (!form.province) errs.province = "Required";
+    if (!form.postalCode.trim()) errs.postalCode = "Required";
+    setFieldErrors(errs);
+    return Object.keys(errs).length === 0;
   }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!validate()) return;
     setSubmitting(true);
     setError("");
 
@@ -48,7 +88,6 @@ export default function CheckoutPage() {
         return;
       }
 
-      // Create and submit PayFast form
       const payForm = document.createElement("form");
       payForm.method = "POST";
       payForm.action = data.payFastUrl;
@@ -69,127 +108,169 @@ export default function CheckoutPage() {
 
   if (loading) {
     return (
-      <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-slab-white">Checkout</h1>
-        <p className="mt-4 text-slab-muted">Loading...</p>
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
+        <NeonBadge tone="cyan" intensity="high">
+          // INITIALIZING
+        </NeonBadge>
+        <p className="mt-6 font-mono text-sm uppercase tracking-widest text-slab-muted">
+          {">"} LOADING<span className="terminal-cursor" />
+        </p>
       </div>
     );
   }
 
   if (items.length === 0) {
     return (
-      <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-slab-white">Checkout</h1>
-        <p className="mt-4 text-slab-muted">Your cart is empty.</p>
-        <Link href="/shop" className="mt-4 inline-block text-sm text-slab-crimson hover:text-slab-crimson/80">
-          Back to Shop
-        </Link>
+      <div className="mx-auto max-w-2xl px-4 py-20 sm:px-6">
+        <NeonBadge tone="crimson" intensity="medium">
+          // QUEUE_EMPTY
+        </NeonBadge>
+        <h1 className="mt-6 font-display text-4xl text-slab-white">Acquisition Confirmation</h1>
+        <p className="mt-4 font-mono text-sm uppercase tracking-widest text-slab-muted">
+          {">"} NO SPECIMENS QUEUED // CANNOT_PROCEED
+        </p>
+        <div className="mt-6">
+          <Button href="/shop" variant="neon" terminalPrefix>
+            BROWSE_INVENTORY
+          </Button>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-bold text-slab-white">Checkout</h1>
+    <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+      <NeonBadge tone="cyan" intensity="high">
+        // ACQUISITION_CONFIRMATION
+      </NeonBadge>
+      <h1 className="mt-6 font-display text-4xl text-slab-white sm:text-5xl">
+        Acquisition Confirmation
+      </h1>
+      <p className="mt-3 font-mono text-xs uppercase tracking-widest text-slab-muted">
+        {">"} CONFIRM RECIPIENT DETAILS // EXECUTE PAYMENT VIA SECURE GATEWAY
+      </p>
 
-      {/* Order Summary */}
-      <div className="mt-6 rounded-xl border border-white/5 bg-slab-surface p-5">
-        <h2 className="text-sm font-semibold uppercase tracking-wider text-slab-muted">Order Summary</h2>
-        <div className="mt-3 space-y-2">
-          {items.map((item) => (
-            <div key={item.productId} className="flex justify-between text-sm">
-              <span className="text-slab-white">
-                {item.name} <span className="text-slab-muted">x{item.quantity}</span>
-              </span>
-              <span className="font-mono text-slab-white">{formatPrice(item.price * item.quantity)}</span>
+      <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+        {/* Manifest */}
+        <div>
+          <NeonDivider label="// ACQUISITION_MANIFEST" accent="cyan" className="mb-6" />
+          <div className="bracketed rounded-xl border border-white/[0.06] bg-slab-charcoal/60 p-5 backdrop-blur-sm">
+            <div className="space-y-3 border-b border-white/[0.05] pb-4">
+              {items.map((item) => (
+                <div key={item.productId} className="flex items-start justify-between gap-4 font-mono text-sm">
+                  <div className="min-w-0 flex-1">
+                    <div className="truncate text-slab-white">{item.name}</div>
+                    <div className="mt-0.5 text-[10px] uppercase tracking-widest text-slab-muted">
+                      // QTY: {item.quantity}
+                    </div>
+                  </div>
+                  <span className="text-slab-white">{formatPrice(item.price * item.quantity)}</span>
+                </div>
+              ))}
             </div>
-          ))}
-          <div className="border-t border-white/5 pt-2 flex justify-between">
-            <span className="font-semibold text-slab-white">Total</span>
-            <span className="font-mono text-lg font-bold text-slab-white">{formatPrice(total)}</span>
+            <div className="mt-4 flex items-end justify-between">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-slab-neon-cyan/70">
+                // TOTAL_DUE
+              </span>
+              <span className="font-mono text-2xl font-bold text-slab-white neon-glow-white">
+                {formatPrice(total)}
+              </span>
+            </div>
           </div>
         </div>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} noValidate>
+          <NeonDivider label="// RECIPIENT_IDENTIFICATION" accent="cyan" className="mb-6" />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Field label="> FIRST_NAME" error={fieldErrors.firstName}>
+              <input name="firstName" value={form.firstName} onChange={handleChange} className={inputStyle} required />
+            </Field>
+            <Field label="> LAST_NAME" error={fieldErrors.lastName}>
+              <input name="lastName" value={form.lastName} onChange={handleChange} className={inputStyle} required />
+            </Field>
+            <Field label="> EMAIL" error={fieldErrors.email} fullSpan>
+              <input name="email" type="email" value={form.email} onChange={handleChange} className={inputStyle} required />
+            </Field>
+            <Field label="> PHONE" fullSpan>
+              <input name="phone" value={form.phone} onChange={handleChange} className={inputStyle} />
+            </Field>
+          </div>
+
+          <NeonDivider label="// SHIPPING_COORDINATES" accent="cyan" className="mt-8 mb-6" />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <Field label="> STREET_ADDRESS" error={fieldErrors.addressLine1} fullSpan>
+              <input name="addressLine1" value={form.addressLine1} onChange={handleChange} className={inputStyle} required />
+            </Field>
+            <Field label="> ADDRESS_LINE_2" fullSpan>
+              <input name="addressLine2" value={form.addressLine2} onChange={handleChange} className={inputStyle} />
+            </Field>
+            <Field label="> CITY" error={fieldErrors.city}>
+              <input name="city" value={form.city} onChange={handleChange} className={inputStyle} required />
+            </Field>
+            <Field label="> PROVINCE" error={fieldErrors.province}>
+              <select name="province" value={form.province} onChange={handleChange} className={inputStyle} required>
+                <option value="">[ SELECT ]</option>
+                {PROVINCES.map((p) => (
+                  <option key={p} value={p}>
+                    {p}
+                  </option>
+                ))}
+              </select>
+            </Field>
+            <Field label="> POSTAL" error={fieldErrors.postalCode}>
+              <input name="postalCode" value={form.postalCode} onChange={handleChange} className={inputStyle} required />
+            </Field>
+          </div>
+
+          {error && (
+            <p className="mt-6 rounded border border-slab-danger/30 bg-slab-danger/[0.06] px-4 py-3 font-mono text-sm text-slab-danger">
+              {">"} ERROR: {error}
+            </p>
+          )}
+
+          <div className="mt-8">
+            <Button type="submit" variant="neon" size="lg" terminalPrefix>
+              {submitting ? "EXECUTING…" : `EXECUTE_PAYMENT — ${formatPrice(total)}`}
+            </Button>
+          </div>
+
+          <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-slab-muted">
+            {">"} REDIRECTING TO PAYFAST_SECURE_GATEWAY · ALL CARDS ENCRYPTED · SSL/TLS_1.3
+          </p>
+
+          <Link
+            href="/cart"
+            className="mt-4 inline-flex font-mono text-[10px] uppercase tracking-widest text-slab-muted hover:text-slab-neon-cyan"
+          >
+            ← BACK_TO_QUEUE
+          </Link>
+        </form>
       </div>
+    </div>
+  );
+}
 
-      {/* Customer Form */}
-      <form ref={formRef} onSubmit={handleSubmit} className="mt-8 space-y-4">
-        <h2 className="text-sm font-semibold uppercase tracking-wider text-slab-muted">Your Details</h2>
-
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-xs text-slab-muted mb-1">First Name *</label>
-            <input name="firstName" value={form.firstName} onChange={handleChange} required className="w-full rounded-lg border border-white/10 bg-slab-charcoal px-3 py-2.5 text-sm text-slab-white placeholder:text-slab-muted/50 focus:border-slab-crimson focus:outline-none" />
-          </div>
-          <div>
-            <label className="block text-xs text-slab-muted mb-1">Last Name *</label>
-            <input name="lastName" value={form.lastName} onChange={handleChange} required className="w-full rounded-lg border border-white/10 bg-slab-charcoal px-3 py-2.5 text-sm text-slab-white placeholder:text-slab-muted/50 focus:border-slab-crimson focus:outline-none" />
-          </div>
-        </div>
-
-        <div>
-          <label className="block text-xs text-slab-muted mb-1">Email *</label>
-          <input name="email" type="email" value={form.email} onChange={handleChange} required className="w-full rounded-lg border border-white/10 bg-slab-charcoal px-3 py-2.5 text-sm text-slab-white placeholder:text-slab-muted/50 focus:border-slab-crimson focus:outline-none" />
-        </div>
-
-        <div>
-          <label className="block text-xs text-slab-muted mb-1">Phone</label>
-          <input name="phone" value={form.phone} onChange={handleChange} className="w-full rounded-lg border border-white/10 bg-slab-charcoal px-3 py-2.5 text-sm text-slab-white placeholder:text-slab-muted/50 focus:border-slab-crimson focus:outline-none" />
-        </div>
-
-        <h2 className="text-sm font-semibold uppercase tracking-wider text-slab-muted pt-4">Shipping Address</h2>
-
-        <div>
-          <label className="block text-xs text-slab-muted mb-1">Address Line 1</label>
-          <input name="addressLine1" value={form.addressLine1} onChange={handleChange} className="w-full rounded-lg border border-white/10 bg-slab-charcoal px-3 py-2.5 text-sm text-slab-white placeholder:text-slab-muted/50 focus:border-slab-crimson focus:outline-none" />
-        </div>
-
-        <div>
-          <label className="block text-xs text-slab-muted mb-1">Address Line 2</label>
-          <input name="addressLine2" value={form.addressLine2} onChange={handleChange} className="w-full rounded-lg border border-white/10 bg-slab-charcoal px-3 py-2.5 text-sm text-slab-white placeholder:text-slab-muted/50 focus:border-slab-crimson focus:outline-none" />
-        </div>
-
-        <div className="grid grid-cols-3 gap-4">
-          <div>
-            <label className="block text-xs text-slab-muted mb-1">City</label>
-            <input name="city" value={form.city} onChange={handleChange} className="w-full rounded-lg border border-white/10 bg-slab-charcoal px-3 py-2.5 text-sm text-slab-white placeholder:text-slab-muted/50 focus:border-slab-crimson focus:outline-none" />
-          </div>
-          <div>
-            <label className="block text-xs text-slab-muted mb-1">Province</label>
-            <select name="province" value={form.province} onChange={handleChange} className="w-full rounded-lg border border-white/10 bg-slab-charcoal px-3 py-2.5 text-sm text-slab-white focus:border-slab-crimson focus:outline-none">
-              <option value="">Select</option>
-              <option value="Eastern Cape">Eastern Cape</option>
-              <option value="Free State">Free State</option>
-              <option value="Gauteng">Gauteng</option>
-              <option value="KwaZulu-Natal">KwaZulu-Natal</option>
-              <option value="Limpopo">Limpopo</option>
-              <option value="Mpumalanga">Mpumalanga</option>
-              <option value="North West">North West</option>
-              <option value="Northern Cape">Northern Cape</option>
-              <option value="Western Cape">Western Cape</option>
-            </select>
-          </div>
-          <div>
-            <label className="block text-xs text-slab-muted mb-1">Postal Code</label>
-            <input name="postalCode" value={form.postalCode} onChange={handleChange} className="w-full rounded-lg border border-white/10 bg-slab-charcoal px-3 py-2.5 text-sm text-slab-white placeholder:text-slab-muted/50 focus:border-slab-crimson focus:outline-none" />
-          </div>
-        </div>
-
-        {error && (
-          <p className="text-sm text-slab-danger">{error}</p>
-        )}
-
-        <button
-          type="submit"
-          disabled={submitting}
-          className="w-full rounded-xl bg-slab-crimson px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-slab-crimson/90 disabled:opacity-50"
-        >
-          {submitting ? "Processing..." : `Pay ${formatPrice(total)} with PayFast`}
-        </button>
-
-        <p className="text-center text-xs text-slab-muted">
-          You will be redirected to PayFast to complete your payment securely.
+function Field({
+  label,
+  error,
+  fullSpan,
+  children,
+}: {
+  label: string;
+  error?: string;
+  fullSpan?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className={cn(fullSpan && "sm:col-span-2 sm:col-[1/-1]")}>
+      <label className={labelStyle}>{label}:</label>
+      <div className="mt-1">{children}</div>
+      {error && (
+        <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-slab-danger">
+          {">"} {error}
         </p>
-      </form>
+      )}
     </div>
   );
 }

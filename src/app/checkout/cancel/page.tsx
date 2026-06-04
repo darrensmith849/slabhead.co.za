@@ -1,37 +1,41 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import Button from "@/components/ui/Button";
+import NeonBadge from "@/components/atmosphere/NeonBadge";
 
 export const metadata: Metadata = {
-  title: "Payment Cancelled",
+  title: "Transaction Cancelled",
 };
 
 export default function CheckoutCancelPage() {
   return (
-    <div className="mx-auto max-w-lg px-4 py-20 text-center sm:px-6 lg:px-8">
-      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-slab-danger/10">
-        <svg className="h-8 w-8 text-slab-danger" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </div>
-
-      <h1 className="mt-6 text-3xl font-bold text-slab-white">Payment Cancelled</h1>
-      <p className="mt-3 text-slab-muted">
-        Your payment was not completed. Your cart items are still saved.
+    <div className="mx-auto max-w-2xl px-4 py-20 text-center sm:px-6">
+      <NeonBadge tone="crimson" intensity="high">
+        // TRANSACTION_ABORTED
+      </NeonBadge>
+      <h1 className="mt-6 font-display text-4xl text-slab-white sm:text-5xl">
+        Transaction Cancelled
+      </h1>
+      <p className="mt-4 font-mono text-sm uppercase tracking-widest text-slab-muted">
+        {">"} PAYMENT_NOT_COMPLETED
       </p>
 
-      <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-        <Link
-          href="/cart"
-          className="inline-flex items-center gap-2 rounded-xl bg-slab-crimson px-6 py-3 text-sm font-semibold text-white hover:bg-slab-crimson/90"
-        >
-          Return to Cart
-        </Link>
-        <Link
-          href="/shop"
-          className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-6 py-3 text-sm font-semibold text-slab-white hover:bg-slab-surface"
-        >
-          Continue Shopping
-        </Link>
+      <div className="mx-auto mt-8 max-w-md rounded-xl border border-slab-success/30 bg-slab-success/[0.05] p-5">
+        <p className="font-mono text-xs uppercase tracking-widest text-slab-success">
+          {">"} QUEUE_PRESERVED
+        </p>
+        <p className="mt-2 text-sm text-slab-muted">
+          Your specimens are still in the acquisition queue — nothing was lost.
+          Return whenever you&apos;re ready.
+        </p>
+      </div>
+
+      <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <Button href="/cart" variant="neon" size="lg" terminalPrefix>
+          RETRY_ACQUISITION
+        </Button>
+        <Button href="/shop" variant="secondary" size="lg">
+          ← BACK_TO_INVENTORY
+        </Button>
       </div>
     </div>
   );
