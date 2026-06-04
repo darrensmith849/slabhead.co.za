@@ -173,17 +173,19 @@ export default function Navbar() {
               className="mx-4 w-full max-w-2xl"
             >
               <div className="rounded-xl border border-slab-neon-cyan/40 bg-slab-charcoal p-4 neon-box-cyan">
-                <label className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-slab-neon-cyan/80">
+                <label htmlFor="cmdk-search" className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-slab-neon-cyan/80">
                   // QUERY_TERMINAL
                 </label>
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-slab-neon-cyan">{">"}</span>
+                  <span className="font-mono text-slab-neon-cyan" aria-hidden="true">{">"}</span>
                   <input
+                    id="cmdk-search"
                     autoFocus
                     type="text"
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)}
                     placeholder="search specimens…"
+                    aria-label="Search specimens"
                     className="flex-1 bg-transparent font-mono text-base text-slab-white placeholder:text-slab-muted/50 focus:outline-none terminal-cursor"
                   />
                 </div>

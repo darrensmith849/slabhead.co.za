@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useId } from "react";
 import type { ProductCategory, GradeCompany } from "@/lib/types";
 
 interface FilterBarProps {
@@ -45,6 +45,13 @@ export default function FilterBar({
     (e: React.ChangeEvent<HTMLInputElement>) => onSearchChange(e.target.value),
     [onSearchChange],
   );
+  const ids = {
+    query: useId(),
+    category: useId(),
+    grade: useId(),
+    status: useId(),
+    sort: useId(),
+  };
 
   return (
     <div className="bracketed rounded-xl border border-slab-neon-cyan/20 bg-slab-charcoal/60 p-5 backdrop-blur-sm">
@@ -66,12 +73,13 @@ export default function FilterBar({
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {/* Search */}
         <div className="lg:col-span-2">
-          <label className={labelStyle}>{">"} QUERY:</label>
+          <label htmlFor={ids.query} className={labelStyle}>{">"} QUERY:</label>
           <div className="relative mt-1">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 font-mono text-slab-neon-cyan/60">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 font-mono text-slab-neon-cyan/60" aria-hidden="true">
               ⌕
             </span>
             <input
+              id={ids.query}
               type="text"
               placeholder="search specimens…"
               value={searchQuery}
@@ -83,8 +91,9 @@ export default function FilterBar({
 
         {/* Category */}
         <div>
-          <label className={labelStyle}>{">"} CATEGORY:</label>
+          <label htmlFor={ids.category} className={labelStyle}>{">"} CATEGORY:</label>
           <select
+            id={ids.category}
             value={selectedCategory}
             onChange={(e) => onCategoryChange(e.target.value)}
             className={`${inputStyle} mt-1`}
@@ -100,8 +109,9 @@ export default function FilterBar({
 
         {/* Grade */}
         <div>
-          <label className={labelStyle}>{">"} GRADE:</label>
+          <label htmlFor={ids.grade} className={labelStyle}>{">"} GRADE:</label>
           <select
+            id={ids.grade}
             value={selectedGrade}
             onChange={(e) => onGradeChange(e.target.value)}
             className={`${inputStyle} mt-1`}
@@ -117,8 +127,9 @@ export default function FilterBar({
 
         {/* Availability */}
         <div>
-          <label className={labelStyle}>{">"} STATUS:</label>
+          <label htmlFor={ids.status} className={labelStyle}>{">"} STATUS:</label>
           <select
+            id={ids.status}
             value={selectedAvailability}
             onChange={(e) => onAvailabilityChange(e.target.value)}
             className={`${inputStyle} mt-1`}
@@ -131,8 +142,9 @@ export default function FilterBar({
 
         {/* Sort */}
         <div className="sm:col-span-2 lg:col-span-1">
-          <label className={labelStyle}>{">"} SORT:</label>
+          <label htmlFor={ids.sort} className={labelStyle}>{">"} SORT:</label>
           <select
+            id={ids.sort}
             value={sortBy}
             onChange={(e) => onSortChange(e.target.value)}
             className={`${inputStyle} mt-1`}

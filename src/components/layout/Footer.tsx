@@ -81,9 +81,9 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3 className="font-mono text-[11px] uppercase tracking-widest text-slab-neon-cyan/80 neon-glow-cyan">
+              <h2 className="font-mono text-[11px] uppercase tracking-widest text-slab-neon-cyan/80 neon-glow-cyan">
                 {section.title}
-              </h3>
+              </h2>
               <ul className="mt-4 space-y-2">
                 {section.links.map((link) => (
                   <li key={link.href + link.label}>

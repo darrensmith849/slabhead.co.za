@@ -262,15 +262,17 @@ function Field({
   fullSpan?: boolean;
   children: React.ReactNode;
 }) {
+  // Wrap the input in the <label> for implicit association — sidesteps
+  // needing to thread an id down to every checkout input.
   return (
-    <div className={cn(fullSpan && "sm:col-span-2 sm:col-[1/-1]")}>
-      <label className={labelStyle}>{label}:</label>
-      <div className="mt-1">{children}</div>
+    <label className={cn("block", fullSpan && "sm:col-span-2 sm:col-[1/-1]")}>
+      <span className={labelStyle}>{label}:</span>
+      <span className="mt-1 block">{children}</span>
       {error && (
-        <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-slab-danger">
+        <span className="mt-1 block font-mono text-[10px] uppercase tracking-widest text-slab-danger">
           {">"} {error}
-        </p>
+        </span>
       )}
-    </div>
+    </label>
   );
 }
