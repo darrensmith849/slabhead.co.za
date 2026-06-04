@@ -3,15 +3,22 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Global cyberpunk atmosphere — fixed-position WebGL canvas behind everything.
+ * Global cyberpunk atmosphere — fixed-position canvas behind everything.
  * Layers (top → bottom):
  *   1. Base radial gradient (CSS) — slab-haze fading to slab-black
- *   2. Drifting neon particles (Canvas 2D — keeps bundle small; matches OGL feel without WebGL plumbing)
- *   3. Fog noise (canvas)
- *   4. SVG Cape Town silhouette (bottom 25%)
+ *   2. Drifting neon particles with lifespan (Canvas 2D)
+ *   3. Slow drifting fog overlay (CSS gradient)
+ *   4. SVG Cape Town silhouette (bottom 28%)
+ *   5. Static vignette
+ *
+ * Particle lifecycle is deliberate: each particle fades in, drifts for a
+ * fixed lifespan, then fades out and respawns at a fresh random position.
+ * No edge-wrap → no zigzag artefacts when particles teleport across the
+ * screen. Combined with a per-frame trail decay this keeps the field
+ * looking like a quiet starfield even after long browsing sessions.
  *
  * Performance: paused when tab is hidden. Mobile uses ~half the particles.
- * Respects prefers-reduced-motion: stops animation but keeps static gradient + silhouette.
+ * Respects prefers-reduced-motion: stops animation but keeps static gradient.
  */
 export default function NeonAtmosphere() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -29,7 +36,8 @@ export default function NeonAtmosphere() {
     if (reduce) return; // static gradient only
 
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    const particleCount = isMobile ? 30 : 55;
+    // Roomier, calmer field — was 30/55, now 18/32.
+    const particleCount = isMobile ? 18 : 32;
 
     let width = window.innerWidth;
     let height = window.innerHeight;
@@ -43,29 +51,46 @@ export default function NeonAtmosphere() {
       canvas.height = height * dpr;
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
+      // Reset to identity before scaling — prevents compound scaling
+      // across multiple resizes, which would leave parts of the canvas
+      // unfaded and baked-in trails accumulating.
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.scale(dpr, dpr);
     };
 
-    // Seed particles
     const COLORS = [
-      "rgba(0, 240, 255, 0.65)",   // cyan
-      "rgba(255, 0, 200, 0.55)",   // magenta
-      "rgba(201, 22, 90, 0.55)",   // crimson
-      "rgba(168, 85, 247, 0.55)",  // electric
-      "rgba(212, 175, 55, 0.45)",  // gold (rare)
+      "rgba(0, 240, 255, 0.65)", // cyan
+      "rgba(255, 0, 200, 0.55)", // magenta
+      "rgba(201, 22, 90, 0.55)", // crimson
+      "rgba(168, 85, 247, 0.55)", // electric
+      "rgba(212, 175, 55, 0.45)", // gold (rare)
     ];
 
-    const seedParticles = () => {
-      particlesRef.current = Array.from({ length: particleCount }, () => ({
+    const spawn = (): Particle => {
+      // Lifespan in frames assuming ~60fps → ~6s minimum, ~12s maximum
+      const lifespan = 360 + Math.random() * 360;
+      return {
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.15,
-        vy: (Math.random() - 0.5) * 0.10 - 0.02, // slight upward drift
+        vx: (Math.random() - 0.5) * 0.12,
+        vy: (Math.random() - 0.5) * 0.08 - 0.015, // slight upward drift
         r: 0.8 + Math.random() * 2.2,
         color: COLORS[Math.floor(Math.random() * COLORS.length)],
         pulsePhase: Math.random() * Math.PI * 2,
         pulseSpeed: 0.005 + Math.random() * 0.01,
-      }));
+        age: 0,
+        lifespan,
+        fadeFrames: 60, // frames at start + end where opacity ramps
+      };
+    };
+
+    const seedParticles = () => {
+      particlesRef.current = Array.from({ length: particleCount }, () => {
+        const p = spawn();
+        // Stagger ages so they don't all fade out together at the start
+        p.age = Math.random() * p.lifespan * 0.8;
+        return p;
+      });
     };
 
     resize();
@@ -79,7 +104,8 @@ export default function NeonAtmosphere() {
 
     const onResize = () => {
       resize();
-      seedParticles();
+      // Don't re-seed on resize — keeps existing particles, just adjusts
+      // canvas size. Avoids a visible "blink" on window resize.
     };
     window.addEventListener("resize", onResize);
 
@@ -93,28 +119,59 @@ export default function NeonAtmosphere() {
       const dt = Math.min(now - lastTime, 50);
       lastTime = now;
 
-      // Trail-fade: low-alpha black overpaint for soft motion blur
-      ctx.fillStyle = "rgba(10, 10, 15, 0.18)";
+      // Trail-fade: low-alpha overpaint for soft motion blur. Slightly
+      // stronger than before (0.22 vs 0.18) so trails reach effectively
+      // zero in <1s and don't compound over long browsing sessions.
+      ctx.fillStyle = "rgba(10, 10, 15, 0.22)";
       ctx.fillRect(0, 0, width, height);
 
       // Particles
       ctx.globalCompositeOperation = "lighter";
-      for (const p of particlesRef.current) {
+      const list = particlesRef.current;
+      for (let i = 0; i < list.length; i++) {
+        const p = list[i];
         p.x += p.vx * (dt / 16);
         p.y += p.vy * (dt / 16);
         p.pulsePhase += p.pulseSpeed * dt;
+        p.age += dt / 16;
 
-        if (p.x < -10) p.x = width + 10;
-        if (p.x > width + 10) p.x = -10;
-        if (p.y < -10) p.y = height + 10;
-        if (p.y > height + 10) p.y = -10;
+        // Lifespan-based fade: 0 → 1 over first fadeFrames, hold,
+        // 1 → 0 over last fadeFrames. Beyond lifespan, respawn.
+        let lifeAlpha = 1;
+        if (p.age < p.fadeFrames) {
+          lifeAlpha = p.age / p.fadeFrames;
+        } else if (p.age > p.lifespan - p.fadeFrames) {
+          lifeAlpha = Math.max(0, (p.lifespan - p.age) / p.fadeFrames);
+        }
+        if (p.age >= p.lifespan) {
+          // Respawn instead of wrap. No edge-jumps → no zigzag trails.
+          list[i] = spawn();
+          continue;
+        }
+
+        // Off-screen particles can still be killed early — saves drawing
+        // cost and prevents trails leaving the viewport boundary.
+        if (p.x < -20 || p.x > width + 20 || p.y < -20 || p.y > height + 20) {
+          list[i] = spawn();
+          continue;
+        }
 
         const pulse = 0.55 + 0.45 * Math.sin(p.pulsePhase);
         const radius = p.r * (0.8 + pulse * 0.4);
 
+        // Apply the lifespan alpha by tweaking the color's alpha channel
+        const baseAlpha = parseFloat(p.color.match(/[\d.]+\)$/)?.[0] ?? "0.5");
+        const adjustedColor = p.color.replace(
+          /[\d.]+\)$/,
+          `${(baseAlpha * lifeAlpha).toFixed(3)})`,
+        );
+
         const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, radius * 5);
-        gradient.addColorStop(0, p.color);
-        gradient.addColorStop(0.4, p.color.replace(/[\d.]+\)$/, "0.15)"));
+        gradient.addColorStop(0, adjustedColor);
+        gradient.addColorStop(
+          0.4,
+          adjustedColor.replace(/[\d.]+\)$/, `${(0.15 * lifeAlpha).toFixed(3)})`),
+        );
         gradient.addColorStop(1, "rgba(0,0,0,0)");
 
         ctx.beginPath();
@@ -204,4 +261,7 @@ type Particle = {
   color: string;
   pulsePhase: number;
   pulseSpeed: number;
+  age: number;
+  lifespan: number;
+  fadeFrames: number;
 };
