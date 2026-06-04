@@ -3,7 +3,8 @@ import ServicePage from "@/components/sections/ServicePage";
 
 export const metadata: Metadata = {
   title: "We Buy Cards",
-  description: "Want to sell your card collection quickly? Slabhead buys graded and raw Pokémon, Yu-Gi-Oh and MTG cards at fair market prices.",
+  description:
+    "Need cash? Slabhead will buy your card collection at a fair, transparent price. South Africa's trusted card buyback service.",
 };
 
 export default function WeBuyCardsPage() {
@@ -11,22 +12,30 @@ export default function WeBuyCardsPage() {
     <ServicePage
       title="We Buy Cards"
       tagline="Need cash? We'll buy your collection."
-      description="Whether you have a single high-value slab or an entire collection, we buy cards at fair market prices with fast payment. No auction waiting, no lowball offers — just a straightforward deal."
-      steps={[
+      description="Time to liquidate? We buy graded and ungraded cards at fair, transparent prices. Send us a list with photos, get a no-obligation quote within 48 hours, ship the cards, get paid. No haggling, no surprises."
+      missionLabel="// LIQUIDATION_DESK"
+      roomTheme="liquidation"
+      protocol={[
         {
+          phase: "PHASE_1: SUBMIT_INVENTORY",
           title: "Send Us Your List",
-          description: "Share photos and details of the cards you want to sell — graded or raw, singles or bulk.",
+          description:
+            "Email a list with photos, grades and any context. The more we know upfront, the faster the valuation.",
         },
         {
+          phase: "PHASE_2: VALUATION",
           title: "Get a Quote",
-          description: "We'll research current market values and send you a fair offer within 24–48 hours.",
+          description:
+            "We research current market values, account for grade and condition, and send you a no-obligation offer within 48 hours.",
         },
         {
+          phase: "PHASE_3: PAYMENT & COLLECTION",
           title: "Ship & Get Paid",
-          description: "Accept the offer, ship your cards to us (insured), and receive payment via EFT as soon as we verify the lot.",
+          description:
+            "If you accept, we arrange insured collection. EFT lands in your account once cards are received and verified.",
         },
       ]}
-      ctaText="Get a Quote — Contact Us"
+      ctaText="GET_QUOTE"
       ctaHref="/contact-us"
     />
   );

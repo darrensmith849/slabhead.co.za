@@ -3,6 +3,8 @@
 import { useState, useMemo } from "react";
 import ProductCard from "@/components/ui/ProductCard";
 import FilterBar from "@/components/ui/FilterBar";
+import RevealOnScroll from "@/components/atmosphere/RevealOnScroll";
+import NeonBadge from "@/components/atmosphere/NeonBadge";
 import type { Product, ProductCategory, GradeCompany } from "@/lib/types";
 
 interface Props {
@@ -27,21 +29,12 @@ export default function ShopGrid({ products: allProducts, categories, gradeCompa
         (p) =>
           p.name.toLowerCase().includes(q) ||
           p.description.toLowerCase().includes(q) ||
-          p.tags?.some((t) => t.includes(q))
+          p.tags?.some((t) => t.includes(q)),
       );
     }
-
-    if (selectedCategory) {
-      result = result.filter((p) => p.category === selectedCategory);
-    }
-
-    if (selectedGrade) {
-      result = result.filter((p) => p.gradeCompany === selectedGrade);
-    }
-
-    if (selectedAvailability) {
-      result = result.filter((p) => p.availability === selectedAvailability);
-    }
+    if (selectedCategory) result = result.filter((p) => p.category === selectedCategory);
+    if (selectedGrade) result = result.filter((p) => p.gradeCompany === selectedGrade);
+    if (selectedAvailability) result = result.filter((p) => p.availability === selectedAvailability);
 
     switch (sortBy) {
       case "price-asc":
@@ -56,13 +49,19 @@ export default function ShopGrid({ products: allProducts, categories, gradeCompa
       case "newest":
       default:
         result.sort(
-          (a, b) =>
-            new Date(b.dateModified).getTime() - new Date(a.dateModified).getTime()
+          (a, b) => new Date(b.dateModified).getTime() - new Date(a.dateModified).getTime(),
         );
     }
 
     return result;
   }, [allProducts, searchQuery, selectedCategory, selectedGrade, selectedAvailability, sortBy]);
+
+  const clearAll = () => {
+    setSearchQuery("");
+    setSelectedCategory("");
+    setSelectedGrade("");
+    setSelectedAvailability("");
+  };
 
   return (
     <>
@@ -74,6 +73,7 @@ export default function ShopGrid({ products: allProducts, categories, gradeCompa
         selectedAvailability={selectedAvailability}
         searchQuery={searchQuery}
         sortBy={sortBy}
+        resultCount={filtered.length}
         onCategoryChange={setSelectedCategory}
         onGradeChange={setSelectedGrade}
         onAvailabilityChange={setSelectedAvailability}
@@ -81,29 +81,29 @@ export default function ShopGrid({ products: allProducts, categories, gradeCompa
         onSortChange={setSortBy}
       />
 
-      <p className="mt-4 text-sm text-slab-muted">
-        {filtered.length} {filtered.length === 1 ? "item" : "items"}
-      </p>
-
-      <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-6">
+      <RevealOnScroll
+        variant="fade-up"
+        stagger={0.04}
+        className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-6"
+      >
         {filtered.map((product) => (
           <ProductCard key={product.slug} product={product} />
         ))}
-      </div>
+      </RevealOnScroll>
 
       {filtered.length === 0 && (
         <div className="py-20 text-center">
-          <p className="text-lg text-slab-muted">No products match your filters.</p>
+          <NeonBadge tone="crimson" intensity="medium" className="mx-auto">
+            // NO_RESULTS
+          </NeonBadge>
+          <p className="mt-4 font-mono text-sm uppercase tracking-widest text-slab-muted">
+            {">"} ADJUST QUERY PARAMETERS
+          </p>
           <button
-            onClick={() => {
-              setSearchQuery("");
-              setSelectedCategory("");
-              setSelectedGrade("");
-              setSelectedAvailability("");
-            }}
-            className="mt-3 text-sm font-medium text-slab-crimson hover:text-slab-crimson-light"
+            onClick={clearAll}
+            className="mt-6 rounded border border-slab-neon-cyan/40 bg-slab-neon-cyan/[0.04] px-5 py-2 font-mono text-sm uppercase tracking-widest text-slab-neon-cyan transition-colors hover:bg-slab-neon-cyan/10"
           >
-            Clear all filters
+            {">"} CLEAR_ALL_FILTERS
           </button>
         </div>
       )}

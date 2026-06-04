@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/sections/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Card Grading (Slabbing)",
-  description: "Get your Pokémon, Yu-Gi-Oh or MTG cards professionally graded by PSA, CGC or BGS through Slabhead's grading service in South Africa.",
+  title: "Slabbing",
+  description:
+    "Get your cards professionally graded by PSA, CGC or BGS through Slabhead. South Africa's trusted submission service.",
 };
 
 export default function SlabbingPage() {
@@ -11,22 +12,30 @@ export default function SlabbingPage() {
     <ServicePage
       title="Slabbing"
       tagline="Protect. Authenticate. Grade."
-      description="Our professional grading service handles the entire process — from card submission to receiving your slabbed card back. We work with PSA, CGC and BGS to get your cards graded at competitive rates, without the hassle of dealing with international submissions yourself."
-      steps={[
+      description="Want your raw cards professionally graded? We handle the entire submission process — intake, careful packaging, international shipment, grader liaison and return delivery. Choose PSA, CGC or BGS. Sleep well knowing your cards never leave our chain of custody."
+      missionLabel="// AUTHENTICATION_LAB"
+      roomTheme="lab"
+      protocol={[
         {
+          phase: "PHASE_1: INTAKE",
           title: "Submit Your Cards",
-          description: "Bring or ship your raw cards to us. We'll assess condition and recommend the best grading company for each card.",
+          description:
+            "Drop off or courier your raw cards. We catalogue, photograph, and prepare them for international submission.",
         },
         {
-          title: "We Handle Submission",
-          description: "We batch your cards with others to get the best rates, handle all paperwork, customs and shipping to the grading company.",
+          phase: "PHASE_2: SUBMISSION",
+          title: "We Handle the Process",
+          description:
+            "Cards travel insured to PSA, CGC or BGS. We track every step and keep you updated through the queue.",
         },
         {
+          phase: "PHASE_3: RETURN & DELIVERY",
           title: "Graded & Returned",
-          description: "Once graded, we notify you with the results and ship your freshly slabbed cards back — insured and tracked.",
+          description:
+            "Once slabbed, your cards return to us. We verify, repack, and ship them safely to you in South Africa.",
         },
       ]}
-      ctaText="Submit Cards for Grading"
+      ctaText="SUBMIT_FOR_GRADING"
       ctaHref="/contact-us"
     />
   );

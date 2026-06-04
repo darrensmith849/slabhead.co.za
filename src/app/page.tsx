@@ -9,7 +9,7 @@ import RevealOnScroll from "@/components/atmosphere/RevealOnScroll";
 import TerminalText from "@/components/atmosphere/TerminalText";
 import NeonBadge from "@/components/atmosphere/NeonBadge";
 import MarqueeStrip from "@/components/atmosphere/MarqueeStrip";
-import ParallaxImage from "@/components/atmosphere/ParallaxImage";
+import CategoryHero from "@/components/atmosphere/CategoryHero";
 import {
   getNewDrops,
   getFeaturedProducts,
@@ -448,12 +448,70 @@ export default async function Home() {
               </div>
             </RevealOnScroll>
             <RevealOnScroll variant="fade-up">
-              <ParallaxImage
-                src="/wp-uploads/2025/03/DALLE-2025-02-10-04.37.48-A-minimalistic-cyberpunk-inspired-desk-setup-with-a-few-carefully-placed-stationery-items.-The-desk-has-a-sleek-futuristic-design-with-subtle-neon-li.jpg"
-                alt="Culture collection"
-                accent="magenta"
-                aspect="4/3"
-              />
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-slab-neon-magenta/30 neon-box-magenta">
+                {/* Code-rendered Culture scene at preview scale */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse at 50% 50%, rgba(255, 0, 200, 0.20) 0%, transparent 60%), " +
+                      "radial-gradient(ellipse at 30% 30%, rgba(168, 85, 247, 0.12) 0%, transparent 50%), " +
+                      "linear-gradient(135deg, #160828 0%, #0A0A0F 100%)",
+                  }}
+                />
+                {/* Cherry blossoms (preview) */}
+                <div className="absolute inset-0 overflow-hidden">
+                  {Array.from({ length: 12 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute"
+                      style={{
+                        left: `${(i * 11 + 5) % 100}%`,
+                        top: `-6%`,
+                        width: "7px",
+                        height: "7px",
+                        borderRadius: "50% 0 50% 0",
+                        backgroundColor:
+                          i % 3 === 0
+                            ? "rgba(255, 195, 220, 0.85)"
+                            : i % 3 === 1
+                              ? "rgba(255, 170, 205, 0.7)"
+                              : "rgba(245, 210, 230, 0.8)",
+                        boxShadow: "0 0 5px rgba(255, 195, 220, 0.5)",
+                        transform: `rotate(${i * 25}deg)`,
+                        animation: `culture-petal-${i % 4} ${12 + i}s linear infinite`,
+                        animationDelay: `${i * 0.9}s`,
+                      }}
+                    />
+                  ))}
+                </div>
+                {/* Vertical paper strokes */}
+                <div
+                  className="absolute inset-y-0 right-0 w-1/3 opacity-25"
+                  style={{
+                    background:
+                      "repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(255, 195, 220, 0.18) 20px, rgba(255, 195, 220, 0.18) 21px)",
+                  }}
+                />
+                {/* Scanlines + vignette */}
+                <div className="absolute inset-0 scanlines opacity-40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slab-black/70 via-transparent to-slab-black/30" />
+                {/* Center text */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="font-display text-5xl text-slab-white neon-glow-white">花</div>
+                    <div className="mt-3 font-mono text-[10px] uppercase tracking-widest text-slab-neon-magenta/80">
+                      // EASTERN_WING
+                    </div>
+                  </div>
+                </div>
+                <style>{`
+                  @keyframes culture-petal-0 { to { transform: translate(15px, 120%) rotate(360deg); opacity: 0; } }
+                  @keyframes culture-petal-1 { to { transform: translate(-20px, 120%) rotate(-360deg); opacity: 0; } }
+                  @keyframes culture-petal-2 { to { transform: translate(10px, 120%) rotate(540deg); opacity: 0; } }
+                  @keyframes culture-petal-3 { to { transform: translate(-12px, 120%) rotate(-540deg); opacity: 0; } }
+                `}</style>
+              </div>
             </RevealOnScroll>
           </div>
 

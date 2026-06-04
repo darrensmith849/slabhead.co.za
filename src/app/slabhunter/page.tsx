@@ -3,7 +3,8 @@ import ServicePage from "@/components/sections/ServicePage";
 
 export const metadata: Metadata = {
   title: "SlabHunter",
-  description: "Can't find a specific card locally? Our SlabHunter service sources graded cards from anywhere in the world and delivers them to your door in South Africa.",
+  description:
+    "Can't find a specific card locally? Our SlabHunter service sources graded cards from anywhere in the world and delivers them to your door in South Africa.",
 };
 
 export default function SlabHunterPage() {
@@ -11,24 +12,31 @@ export default function SlabHunterPage() {
     <ServicePage
       title="SlabHunter"
       tagline="Can't find it? We'll hunt it down."
-      description="Looking for a specific graded card you just can't find locally? Don't risk importing it yourself — our team has connections with dealers worldwide and will track down exactly what you're after, authenticate it, and ship it safely to your door."
-      steps={[
+      description="Looking for a specific graded card you just can't find locally? Don't risk importing it yourself — our network spans PSA, CGC and BGS dealers across the US, Japan and Europe. We negotiate the best price on your behalf, authenticate it, and ship safely to your door in South Africa."
+      missionLabel="// SLABHUNTER // GLOBAL_OPERATIONS"
+      roomTheme="hunter"
+      protocol={[
         {
+          phase: "PHASE_1: TARGET_ACQUISITION",
           title: "Tell Us What You Want",
-          description: "Send us the card name, set, grade and any other details. The more specific, the faster we find it.",
+          description:
+            "Send the card name, set, grade and any other details. The more specific, the faster we find it.",
         },
         {
+          phase: "PHASE_2: GLOBAL_SEARCH",
           title: "We Search Worldwide",
-          description: "Our network spans PSA, CGC and BGS dealers across the US, Japan and Europe. We negotiate the best price on your behalf.",
+          description:
+            "Our network spans PSA, CGC and BGS dealers across the US, Japan and Europe. We negotiate the best price on your behalf.",
         },
         {
-          title: "Authenticated & Delivered",
-          description: "Once sourced, we verify authenticity, handle customs and insurance, and ship it to you in South Africa with full tracking.",
+          phase: "PHASE_3: AUTHENTICATION & DELIVERY",
+          title: "Verified & Delivered",
+          description:
+            "Once sourced, we verify authenticity, handle customs and insurance, and ship to you in South Africa with full tracking.",
         },
       ]}
-      ctaText="Start a Hunt — Contact Us"
+      ctaText="INITIATE_HUNT"
       ctaHref="/contact-us"
-      heroImage="/wp-uploads/2025/02/Slab-Hunter-Edit.jpg"
     />
   );
 }

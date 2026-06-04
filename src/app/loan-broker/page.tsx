@@ -3,7 +3,8 @@ import ServicePage from "@/components/sections/ServicePage";
 
 export const metadata: Metadata = {
   title: "Loan Broker",
-  description: "Use your graded cards as collateral for competitive-rate loans. Slabhead's loan broker service helps collectors access capital without selling.",
+  description:
+    "Use your high-value graded cards as collateral for asset-backed loans. South Africa's first card-secured lending service.",
 };
 
 export default function LoanBrokerPage() {
@@ -11,23 +12,32 @@ export default function LoanBrokerPage() {
     <ServicePage
       title="Loan Broker"
       tagline="Leverage your collection without selling it."
-      description="Need capital but don't want to part with your prized slabs? Our asset-based loan service lets you use your graded cards as collateral for competitive-rate loans. Keep your collection growing while accessing the funds you need."
-      steps={[
+      description="Got high-value graded cards but need short-term capital? Our asset-backed lending service lets you borrow against your collection at competitive rates, with your cards held in secure storage until the loan is repaid. Built for serious collectors who don't want to sell."
+      missionLabel="// ASSET_UNDERWRITING_DESK"
+      roomTheme="underwriting"
+      protocol={[
         {
-          title: "Assess Your Cards",
-          description: "Send us details of the graded cards you'd like to use as collateral. We'll appraise current market value.",
+          phase: "PHASE_1: ASSESSMENT",
+          title: "Cards Assessed",
+          description:
+            "Submit your collection for valuation. We work with certified appraisers to determine the loan-to-value ratio.",
         },
         {
+          phase: "PHASE_2: LOAN_TERMS",
           title: "Receive Loan Terms",
-          description: "Based on your collection's value, we connect you with lending partners and present competitive loan options.",
+          description:
+            "Get a transparent offer: principal amount, interest rate, repayment schedule, storage terms. No hidden fees.",
         },
         {
-          title: "Secure & Store",
-          description: "Your cards are securely stored and insured for the loan duration. Pay off the loan, get your cards back — simple.",
+          phase: "PHASE_3: SECURE_&_STORE",
+          title: "Cards Secured · You Get Funds",
+          description:
+            "Cards travel to insured storage. Funds disburse via EFT. Repay on schedule, get your cards back unchanged.",
         },
       ]}
-      ctaText="Enquire About a Loan"
+      ctaText="ENQUIRE_ABOUT_LOAN"
       ctaHref="/contact-us"
+      disclosure="Asset-backed lending arranged through licensed lending partners under the National Credit Act (South Africa). All loans subject to credit approval and collateral verification. Cards held under insured storage agreement. Final terms confirmed in writing before loan disbursement. This is not financial advice — please consult a financial advisor."
     />
   );
 }

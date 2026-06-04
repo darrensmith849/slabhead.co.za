@@ -4,7 +4,8 @@ import CategoryPage from "@/components/sections/CategoryPage";
 
 export const metadata: Metadata = {
   title: "Pokémon Cards",
-  description: "Browse graded Pokémon cards — PSA, CGC & BGS authenticated slabs, sealed product and TCG accessories. Shipped from Cape Town.",
+  description:
+    "Browse graded Pokémon cards — PSA, CGC & BGS authenticated slabs, sealed product and TCG accessories. Shipped from Cape Town.",
 };
 
 export default async function PokemonPage() {
@@ -12,16 +13,25 @@ export default async function PokemonPage() {
     getProductsByCategory("Pokemon"),
     getProductsByCategory("TCG Accessories"),
   ]);
+
+  const slabbed = pokemon.filter((p) => p.subcategory === "Pokemon Slabbed");
+  const sealed = pokemon.filter((p) => p.subcategory === "Pokemon Sealed");
+  const singles = pokemon.filter(
+    (p) => !p.subcategory || (p.subcategory !== "Pokemon Slabbed" && p.subcategory !== "Pokemon Sealed"),
+  );
+
   return (
     <CategoryPage
-      title="Pokémon"
-      description="Graded slabs, sealed product & TCG accessories — PSA, CGC & BGS authenticated"
+      title="The Pokémon Wing"
+      description="Graded slabs, sealed product & TCG accessories — PSA, CGC & BGS authenticated. From base set legends to modern grails."
+      heroLabel="// THE_POKEMON_WING"
+      roomTheme="pokemon"
       products={[...pokemon, ...accessories]}
-      heroImage="/wp-uploads/2025/01/ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745.jpg"
-      featuredImages={[
-        { src: "/wp-uploads/2025/02/Pokemon-Slabbed.jpg", label: "Slabbed" },
-        { src: "/wp-uploads/2025/02/Pokemon-Sealed.jpg", label: "Sealed" },
-        { src: "/wp-uploads/2025/02/Pokemon-Single.jpg", label: "Singles" },
+      subPortals={[
+        { label: "SLABBED", href: "/pokemon?type=slabbed", count: slabbed.length },
+        { label: "SEALED", href: "/pokemon?type=sealed", count: sealed.length },
+        { label: "SINGLES", href: "/pokemon?type=singles", count: singles.length },
+        { label: "ACCESSORIES", href: "/pokemon?type=accessories", count: accessories.length },
       ]}
     />
   );

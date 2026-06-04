@@ -3,7 +3,8 @@ import ServicePage from "@/components/sections/ServicePage";
 
 export const metadata: Metadata = {
   title: "SlabTrader",
-  description: "Want to trade graded cards? SlabTrader connects you with other collectors in South Africa for fair, verified trades.",
+  description:
+    "Want to trade graded cards? SlabTrader connects you with other collectors in South Africa for fair, verified trades.",
 };
 
 export default function SlabTraderPage() {
@@ -11,24 +12,31 @@ export default function SlabTraderPage() {
     <ServicePage
       title="SlabTrader"
       tagline="Trade up. Trade smart."
-      description="Got cards you'd swap for something you want more? SlabTrader is our trading service that connects collectors for fair, verified trades. We act as the trusted middleman so both parties walk away happy."
-      steps={[
+      description="Got cards you'd swap for something you want more? SlabTrader is our exchange protocol that connects collectors for fair, verified trades. We act as the trusted middleman so both parties walk away happy — and authenticated."
+      missionLabel="// SLABTRADER // EXCHANGE_PROTOCOL"
+      roomTheme="trader"
+      protocol={[
         {
+          phase: "PHASE_1: REGISTER_ASSETS",
           title: "List Your Cards",
-          description: "Tell us what you have to trade — include photos, grades and what you're looking for in return.",
+          description:
+            "Tell us what you have to trade — include photos, grades and what you're looking for in return.",
         },
         {
+          phase: "PHASE_2: MATCH_PROTOCOL",
           title: "We Match You",
-          description: "We check our network of collectors and find someone with what you want who wants what you have.",
+          description:
+            "We scan our network of collectors and find someone with what you want who wants what you have.",
         },
         {
+          phase: "PHASE_3: VERIFIED_EXCHANGE",
           title: "Verified Exchange",
-          description: "Both parties send cards to us. We verify grades, confirm the deal, and ship each card to its new owner.",
+          description:
+            "Both parties send cards to us. We verify grades, confirm the deal, and ship each card to its new owner.",
         },
       ]}
-      ctaText="Start a Trade — Contact Us"
+      ctaText="INITIATE_TRADE"
       ctaHref="/contact-us"
-      heroImage="/wp-uploads/2026/02/Screenshot-2026-02-19-at-15.00.36.png"
     />
   );
 }
