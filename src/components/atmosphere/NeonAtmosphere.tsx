@@ -35,9 +35,29 @@ export default function NeonAtmosphere() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) return; // static gradient only
 
+    // Honour Save-Data + reduced-data — disable the canvas entirely so
+    // we don't burn battery / CPU / cellular budget on atmosphere.
+    const conn = (
+      navigator as Navigator & {
+        connection?: { saveData?: boolean; effectiveType?: string };
+      }
+    ).connection;
+    if (conn?.saveData) return;
+    // Skip the field on 2G / slow-2g — atmosphere isn't worth the cost.
+    if (conn?.effectiveType === "slow-2g" || conn?.effectiveType === "2g") return;
+
+    const reducedData = window.matchMedia("(prefers-reduced-data: reduce)");
+    if (reducedData.matches) return;
+
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    // Roomier, calmer field — was 30/55, now 18/32.
-    const particleCount = isMobile ? 18 : 32;
+    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    // Quieter starfield on small screens. Touch devices use the same
+    // count as mobile because they're typically battery-powered too.
+    const particleCount = isMobile || isCoarsePointer ? 12 : 32;
+
+    // Throttle to 30fps on mobile / touch — saves ~half the per-frame
+    // CPU work. Desktop pointer-fine devices get 60fps for smoothness.
+    const targetFrameMs = isMobile || isCoarsePointer ? 1000 / 30 : 0;
 
     let width = window.innerWidth;
     let height = window.innerHeight;
@@ -110,12 +130,19 @@ export default function NeonAtmosphere() {
     window.addEventListener("resize", onResize);
 
     let lastTime = performance.now();
+    let lastFrameTime = lastTime;
 
     const render = (now: number) => {
       if (!isVisible) {
         rafRef.current = requestAnimationFrame(render);
         return;
       }
+      // 30fps throttle on mobile/touch: skip frame if not enough time elapsed
+      if (targetFrameMs > 0 && now - lastFrameTime < targetFrameMs) {
+        rafRef.current = requestAnimationFrame(render);
+        return;
+      }
+      lastFrameTime = now;
       const dt = Math.min(now - lastTime, 50);
       lastTime = now;
 

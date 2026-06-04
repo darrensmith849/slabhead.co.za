@@ -40,6 +40,18 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // Lock body scroll when mobile drawer or search overlay is open. Prevents
+  // background-scroll on iOS Safari + Android Chrome.
+  useEffect(() => {
+    const shouldLock = mobileOpen || searchOpen;
+    if (!shouldLock) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileOpen, searchOpen]);
+
   const onSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const q = searchValue.trim();
@@ -115,15 +127,28 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile drawer */}
+        {/* Mobile drawer + tap-out backdrop */}
         <AnimatePresence>
           {mobileOpen && (
             <motion.div
+              key="drawer-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setMobileOpen(false)}
+              className="fixed inset-0 top-16 z-30 bg-slab-black/50 backdrop-blur-[2px] lg:hidden"
+              aria-hidden="true"
+            />
+          )}
+          {mobileOpen && (
+            <motion.div
+              key="drawer-panel"
               initial={{ opacity: 0, x: "100%" }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: "100%" }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="fixed top-16 right-0 bottom-0 z-40 flex w-72 flex-col gap-1 border-l border-slab-neon-cyan/30 bg-slab-black/95 px-4 py-4 backdrop-blur-xl lg:hidden"
+              className="fixed top-16 right-0 bottom-0 z-40 flex w-72 flex-col gap-1 overflow-y-auto overscroll-contain border-l border-slab-neon-cyan/30 bg-slab-black/95 px-4 py-4 backdrop-blur-xl lg:hidden"
             >
               <span className="mb-2 px-3 font-mono text-[10px] uppercase tracking-widest text-slab-muted">
                 // CONSOLE_DRAWER
@@ -181,11 +206,14 @@ export default function Navbar() {
                   <input
                     id="cmdk-search"
                     autoFocus
-                    type="text"
+                    type="search"
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)}
                     placeholder="search specimens…"
                     aria-label="Search specimens"
+                    inputMode="search"
+                    enterKeyHint="search"
+                    autoComplete="off"
                     className="flex-1 bg-transparent font-mono text-base text-slab-white placeholder:text-slab-muted/50 focus:outline-none terminal-cursor"
                   />
                 </div>

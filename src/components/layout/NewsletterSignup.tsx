@@ -72,6 +72,9 @@ export default function NewsletterSignup() {
             onChange={(e) => setEmail(e.target.value)}
             disabled={status === "submitting" || status === "success"}
             placeholder="> EMAIL_ADDRESS"
+            autoComplete="email"
+            inputMode="email"
+            enterKeyHint="send"
             className="flex-1 rounded-md border border-slab-neon-cyan/20 bg-slab-black/60 px-4 py-2 font-mono text-sm text-slab-white placeholder:text-slab-muted/60 focus:border-slab-neon-cyan focus:outline-none focus:ring-1 focus:ring-slab-neon-cyan disabled:opacity-50"
           />
           <button

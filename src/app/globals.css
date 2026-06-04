@@ -30,10 +30,17 @@
 /* ── Base Styles ── */
 html {
   overflow-x: hidden;
+  /* Static gradient on <html> renders during the canvas's deferred mount,
+     so first paint never shows pure black. NeonAtmosphere paints over it. */
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 30%, var(--color-slab-haze) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 10% 90%, rgba(168, 85, 247, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(0, 240, 255, 0.06) 0%, transparent 60%),
+    var(--color-slab-black);
 }
 
 body {
-  background: var(--color-slab-black);
+  background: transparent;
   color: var(--color-slab-white);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -41,6 +48,8 @@ body {
   /* Keep body above NeonAtmosphere (which is fixed, z-0) */
   position: relative;
   z-index: 1;
+  /* Prevent rubber-band bounce + accidental nav pull-to-refresh on mobile */
+  overscroll-behavior-y: contain;
 }
 
 /* ── Scrollbar ── */

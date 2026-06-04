@@ -589,7 +589,7 @@ export default function CategoryHero({
   const accent = THEME_ACCENT[theme];
 
   return (
-    <section className="relative flex min-h-[60vh] items-center overflow-hidden">
+    <section className="relative flex min-h-[60svh] items-center overflow-hidden md:min-h-[60vh]">
       <Scene />
       {/* Top + bottom fade for legibility */}
       <div className="absolute inset-0 bg-gradient-to-b from-slab-black/40 via-transparent to-slab-black/80" />

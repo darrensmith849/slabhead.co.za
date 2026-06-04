@@ -31,7 +31,7 @@ export default async function Home() {
   return (
     <>
       {/* ═══ 1. HERO — "Walking In" ══════════════════════════════ */}
-      <section className="relative flex min-h-[88vh] items-center overflow-hidden">
+      <section className="relative flex min-h-[88svh] items-center overflow-hidden md:min-h-[88vh]">
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute inset-0"

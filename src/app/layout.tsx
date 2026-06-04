@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Audiowide } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import NeonAtmosphere from "@/components/atmosphere/NeonAtmosphere";
+// Client-side loader that dynamic-imports the canvas. Keeps it out of
+// SSR + the critical render path. Base gradient lives on <html>.
+import NeonAtmosphere from "@/components/atmosphere/NeonAtmosphereLoader";
 import { CartProvider } from "@/lib/cart-context";
 import "./globals.css";
 

@@ -117,6 +117,7 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   autoComplete="name"
+                  enterKeyHint="next"
                   className={cn(inputStyle, "mt-1")}
                 />
               </div>
@@ -130,6 +131,8 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   autoComplete="email"
+                  inputMode="email"
+                  enterKeyHint="next"
                   className={cn(inputStyle, "mt-1")}
                 />
               </div>
@@ -161,6 +164,7 @@ export default function ContactPage() {
                 onChange={handleChange}
                 required
                 rows={6}
+                enterKeyHint="send"
                 className={cn(inputStyle, "mt-1 resize-y")}
               />
             </div>

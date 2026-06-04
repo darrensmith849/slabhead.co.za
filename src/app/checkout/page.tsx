@@ -184,32 +184,32 @@ export default function CheckoutPage() {
           <NeonDivider label="// RECIPIENT_IDENTIFICATION" accent="cyan" className="mb-6" />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <Field label="> FIRST_NAME" error={fieldErrors.firstName}>
-              <input name="firstName" value={form.firstName} onChange={handleChange} className={inputStyle} required />
+              <input name="firstName" value={form.firstName} onChange={handleChange} className={inputStyle} required autoComplete="given-name" enterKeyHint="next" />
             </Field>
             <Field label="> LAST_NAME" error={fieldErrors.lastName}>
-              <input name="lastName" value={form.lastName} onChange={handleChange} className={inputStyle} required />
+              <input name="lastName" value={form.lastName} onChange={handleChange} className={inputStyle} required autoComplete="family-name" enterKeyHint="next" />
             </Field>
             <Field label="> EMAIL" error={fieldErrors.email} fullSpan>
-              <input name="email" type="email" value={form.email} onChange={handleChange} className={inputStyle} required />
+              <input name="email" type="email" value={form.email} onChange={handleChange} className={inputStyle} required autoComplete="email" inputMode="email" enterKeyHint="next" />
             </Field>
             <Field label="> PHONE" fullSpan>
-              <input name="phone" value={form.phone} onChange={handleChange} className={inputStyle} />
+              <input name="phone" type="tel" value={form.phone} onChange={handleChange} className={inputStyle} autoComplete="tel" inputMode="tel" enterKeyHint="next" />
             </Field>
           </div>
 
           <NeonDivider label="// SHIPPING_COORDINATES" accent="cyan" className="mt-8 mb-6" />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <Field label="> STREET_ADDRESS" error={fieldErrors.addressLine1} fullSpan>
-              <input name="addressLine1" value={form.addressLine1} onChange={handleChange} className={inputStyle} required />
+              <input name="addressLine1" value={form.addressLine1} onChange={handleChange} className={inputStyle} required autoComplete="address-line1" enterKeyHint="next" />
             </Field>
             <Field label="> ADDRESS_LINE_2" fullSpan>
-              <input name="addressLine2" value={form.addressLine2} onChange={handleChange} className={inputStyle} />
+              <input name="addressLine2" value={form.addressLine2} onChange={handleChange} className={inputStyle} autoComplete="address-line2" enterKeyHint="next" />
             </Field>
             <Field label="> CITY" error={fieldErrors.city}>
-              <input name="city" value={form.city} onChange={handleChange} className={inputStyle} required />
+              <input name="city" value={form.city} onChange={handleChange} className={inputStyle} required autoComplete="address-level2" enterKeyHint="next" />
             </Field>
             <Field label="> PROVINCE" error={fieldErrors.province}>
-              <select name="province" value={form.province} onChange={handleChange} className={inputStyle} required>
+              <select name="province" value={form.province} onChange={handleChange} className={inputStyle} required autoComplete="address-level1">
                 <option value="">[ SELECT ]</option>
                 {PROVINCES.map((p) => (
                   <option key={p} value={p}>
@@ -219,7 +219,7 @@ export default function CheckoutPage() {
               </select>
             </Field>
             <Field label="> POSTAL" error={fieldErrors.postalCode}>
-              <input name="postalCode" value={form.postalCode} onChange={handleChange} className={inputStyle} required />
+              <input name="postalCode" value={form.postalCode} onChange={handleChange} className={inputStyle} required autoComplete="postal-code" inputMode="numeric" pattern="[0-9]*" enterKeyHint="go" />
             </Field>
           </div>
 
