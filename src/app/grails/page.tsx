@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { getGrailProducts } from "@/lib/products";
 import { formatPrice } from "@/lib/utils";
 import CategoryHero from "@/components/atmosphere/CategoryHero";
@@ -55,10 +56,11 @@ export default async function GrailsPage() {
                       />
                       <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-slab-gold/15 to-transparent" />
                       {product.images[0]?.localPath && (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
+                        <Image
                           src={product.images[0].localPath}
                           alt={product.name}
+                          fill
+                          sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
                           className="absolute inset-0 h-full w-full object-contain p-8 transition-transform duration-700 group-hover:scale-105"
                         />
                       )}

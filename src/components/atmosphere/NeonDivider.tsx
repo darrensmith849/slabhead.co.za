@@ -10,32 +10,37 @@ interface NeonDividerProps {
 
 const ACCENT: Record<
   NonNullable<NeonDividerProps["accent"]>,
-  { line: string; tick: string; glow: string }
+  { line: string; tick: string; glow: string; text: string }
 > = {
   cyan: {
     line: "from-transparent via-slab-neon-cyan to-transparent",
     tick: "bg-slab-neon-cyan",
     glow: "neon-glow-cyan",
+    text: "text-slab-neon-cyan",
   },
   magenta: {
     line: "from-transparent via-slab-neon-magenta to-transparent",
     tick: "bg-slab-neon-magenta",
     glow: "neon-glow-magenta",
+    text: "text-slab-neon-magenta",
   },
   gold: {
     line: "from-transparent via-slab-gold to-transparent",
     tick: "bg-slab-gold",
     glow: "neon-glow-gold",
+    text: "text-slab-gold",
   },
   crimson: {
     line: "from-transparent via-slab-crimson to-transparent",
     tick: "bg-slab-crimson",
     glow: "neon-glow-crimson",
+    text: "text-slab-crimson",
   },
   electric: {
     line: "from-transparent via-slab-electric to-transparent",
     tick: "bg-slab-electric",
     glow: "neon-glow-cyan",
+    text: "text-slab-electric",
   },
 };
 
@@ -50,7 +55,8 @@ export default function NeonDivider({
       {label && (
         <span
           className={cn(
-            "font-mono text-xs uppercase tracking-widest text-slab-muted",
+            "font-mono text-xs uppercase tracking-widest",
+            a.text,
             a.glow,
           )}
         >
