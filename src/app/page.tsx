@@ -1,9 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import ProductCard from "@/components/ui/ProductCard";
 import CategoryCard from "@/components/ui/CategoryCard";
 import ServiceCard from "@/components/ui/ServiceCard";
+import NeonDivider from "@/components/atmosphere/NeonDivider";
+import NeonFrame from "@/components/atmosphere/NeonFrame";
+import RevealOnScroll from "@/components/atmosphere/RevealOnScroll";
+import TerminalText from "@/components/atmosphere/TerminalText";
+import NeonBadge from "@/components/atmosphere/NeonBadge";
+import MarqueeStrip from "@/components/atmosphere/MarqueeStrip";
+import ParallaxImage from "@/components/atmosphere/ParallaxImage";
 import {
   getNewDrops,
   getFeaturedProducts,
@@ -23,322 +29,437 @@ export default async function Home() {
 
   return (
     <>
-      {/* ── 1. HERO ── */}
-      <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-slab-black">
-        {/* Background image */}
-        <Image
-          src="/wp-uploads/2025/01/003-SH-Neon-03-1024x585.jpg"
-          alt=""
-          fill
-          priority
-          className="object-cover opacity-30"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-slab-black via-slab-black/80 to-transparent" />
+      {/* ═══ 1. HERO — "Walking In" ══════════════════════════════ */}
+      <section className="relative flex min-h-[88vh] items-center overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(ellipse 60% 50% at 30% 40%, rgba(0, 240, 255, 0.08) 0%, transparent 60%), " +
+                "radial-gradient(ellipse 50% 40% at 70% 60%, rgba(255, 0, 200, 0.06) 0%, transparent 60%)",
+            }}
+          />
+          <div className="absolute inset-0 scanlines opacity-30" />
+        </div>
 
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div className="relative mx-auto grid w-full max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
           <div className="flex flex-col justify-center">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-slab-crimson/30 bg-slab-crimson/10 px-3 py-1 text-xs font-medium text-slab-crimson">
-              PSA &middot; CGC &middot; BGS Authenticated
-            </span>
-            <h1 className="mt-6 text-4xl font-extrabold leading-tight tracking-tight text-slab-white sm:text-5xl lg:text-6xl">
-              South Africa&apos;s Home for{" "}
-              <span className="text-slab-crimson">Graded Cards</span>
+            <NeonBadge tone="cyan" intensity="high" className="w-fit">
+              // PSA · CGC · BGS // AUTHENTICATED
+            </NeonBadge>
+
+            <h1 className="mt-6 font-display text-4xl leading-[1.05] tracking-tight text-slab-white sm:text-5xl lg:text-6xl">
+              <TerminalText text="SOUTH AFRICA'S" speed={45} cursor={false} as="span" className="block" />
+              <span className="block mt-1 text-slab-neon-cyan neon-glow-cyan">
+                <TerminalText text="HOME FOR" speed={45} startDelay={700} cursor={false} as="span" />
+              </span>
+              <span className="block mt-1 text-slab-crimson neon-glow-crimson">
+                <TerminalText text="GRADED CARDS" speed={45} startDelay={1400} cursor={false} as="span" />
+              </span>
             </h1>
-            <p className="mt-4 max-w-lg text-lg leading-relaxed text-slab-muted">
-              Rare Pokémon, Yu-Gi-Oh &amp; Magic: The Gathering cards — professionally
-              graded, securely shipped from Cape Town. Plus Japanese culture
-              collectables, books &amp; art.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/shop" size="lg">
-                Browse the Shop
-              </Button>
-              <Button href="/slabhunter" variant="secondary" size="lg">
-                Can&apos;t Find It? We Hunt It
-              </Button>
-            </div>
+
+            <RevealOnScroll variant="fade-up" delay={1.8}>
+              <p className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-slab-muted">
+                {">"} Rare Pokémon, Yu-Gi-Oh & Magic: The Gathering cards — professionally
+                graded, securely shipped from Cape Town. Plus Japanese culture
+                collectables, books & art.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button href="/shop" variant="neon" size="lg" terminalPrefix>
+                  BROWSE_INVENTORY
+                </Button>
+                <Button href="/slabhunter" variant="secondary" size="lg">
+                  CAN&apos;T FIND IT? WE HUNT IT
+                </Button>
+              </div>
+            </RevealOnScroll>
           </div>
 
-          {/* Featured card showcase */}
+          {/* Featured card showcase — abstract, no real imagery */}
           <div className="hidden items-center justify-center lg:flex">
-            <div className="relative">
+            <div className="relative h-[420px] w-[300px]">
               {[
-                { src: "/wp-uploads/2025/02/Scene-02-624x357.jpg", alt: "Graded card collection" },
-                { src: "/wp-uploads/2025/01/WhatsApp-Image-2025-01-15-at-14.12.08-300x270.jpeg", alt: "PSA graded slab" },
-                { src: "/wp-uploads/2025/02/Slab-Hunter-Edit-624x357.jpg", alt: "Premium slabs" },
-              ].map((card, i) => {
-                const offsets = [
-                  "rotate-[-6deg] translate-x-[-40px]",
-                  "rotate-0 z-10 scale-105",
-                  "rotate-[6deg] translate-x-[40px]",
-                ];
-                return (
-                  <div
-                    key={card.src}
-                    className={`${i === 1 ? "relative" : "absolute top-0"} ${offsets[i]} transition-transform duration-500`}
-                  >
-                    <div className="h-[360px] w-[260px] overflow-hidden rounded-xl border border-white/10 bg-slab-surface shadow-2xl">
-                      <Image
-                        src={card.src}
-                        alt={card.alt}
-                        width={260}
-                        height={360}
-                        className="h-full w-full object-cover"
-                      />
+                { rotate: "-8deg", x: "-60px", y: "10px", z: 0, color: "from-slab-crimson/40 to-transparent" },
+                { rotate: "0deg", x: "0px", y: "0px", z: 10, color: "from-slab-neon-cyan/40 to-transparent" },
+                { rotate: "8deg", x: "60px", y: "10px", z: 0, color: "from-slab-electric/40 to-transparent" },
+              ].map((card, i) => (
+                <div
+                  key={i}
+                  className="absolute top-0 left-1/2 h-[400px] w-[280px] -translate-x-1/2"
+                  style={{
+                    transform: `translate(calc(-50% + ${card.x}), ${card.y}) rotate(${card.rotate})`,
+                    zIndex: card.z,
+                  }}
+                >
+                  <NeonFrame accent={i === 0 ? "crimson" : i === 1 ? "cyan" : "electric"}>
+                    <div className="relative h-[398px] w-[278px] overflow-hidden rounded-[11px] scanlines">
+                      <div className={`absolute inset-0 bg-gradient-to-br ${card.color}`} />
+                      <div className="absolute inset-0 bg-slab-charcoal/60" />
+                      <div className="absolute inset-0 flex flex-col justify-between p-5">
+                        <div className="flex items-start justify-between">
+                          <span className="font-mono text-[10px] uppercase tracking-widest text-slab-neon-cyan/80">
+                            PSA · {10 - i}
+                          </span>
+                          <div
+                            className="h-2 w-2 rounded-full"
+                            style={{
+                              backgroundColor: ["#C9165A", "#00F0FF", "#A855F7"][i],
+                              boxShadow: `0 0 8px ${["rgba(201,22,90,0.7)", "rgba(0,240,255,0.7)", "rgba(168,85,247,0.7)"][i]}`,
+                            }}
+                          />
+                        </div>
+                        <div>
+                          <div className="font-mono text-[9px] uppercase tracking-widest text-slab-muted">
+                            // SPECIMEN_{(i + 1).toString().padStart(3, "0")}
+                          </div>
+                          <div className="mt-1 h-px w-full bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  </NeonFrame>
+                </div>
+              ))}
             </div>
           </div>
         </div>
+
+        {/* Bottom marquee */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <MarqueeStrip
+            items={[
+              "PSA_AUTHENTICATED",
+              "CGC_VERIFIED",
+              "BGS_GRADED",
+              "CAPE_TOWN.ZA",
+              "INSURED_SHIPPING",
+              "WORLDWIDE_HUNTING",
+              "EXPERT_AUTHENTICATION",
+            ]}
+            tone="cyan"
+          />
+        </div>
       </section>
 
-      {/* ── 2. TRUST STRIP ── */}
-      <section className="border-y border-white/5 bg-slab-charcoal/50">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-6 px-4 py-5 sm:gap-10 sm:px-6">
+      {/* ═══ 2. SPECS BAR ═══════════════════════════════════════ */}
+      <section className="relative border-y border-white/[0.05] bg-slab-charcoal/40 backdrop-blur-sm">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-4 py-4 sm:px-6">
           {[
-            { icon: "🛡️", label: "PSA & CGC Certified" },
-            { icon: "🔒", label: "Secure Checkout" },
-            { icon: "🇿🇦", label: "Based in Cape Town" },
-            { icon: "📦", label: "Insured Shipping" },
-            { icon: "💎", label: "100+ Graded Cards" },
-          ].map((badge) => (
-            <div key={badge.label} className="flex items-center gap-2 text-sm text-slab-muted">
-              <span>{badge.icon}</span>
-              <span>{badge.label}</span>
+            { label: "PSA_CGC_VERIFIED", color: "text-slab-gold", bg: "bg-slab-gold" },
+            { label: "SECURE_CHECKOUT", color: "text-slab-success", bg: "bg-slab-success" },
+            { label: "CAPE_TOWN_BASED", color: "text-slab-neon-cyan", bg: "bg-slab-neon-cyan" },
+            { label: "INSURED_SHIPPING", color: "text-slab-electric", bg: "bg-slab-electric" },
+            { label: "100+_SPECIMENS", color: "text-slab-crimson-light", bg: "bg-slab-crimson-light" },
+          ].map((b) => (
+            <div key={b.label} className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest">
+              <span className={`h-1.5 w-1.5 rounded-full ${b.bg}`} />
+              <span className={b.color}>{b.label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── 3. NEW DROPS ── */}
-      <section className="py-16">
+      {/* ═══ 3. LATEST ACQUISITIONS ════════════════════════════ */}
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between">
+          <div className="flex items-end justify-between gap-4">
             <div>
-              <h2 className="text-2xl font-bold text-slab-white">New Drops</h2>
-              <p className="mt-1 text-sm text-slab-muted">Just landed in the vault</p>
+              <NeonDivider label="// LATEST_ACQUISITIONS" accent="cyan" className="mb-4" />
+              <h2 className="font-display text-3xl text-slab-white">Latest Acquisitions</h2>
+              <p className="mt-1 font-mono text-xs uppercase tracking-widest text-slab-muted">
+                {">"} JUST LANDED IN THE VAULT
+              </p>
             </div>
-            <Link href="/shop" className="text-sm font-medium text-slab-crimson hover:text-slab-crimson-light transition-colors">
-              View All →
+            <Link
+              href="/new"
+              className="hidden font-mono text-xs uppercase tracking-widest text-slab-neon-cyan hover:neon-glow-cyan sm:inline-flex"
+            >
+              VIEW_ALL {">"}
             </Link>
           </div>
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-6">
+          <RevealOnScroll
+            variant="fade-up"
+            stagger={0.06}
+            className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-6"
+          >
             {newDrops.map((product) => (
               <ProductCard key={product.slug} product={product} />
             ))}
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
-      {/* ── 4. HOT RIGHT NOW ── */}
-      <section className="bg-slab-charcoal/30 py-16">
+      {/* ═══ 4. TRENDING CASES — magenta tint ═════════════════ */}
+      <section
+        className="relative py-20 scanlines"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 80% at 70% 50%, rgba(255, 0, 200, 0.06) 0%, transparent 60%)",
+        }}
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between">
+          <div className="flex items-end justify-between gap-4">
             <div>
-              <h2 className="text-2xl font-bold text-slab-white">Hot Right Now</h2>
-              <p className="mt-1 text-sm text-slab-muted">Staff picks &amp; top sellers</p>
+              <NeonDivider label="// TRENDING_CASES" accent="magenta" className="mb-4" />
+              <h2 className="font-display text-3xl text-slab-white">Trending Cases</h2>
+              <p className="mt-1 font-mono text-xs uppercase tracking-widest text-slab-muted">
+                {">"} STAFF PICKS & TOP SELLERS
+              </p>
             </div>
-            <Link href="/shop" className="text-sm font-medium text-slab-crimson hover:text-slab-crimson-light transition-colors">
-              View All →
+            <Link
+              href="/shop"
+              className="hidden font-mono text-xs uppercase tracking-widest text-slab-neon-magenta hover:neon-glow-magenta sm:inline-flex"
+            >
+              VIEW_ALL {">"}
             </Link>
           </div>
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:gap-6">
+          <RevealOnScroll
+            variant="fade-up"
+            stagger={0.06}
+            className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:gap-6"
+          >
             {hotProducts.map((product) => (
               <ProductCard key={product.slug} product={product} />
             ))}
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
-      {/* ── 5. CATEGORY CARDS ── */}
-      <section className="py-16">
+      {/* ═══ 5. CHOOSE YOUR FACTION ═══════════════════════════ */}
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-slab-white">Browse by Category</h2>
-          <p className="mt-1 text-sm text-slab-muted">Find exactly what you&apos;re after</p>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <NeonDivider label="// FACTIONS" accent="electric" className="mb-4" />
+          <h2 className="font-display text-3xl text-slab-white">Choose Your Faction</h2>
+          <p className="mt-1 font-mono text-xs uppercase tracking-widest text-slab-muted">
+            {">"} FIND EXACTLY WHAT YOU&apos;RE AFTER
+          </p>
+          <RevealOnScroll
+            variant="scale"
+            stagger={0.08}
+            className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          >
             <CategoryCard
               title="Pokémon"
               description="Graded slabs, sealed product & accessories"
               href="/pokemon"
               count={(categoryCounts["Pokemon"] || 0) + (categoryCounts["TCG Accessories"] || 0)}
-              icon={<span>⚡</span>}
-              bgImage="/wp-uploads/2025/01/ash_ketchum___pokemon____ai__by_anastassia027_dhxhjh5-pre-e1737031249745-768x440.jpg"
+              scene="pokemon"
+              icon="⚡"
             />
             <CategoryCard
               title="Yu-Gi-Oh"
               description="Sealed boxes and structure decks"
               href="/yu-gi-oh"
               count={categoryCounts["Yu-Gi-Oh"] || 0}
-              icon={<span>🃏</span>}
-              bgImage="/wp-uploads/2025/01/Screenshot-2025-01-16-at-14.34.54-624x354.jpg"
+              scene="yugioh"
+              icon="◈"
             />
             <CategoryCard
               title="Magic: The Gathering"
-              description="Collector boosters and commander decks"
+              description="Collector boosters & commander decks"
               href="/mtg"
               count={categoryCounts["Magic the Gathering"] || 0}
-              icon={<span>🧙</span>}
-              bgImage="/wp-uploads/2025/01/Screenshot-2025-01-16-at-14.34.44-624x352.jpg"
+              scene="mtg"
+              icon="◊"
             />
             <CategoryCard
-              title="Culture & Books"
-              description="Japanese literature, art books, zen & manga"
+              title="Culture"
+              description="Japanese literature, art, zen & manga"
               href="/culture"
-              count={(categoryCounts["Books"] || 0) + (categoryCounts["Stationery"] || 0)}
-              icon={<span>📚</span>}
-              bgImage="/wp-uploads/2025/02/DALLE-2025-02-10-04.37.48-A-minimalistic-cyberpunk-inspired-desk-setup-with-a-few-carefully-placed-stationery-items.-The-desk-has-a-sleek-futuristic-design-with-subtle-neon-li.webp"
+              count={(categoryCounts["Books"] || 0) + (categoryCounts["Stationery"] || 0) + (categoryCounts["Art"] || 0)}
+              scene="culture"
+              icon="花"
             />
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
-      {/* ── 6. GRAIL VAULT ── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slab-black via-slab-charcoal to-slab-black py-20">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.05),transparent_70%)]" />
+      {/* ═══ 6. THE PRIVATE COLLECTION — gold ═════════════════ */}
+      <section
+        className="relative overflow-hidden py-24"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at center, rgba(212, 175, 55, 0.08) 0%, transparent 50%), " +
+            "linear-gradient(180deg, transparent, rgba(10, 10, 15, 0.6) 50%, transparent)",
+        }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, transparent 30%, rgba(10, 10, 15, 0.5) 100%)",
+          }}
+        />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="inline-flex items-center gap-1 rounded-full border border-slab-gold/30 bg-slab-gold/10 px-3 py-1 text-xs font-mono font-medium text-slab-gold">
-              💎 GRAIL VAULT
-            </span>
-            <h2 className="mt-4 text-3xl font-bold text-slab-white">
-              These Don&apos;t Come Around Often
+            <NeonBadge tone="gold" intensity="high">
+              // VAULT_ACCESS_REQUIRED
+            </NeonBadge>
+            <h2 className="mt-6 font-display text-4xl text-slab-gold neon-glow-gold">
+              The Private Collection
             </h2>
-            <p className="mt-2 text-slab-muted">
-              Premium graded cards &amp; collector pieces for serious enthusiasts
+            <p className="mt-3 font-mono text-xs uppercase tracking-widest text-slab-muted">
+              {">"} THESE DON&apos;T COME AROUND OFTEN · PREMIUM SLABS FOR SERIOUS COLLECTORS
             </p>
           </div>
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <RevealOnScroll
+            variant="fade-up"
+            stagger={0.1}
+            className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          >
             {grails.map((product) => (
-              <Link
-                key={product.slug}
-                href={`/product/${product.slug}`}
-                className="card-shimmer group relative overflow-hidden rounded-2xl border border-slab-gold/20 bg-slab-surface p-1 transition-all duration-500 hover:border-slab-gold/40 hover:shadow-[0_0_48px_rgba(212,175,55,0.15)]"
-              >
-                <div className="overflow-hidden rounded-xl bg-slab-charcoal">
-                  <div className="relative aspect-[3/4]">
-                    <Image
-                      src={product.images[0]?.localPath || "/images/placeholder.svg"}
-                      alt={product.name}
-                      fill
-                      className="object-contain p-6 transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-bold text-slab-white">{product.name}</h3>
-                    <p className="mt-1 text-sm text-slab-muted">{product.description}</p>
-                    <div className="mt-3 flex items-center justify-between">
-                      <span className="font-mono text-xl font-bold text-slab-gold">
-                        {formatPrice(product.price)}
-                      </span>
-                      {product.gradeCompany && product.gradeScore !== undefined && (
-                        <span className="rounded-md bg-slab-gold/10 px-2 py-0.5 font-mono text-xs font-bold text-slab-gold">
-                          {product.gradeCompany} {product.gradeScore}
-                        </span>
+              <Link key={product.slug} href={`/product/${product.slug}`} className="group block">
+                <NeonFrame accent="gold">
+                  <div className="overflow-hidden rounded-[11px] bg-slab-black">
+                    <div className="relative aspect-[3/4] scanlines">
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background:
+                            "radial-gradient(ellipse at center top, rgba(212, 175, 55, 0.15) 0%, transparent 50%)",
+                        }}
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-slab-gold/15 to-transparent" />
+                      {product.images[0]?.localPath && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={product.images[0].localPath}
+                          alt={product.name}
+                          className="absolute inset-0 h-full w-full object-contain p-8 transition-transform duration-700 group-hover:scale-105"
+                        />
                       )}
                     </div>
+                    <div className="p-6">
+                      <h3 className="font-display text-lg text-slab-white">{product.name}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-slab-muted line-clamp-2">
+                        {product.description}
+                      </p>
+                      <div className="mt-4 flex items-center justify-between">
+                        <span className="font-mono text-2xl font-bold text-slab-gold neon-glow-gold">
+                          {formatPrice(product.price)}
+                        </span>
+                        {product.gradeCompany && product.gradeScore !== undefined && (
+                          <span className="rounded border border-slab-gold/40 bg-slab-gold/10 px-2 py-0.5 font-mono text-xs font-bold text-slab-gold">
+                            {product.gradeCompany} {product.gradeScore}
+                          </span>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </NeonFrame>
               </Link>
             ))}
+          </RevealOnScroll>
+          <div className="mt-12 text-center">
+            <Button href="/grails" variant="neon" size="lg" terminalPrefix>
+              ENTER_VAULT
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* ── 7. SERVICES STRIP ── */}
-      <section className="py-16">
+      {/* ═══ 7. THE NETWORK ═══════════════════════════════════ */}
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-slab-white">Our Services</h2>
-          <p className="mt-1 text-sm text-slab-muted">
-            More than a shop — we help collectors buy, sell, trade and protect their cards
+          <NeonDivider label="// THE_NETWORK" accent="cyan" className="mb-4" />
+          <h2 className="font-display text-3xl text-slab-white">Our Services</h2>
+          <p className="mt-1 font-mono text-xs uppercase tracking-widest text-slab-muted">
+            {">"} 5 MODULES // ONLINE // READY FOR COMMANDS
           </p>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <RevealOnScroll
+            variant="fade-up"
+            stagger={0.08}
+            className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5"
+          >
             <ServiceCard
               title="SlabHunter"
-              description="Can't find it locally? We'll source it for you worldwide."
+              description="Can&apos;t find it locally? We&apos;ll source it worldwide."
               href="/slabhunter"
-              icon={<svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>}
+              icon={
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              }
             />
             <ServiceCard
               title="SlabTrader"
-              description="Want to trade? List what you have and what you're after."
+              description="Want to trade? List what you have and what you want."
               href="/slabtrader"
-              icon={<svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>}
+              icon={
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+              }
             />
             <ServiceCard
               title="We Buy Cards"
-              description="Need cash? We'll buy your collection at a fair price."
+              description="Need cash? We&apos;ll buy your collection at a fair price."
               href="/we-buy-cards"
-              icon={<svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" /></svg>}
+              icon={
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                </svg>
+              }
             />
             <ServiceCard
               title="Slabbing"
-              description="Get your cards professionally graded by PSA, CGC or BGS."
+              description="Get cards professionally graded by PSA, CGC or BGS."
               href="/slabbing"
-              icon={<svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>}
+              icon={
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              }
             />
             <ServiceCard
               title="Loan Broker"
-              description="Use your graded cards as collateral for competitive-rate loans."
+              description="Use your slabs as collateral for competitive-rate loans."
               href="/loan-broker"
-              icon={<svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>}
+              icon={
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              }
             />
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
-      {/* ── 8. CULTURE TEASER ── */}
-      <section className="bg-slab-charcoal/30 py-16">
+      {/* ═══ 8. BEYOND THE VAULT — culture anchor (one real image) ═ */}
+      <section
+        className="relative overflow-hidden py-20"
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 40% at 30% 50%, rgba(255, 0, 200, 0.06) 0%, transparent 60%)",
+        }}
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between">
-            <div>
-              <h2 className="text-2xl font-bold text-slab-white">Beyond the Cards</h2>
-              <p className="mt-1 text-sm text-slab-muted">
-                Japanese culture, art, books &amp; stationery
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <RevealOnScroll variant="slide-in-x">
+              <NeonDivider label="// EASTERN_WING" accent="magenta" className="mb-4" />
+              <h2 className="font-display text-3xl text-slab-white">Beyond the Cards</h2>
+              <p className="mt-3 max-w-md font-mono text-sm leading-relaxed text-slab-muted">
+                {">"} Japanese culture, art, books & stationery. The collector&apos;s world doesn&apos;t end at sleeves.
               </p>
-            </div>
-            <Link href="/culture" className="text-sm font-medium text-slab-crimson hover:text-slab-crimson-light transition-colors">
-              Explore Culture →
-            </Link>
+              <div className="mt-6">
+                <Button href="/culture" variant="neon" size="md" terminalPrefix>
+                  EXPLORE_CULTURE
+                </Button>
+              </div>
+            </RevealOnScroll>
+            <RevealOnScroll variant="fade-up">
+              <ParallaxImage
+                src="/wp-uploads/2025/03/DALLE-2025-02-10-04.37.48-A-minimalistic-cyberpunk-inspired-desk-setup-with-a-few-carefully-placed-stationery-items.-The-desk-has-a-sleek-futuristic-design-with-subtle-neon-li.jpg"
+                alt="Culture collection"
+                accent="magenta"
+                aspect="4/3"
+              />
+            </RevealOnScroll>
           </div>
 
-          {/* Culture visual banner */}
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <Link href="/culture" className="group relative overflow-hidden rounded-xl aspect-[16/9]">
-              <Image
-                src="/wp-uploads/2025/02/DALLE-2025-01-16-12.23.34-A-cyberpunk-inspired-cover-photo-for-a-trading-card-platform-set-in-a-secretive-back-alley.-Two-silhouettes-are-trading-cards-under-the-glow-of-neon-1-2.jpg"
-                alt="Trading card culture"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slab-black/80 to-transparent" />
-              <div className="absolute bottom-4 left-4">
-                <span className="text-lg font-bold text-slab-white">The Trading Scene</span>
-              </div>
-            </Link>
-            <Link href="/culture" className="group relative overflow-hidden rounded-xl aspect-[16/9]">
-              <Image
-                src="/wp-uploads/2025/02/Slab-Hunter-Edit-1024x585.jpg"
-                alt="SlabHunter service"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slab-black/80 to-transparent" />
-              <div className="absolute bottom-4 left-4">
-                <span className="text-lg font-bold text-slab-white">Collector Culture</span>
-              </div>
-            </Link>
-          </div>
-
-          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-6">
-            {[
-              ...cultureProducts.filter((p) => ["Books", "Stationery", "Art"].includes(p.category)),
-            ]
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-6">
+            {cultureProducts
+              .filter((p) => ["Books", "Stationery", "Art"].includes(p.category))
               .slice(0, 4)
               .map((product) => (
                 <ProductCard key={product.slug} product={product} />
@@ -347,44 +468,63 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ── 9. ABOUT/STORY ── */}
-      <section className="py-16">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-          <h2 className="text-2xl font-bold text-slab-white">
-            Built by Collectors, for Collectors
-          </h2>
-          <p className="mt-4 leading-relaxed text-slab-muted">
-            Slabhead started with a simple dream: grow South Africa&apos;s collector
-            market and give local enthusiasts a safe, trusted place to find
-            graded cards they can&apos;t get anywhere else. Based in Cape Town,
-            we hand-pick every slab and ship with care. Whether you&apos;re
-            chasing a childhood Charizard or building a gem-mint Pikachu
-            collection, we&apos;re here to help you find your next grail.
-          </p>
-          <div className="mt-6">
-            <Button href="/about-us" variant="secondary">
-              Our Story
-            </Button>
-          </div>
+      {/* ═══ 9. FOUNDER'S LOG ════════════════════════════════ */}
+      <section className="py-24">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <RevealOnScroll variant="fade-up">
+            <NeonBadge tone="muted" intensity="medium">
+              // ENTRY_001 · 2025_07_01 · ORIGIN
+            </NeonBadge>
+            <h2 className="mt-6 font-display text-3xl text-slab-white">
+              Built by Collectors, for Collectors
+            </h2>
+            <p className="mt-6 font-mono text-sm leading-relaxed text-slab-muted">
+              Slabhead started with a simple dream: grow South Africa&apos;s collector
+              market and give local enthusiasts a safe, trusted place to find
+              graded cards they can&apos;t get anywhere else. Based in Cape Town,
+              we hand-pick every slab and ship with care. Whether you&apos;re
+              chasing a childhood Charizard or building a gem-mint Pikachu
+              collection, we&apos;re here to help you find your next grail.
+              <span className="terminal-cursor" />
+            </p>
+            <div className="mt-8">
+              <Button href="/about-us" variant="secondary" size="md">
+                Read the Founder&apos;s Log
+              </Button>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
-      {/* ── 10. CTA ── */}
-      <section className="border-t border-white/5 bg-gradient-to-r from-slab-crimson/20 via-slab-black to-slab-crimson/20 py-16">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-          <h2 className="text-2xl font-bold text-slab-white sm:text-3xl">
-            Looking for Something Specific?
+      {/* ═══ 10. INITIATE — final CTA ════════════════════════ */}
+      <section
+        className="relative overflow-hidden border-t border-white/[0.05] py-24"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 60% at center, rgba(0, 240, 255, 0.10) 0%, rgba(168, 85, 247, 0.05) 50%, transparent 80%)",
+        }}
+      >
+        <div className="absolute inset-0 scanlines opacity-40" />
+        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
+          <NeonBadge tone="cyan" intensity="high">
+            // INITIATE
+          </NeonBadge>
+          <h2 className="mt-6 font-display text-4xl text-slab-white sm:text-5xl">
+            <span className="block">Looking for</span>
+            <span className="block mt-1 text-slab-neon-cyan neon-glow-cyan">
+              Something Specific?
+            </span>
           </h2>
-          <p className="mt-3 text-slab-muted">
-            Our SlabHunter service can track down any card, anywhere in the
-            world. Tell us what you&apos;re after and we&apos;ll make it happen.
+          <p className="mx-auto mt-6 max-w-xl font-mono text-sm leading-relaxed text-slab-muted">
+            {">"} Our SlabHunter network can track down any card, anywhere in
+            the world. Tell us what you&apos;re after and we&apos;ll make it happen.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Button href="/slabhunter" size="lg">
-              Start a Hunt
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <Button href="/slabhunter" variant="neon" size="lg" terminalPrefix>
+              START_A_HUNT
             </Button>
             <Button href="/contact-us" variant="secondary" size="lg">
-              Get in Touch
+              GET IN TOUCH
             </Button>
           </div>
         </div>
