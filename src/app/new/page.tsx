@@ -31,8 +31,8 @@ export default async function NewDropsPage() {
           stagger={0.04}
           className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-6"
         >
-          {drops.map((p) => (
-            <ProductCard key={p.slug} product={p} />
+          {drops.map((p, i) => (
+            <ProductCard key={p.slug} product={p} priority={i < 2} />
           ))}
         </RevealOnScroll>
       </div>

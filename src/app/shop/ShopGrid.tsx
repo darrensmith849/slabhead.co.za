@@ -86,8 +86,8 @@ export default function ShopGrid({ products: allProducts, categories, gradeCompa
         stagger={0.04}
         className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-6"
       >
-        {filtered.map((product) => (
-          <ProductCard key={product.slug} product={product} />
+        {filtered.map((product, i) => (
+          <ProductCard key={product.slug} product={product} priority={i < 2} />
         ))}
       </RevealOnScroll>
 

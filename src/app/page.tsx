@@ -183,8 +183,8 @@ export default async function Home() {
             stagger={0.06}
             className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-6"
           >
-            {newDrops.map((product) => (
-              <ProductCard key={product.slug} product={product} />
+            {newDrops.map((product, i) => (
+              <ProductCard key={product.slug} product={product} priority={i < 2} />
             ))}
           </RevealOnScroll>
         </div>

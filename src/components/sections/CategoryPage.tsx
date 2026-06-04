@@ -100,8 +100,8 @@ export default function CategoryPage({
               stagger={0.05}
               className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-6"
             >
-              {inStock.map((p) => (
-                <ProductCard key={p.slug} product={p} />
+              {inStock.map((p, i) => (
+                <ProductCard key={p.slug} product={p} priority={i < 2} />
               ))}
             </RevealOnScroll>
           </>

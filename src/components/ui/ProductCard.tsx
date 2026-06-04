@@ -9,9 +9,11 @@ import { cn } from "@/lib/utils";
 interface ProductCardProps {
   product: Product;
   variant?: "grid" | "featured";
+  /** Mark this card as LCP-eligible — only set on the first 1-2 cards above the fold */
+  priority?: boolean;
 }
 
-export default function ProductCard({ product, variant = "grid" }: ProductCardProps) {
+export default function ProductCard({ product, variant = "grid", priority = false }: ProductCardProps) {
   const imageSrc =
     product.images[0]?.localPath || product.images[0]?.url || "/images/placeholder.svg";
   const isSold = product.availability === "OutOfStock";
@@ -31,6 +33,9 @@ export default function ProductCard({ product, variant = "grid" }: ProductCardPr
             src={imageSrc}
             alt={product.name}
             fill
+            priority={priority}
+            // fetchPriority hint for non-priority cards — non-blocking
+            {...(!priority && { loading: "lazy" as const })}
             className="object-contain p-4 transition-transform duration-700 group-hover:scale-[1.04]"
             sizes={
               variant === "featured"
