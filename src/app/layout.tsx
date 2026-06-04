@@ -35,13 +35,24 @@ export const metadata: Metadata = {
   description:
     "Discover rare Pokémon cards, Yu-Gi-Oh, Magic: The Gathering and Japanese culture collectables. PSA, CGC & BGS authenticated. Shipped from Cape Town, South Africa.",
   metadataBase: new URL("https://slabhead.co.za"),
+  // OpenGraph + Twitter cards drive link previews on WhatsApp, FB,
+  // iMessage, LinkedIn, Slack, Discord, Twitter. The actual image is
+  // auto-injected by Next from src/app/opengraph-image.tsx +
+  // twitter-image.tsx — these fields supply the surrounding text.
   openGraph: {
     type: "website",
     locale: "en_ZA",
     siteName: "Slabhead",
     title: "Slabhead — South Africa's Home for Graded Cards",
     description:
-      "Discover rare Pokémon cards, Yu-Gi-Oh, Magic: The Gathering and Japanese culture collectables. PSA, CGC & BGS authenticated.",
+      "Rare Pokémon, Yu-Gi-Oh & Magic: The Gathering cards — professionally graded, securely shipped from Cape Town. Plus Japanese culture collectables.",
+    url: "https://slabhead.co.za",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Slabhead — South Africa's Home for Graded Cards",
+    description:
+      "Rare Pokémon, Yu-Gi-Oh & Magic: The Gathering cards — professionally graded, securely shipped from Cape Town.",
   },
   robots: {
     index: true,
