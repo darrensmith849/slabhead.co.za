@@ -146,20 +146,13 @@ export default function NeonAtmosphere() {
       const dt = Math.min(now - lastTime, 50);
       lastTime = now;
 
-      // Mobile / touch: clear fully each frame — no trail. At 30fps the
-      // alpha-overpaint approach leaves visible smudges between repaints
-      // (the overpaint only runs half as often per second as on desktop),
-      // and the cumulative effect looks like fingerprints on the screen.
-      // Particles still move + pulse, they just don't smear.
-      //
-      // Desktop / pointer:fine: keep the soft motion-blur overpaint —
-      // 60fps clears it fast enough that it reads as glow, not residue.
-      if (targetFrameMs > 0) {
-        ctx.clearRect(0, 0, width, height);
-      } else {
-        ctx.fillStyle = "rgba(10, 10, 15, 0.22)";
-        ctx.fillRect(0, 0, width, height);
-      }
+      // Clear the canvas every frame on every device. The alpha-overpaint
+      // "soft motion blur" trail looked good in theory but in practice the
+      // canvas alpha compounds frame-over-frame — after a minute of sitting
+      // on a page, the residue reads as smudges / fingerprints across the
+      // viewport. Crisp particles with no trail is the correct call;
+      // motion comes from the particle movement itself, not from blur.
+      ctx.clearRect(0, 0, width, height);
 
       // Particles
       ctx.globalCompositeOperation = "lighter";
@@ -233,27 +226,13 @@ export default function NeonAtmosphere() {
     <div
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
-      style={{
-        background:
-          "radial-gradient(ellipse 80% 60% at 50% 30%, var(--color-slab-haze) 0%, transparent 60%), " +
-          "radial-gradient(ellipse 60% 40% at 10% 90%, rgba(168, 85, 247, 0.08) 0%, transparent 60%), " +
-          "radial-gradient(ellipse 60% 40% at 90% 10%, rgba(0, 240, 255, 0.06) 0%, transparent 60%), " +
-          "var(--color-slab-black)",
-      }}
+      // No background here — the layered radial gradients now live on <html>
+      // in globals.css. Duplicating them here was stacking two copies, which
+      // combined with the canvas trails (now fixed) produced the mottled
+      // "smudge" pattern across the viewport.
     >
       {/* Particle canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
-
-      {/* Slow drifting fog overlay */}
-      <div
-        className="absolute inset-0 opacity-40"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 80% at 30% 40%, rgba(168, 85, 247, 0.10) 0%, transparent 50%), " +
-            "radial-gradient(ellipse 50% 70% at 70% 60%, rgba(0, 240, 255, 0.08) 0%, transparent 50%)",
-          animation: "fog-drift 60s ease-in-out infinite",
-        }}
-      />
 
       {/* Bottom city silhouette — abstract Cape Town skyline rendered as SVG */}
       <svg
