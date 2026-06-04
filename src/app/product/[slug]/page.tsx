@@ -6,19 +6,18 @@ import { getAllProducts, getProductBySlug, getRelatedProducts } from "@/lib/prod
 import { formatPrice } from "@/lib/utils";
 import GradeBadge from "@/components/ui/GradeBadge";
 import Button from "@/components/ui/Button";
+import AddToCartButton from "@/components/ui/AddToCartButton";
 import ProductCard from "@/components/ui/ProductCard";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return getAllProducts().map((p) => ({ slug: p.slug }));
-}
+export const dynamicParams = true;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
   if (!product) return { title: "Product Not Found" };
 
   return {
@@ -36,10 +35,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
   if (!product) notFound();
 
-  const related = getRelatedProducts(product, 4);
+  const related = await getRelatedProducts(product, 4);
   const imageSrc = product.images[0]?.localPath || "/images/placeholder.svg";
 
   // JSON-LD structured data
@@ -190,16 +189,21 @@ export default async function ProductPage({ params }: Props) {
 
             {/* CTA */}
             <div className="mt-8 flex flex-wrap gap-3">
-              {product.availability === "InStock" ? (
+              <AddToCartButton
+                productId={product.id!}
+                slug={product.slug}
+                name={product.name}
+                price={product.price}
+                image={imageSrc}
+                available={product.availability === "InStock"}
+              />
+              {product.availability === "InStock" && (
                 <Button
                   href={`https://wa.me/27000000000?text=${encodeURIComponent(`Hi, I'm interested in: ${product.name} (${formatPrice(product.price)})`)}`}
+                  variant="ghost"
                   size="lg"
                 >
-                  Enquire on WhatsApp
-                </Button>
-              ) : (
-                <Button variant="secondary" size="lg" href="/shop">
-                  Browse Similar Cards
+                  Ask on WhatsApp
                 </Button>
               )}
               <Button href="/shop" variant="ghost" size="lg">

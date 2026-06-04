@@ -3,13 +3,15 @@
 import { useState, useMemo } from "react";
 import ProductCard from "@/components/ui/ProductCard";
 import FilterBar from "@/components/ui/FilterBar";
-import { getAllProducts, getAllCategories, getAllGradeCompanies } from "@/lib/products";
+import type { Product, ProductCategory, GradeCompany } from "@/lib/types";
 
-export default function ShopGrid() {
-  const allProducts = getAllProducts();
-  const categories = getAllCategories();
-  const gradeCompanies = getAllGradeCompanies();
+interface Props {
+  products: Product[];
+  categories: ProductCategory[];
+  gradeCompanies: GradeCompany[];
+}
 
+export default function ShopGrid({ products: allProducts, categories, gradeCompanies }: Props) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedGrade, setSelectedGrade] = useState("");

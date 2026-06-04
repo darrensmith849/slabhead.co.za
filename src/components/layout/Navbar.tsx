@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import CartButton from "@/components/ui/CartButton";
 
 const navLinks = [
   { label: "Shop", href: "/shop" },
@@ -38,24 +39,28 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <CartButton />
         </div>
 
-        {/* Mobile Toggle */}
-        <button
+        {/* Mobile: Cart + Toggle */}
+        <div className="flex items-center gap-1 md:hidden">
+          <CartButton />
+          <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="flex h-10 w-10 items-center justify-center rounded-lg text-slab-muted transition-colors hover:bg-slab-surface hover:text-slab-white md:hidden"
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? (
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
-        </button>
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? (
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

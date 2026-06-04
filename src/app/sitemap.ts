@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllProducts } from "@/lib/products";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://slabhead.co.za";
 
   const staticPages: MetadataRoute.Sitemap = [
@@ -24,7 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/privacy-policy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  const productPages: MetadataRoute.Sitemap = getAllProducts().map((product) => ({
+  const allProducts = await getAllProducts();
+  const productPages: MetadataRoute.Sitemap = allProducts.map((product) => ({
     url: `${baseUrl}/product/${product.slug}`,
     lastModified: new Date(product.dateModified),
     changeFrequency: "weekly" as const,

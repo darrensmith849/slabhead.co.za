@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ShopGrid from "./ShopGrid";
+import { getAllProducts, getAllCategories, getAllGradeCompanies } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Shop",
@@ -7,7 +8,13 @@ export const metadata: Metadata = {
     "Browse graded Pokémon cards, Yu-Gi-Oh, Magic: The Gathering, Japanese culture books, stationery and art. PSA, CGC & BGS authenticated.",
 };
 
-export default function ShopPage() {
+export default async function ShopPage() {
+  const [products, categories, gradeCompanies] = await Promise.all([
+    getAllProducts(),
+    getAllCategories(),
+    getAllGradeCompanies(),
+  ]);
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <div className="mb-8">
@@ -16,7 +23,7 @@ export default function ShopPage() {
           Every card authenticated. Every item shipped with care.
         </p>
       </div>
-      <ShopGrid />
+      <ShopGrid products={products} categories={categories} gradeCompanies={gradeCompanies} />
     </div>
   );
 }

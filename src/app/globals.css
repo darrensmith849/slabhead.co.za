@@ -2,8 +2,9 @@
 
 /* ── Slabhead Design Tokens ── */
 @theme inline {
-  --color-slab-crimson: #A7144C;
-  --color-slab-crimson-light: #C91A5E;
+  /* base + crimson (brightened for neon feel) */
+  --color-slab-crimson: #C9165A;
+  --color-slab-crimson-light: #FF1F73;
   --color-slab-black: #0A0A0F;
   --color-slab-charcoal: #12121A;
   --color-slab-surface: #1A1A2E;
@@ -15,8 +16,15 @@
   --color-slab-success: #22C55E;
   --color-slab-danger: #EF4444;
 
+  /* cyberpunk neon palette */
+  --color-slab-neon-cyan: #00F0FF;
+  --color-slab-neon-magenta: #FF00C8;
+  --color-slab-haze: #1A0F2E;
+  --color-slab-electric: #A855F7;
+
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-display: "Audiowide", ui-sans-serif, system-ui, sans-serif;
 }
 
 /* ── Base Styles ── */
@@ -30,6 +38,9 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Keep body above NeonAtmosphere (which is fixed, z-0) */
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Scrollbar ── */
@@ -47,12 +58,97 @@ body {
   background: var(--color-slab-crimson);
 }
 
-/* ── Card Shimmer Effect ── */
+/* ═══════════════════════════════════════════════════════════ */
+/*  KEYFRAMES                                                  */
+/* ═══════════════════════════════════════════════════════════ */
+
+/* Original card shimmer */
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
 
+/* Grade badge pulse (gem mint) */
+@keyframes gem-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(212, 175, 55, 0.4); }
+  50% { box-shadow: 0 0 16px rgba(212, 175, 55, 0.7); }
+}
+
+/* Slow horizontal fog drift */
+@keyframes fog-drift {
+  0% { transform: translateX(-10%); opacity: 0.3; }
+  50% { opacity: 0.5; }
+  100% { transform: translateX(10%); opacity: 0.3; }
+}
+
+/* Subtle neon flicker (every few seconds) */
+@keyframes neon-flicker {
+  0%, 92%, 100% { opacity: 1; }
+  93% { opacity: 0.7; }
+  94% { opacity: 1; }
+  95% { opacity: 0.85; }
+  96% { opacity: 1; }
+}
+
+/* Vertical scanline sweep */
+@keyframes scan-line {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+/* Holographic gradient rotation */
+@keyframes holo-rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Electric border chase */
+@keyframes electric-pulse {
+  0%, 100% {
+    border-color: var(--color-slab-electric);
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+  }
+  50% {
+    border-color: var(--color-slab-neon-cyan);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+  }
+}
+
+/* Terminal cursor blink */
+@keyframes terminal-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Slow holographic shimmer */
+@keyframes holo-shimmer {
+  0% {
+    background-position: -200% 50%;
+    opacity: 0;
+  }
+  20%, 80% {
+    opacity: 1;
+  }
+  100% {
+    background-position: 200% 50%;
+    opacity: 0;
+  }
+}
+
+/* Particle drift (used by NeonAtmosphere fallback CSS) */
+@keyframes particle-drift {
+  0% { transform: translate(0, 0); }
+  33% { transform: translate(30vw, -20vh); }
+  66% { transform: translate(-20vw, 10vh); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/*  UTILITY CLASSES                                            */
+/* ═══════════════════════════════════════════════════════════ */
+
+/* Existing — card shimmer */
 .card-shimmer {
   position: relative;
   overflow: hidden;
@@ -79,11 +175,200 @@ body {
   animation: shimmer 1.5s ease-in-out infinite;
 }
 
-/* ── Grade Badge Pulse (gem mint) ── */
-@keyframes gem-pulse {
-  0%, 100% { box-shadow: 0 0 8px rgba(212, 175, 55, 0.4); }
-  50% { box-shadow: 0 0 16px rgba(212, 175, 55, 0.7); }
-}
+/* Existing — grade badge pulse */
 .grade-gem {
   animation: gem-pulse 2s ease-in-out infinite;
+}
+
+/* Neon text glow halos */
+.neon-glow-cyan {
+  text-shadow:
+    0 0 4px rgba(0, 240, 255, 0.8),
+    0 0 12px rgba(0, 240, 255, 0.6),
+    0 0 24px rgba(0, 240, 255, 0.3);
+}
+.neon-glow-magenta {
+  text-shadow:
+    0 0 4px rgba(255, 0, 200, 0.8),
+    0 0 12px rgba(255, 0, 200, 0.6),
+    0 0 24px rgba(255, 0, 200, 0.3);
+}
+.neon-glow-crimson {
+  text-shadow:
+    0 0 4px rgba(201, 22, 90, 0.8),
+    0 0 12px rgba(201, 22, 90, 0.6),
+    0 0 24px rgba(201, 22, 90, 0.3);
+}
+.neon-glow-gold {
+  text-shadow:
+    0 0 4px rgba(212, 175, 55, 0.8),
+    0 0 12px rgba(212, 175, 55, 0.5),
+    0 0 24px rgba(212, 175, 55, 0.3);
+}
+.neon-glow-white {
+  text-shadow:
+    0 0 4px rgba(245, 245, 245, 0.8),
+    0 0 12px rgba(245, 245, 245, 0.4);
+}
+
+/* Box glow halos (for buttons, frames) */
+.neon-box-cyan {
+  box-shadow:
+    0 0 4px rgba(0, 240, 255, 0.6),
+    0 0 16px rgba(0, 240, 255, 0.3),
+    inset 0 0 12px rgba(0, 240, 255, 0.1);
+}
+.neon-box-magenta {
+  box-shadow:
+    0 0 4px rgba(255, 0, 200, 0.6),
+    0 0 16px rgba(255, 0, 200, 0.3),
+    inset 0 0 12px rgba(255, 0, 200, 0.1);
+}
+.neon-box-crimson {
+  box-shadow:
+    0 0 4px rgba(201, 22, 90, 0.6),
+    0 0 16px rgba(201, 22, 90, 0.3),
+    inset 0 0 12px rgba(201, 22, 90, 0.1);
+}
+.neon-box-gold {
+  box-shadow:
+    0 0 4px rgba(212, 175, 55, 0.6),
+    0 0 16px rgba(212, 175, 55, 0.3),
+    inset 0 0 12px rgba(212, 175, 55, 0.1);
+}
+.neon-box-electric {
+  box-shadow:
+    0 0 4px rgba(168, 85, 247, 0.6),
+    0 0 16px rgba(168, 85, 247, 0.3),
+    inset 0 0 12px rgba(168, 85, 247, 0.1);
+}
+
+/* Holographic gradient sweep (refined version, replaces card-shimmer for hero items) */
+.holo-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.holo-shimmer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(0, 240, 255, 0.12) 45%,
+    rgba(255, 0, 200, 0.08) 55%,
+    transparent 70%
+  );
+  background-size: 250% 100%;
+  background-position: -200% 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.holo-shimmer:hover::before {
+  opacity: 1;
+  animation: holo-shimmer 2.5s ease-in-out infinite;
+}
+
+/* Scanlines overlay */
+.scanlines {
+  position: relative;
+}
+.scanlines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 240, 255, 0.025) 3px,
+    rgba(0, 240, 255, 0.025) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Subtle glitch text (hover only) */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+.glitch-text:hover {
+  animation: neon-flicker 0.5s steps(2) infinite;
+}
+
+/* Fog overlay gradient */
+.fog-overlay {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(26, 15, 46, 0.4) 60%,
+    rgba(10, 10, 15, 0.85) 100%
+  );
+}
+
+/* Electric border that animates */
+.electric-border {
+  position: relative;
+  border: 1px solid var(--color-slab-electric);
+  animation: electric-pulse 2.5s ease-in-out infinite;
+}
+
+/* Terminal blinking cursor (for typewriter effects) */
+.terminal-cursor::after {
+  content: "▊";
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--color-slab-neon-cyan);
+  animation: terminal-blink 0.8s steps(2) infinite;
+}
+
+/* Bracketed container — mission control corners ⌐ ¬ L ⌐ */
+.bracketed {
+  position: relative;
+}
+.bracketed::before,
+.bracketed::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--color-slab-neon-cyan);
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.bracketed::before {
+  top: 4px;
+  left: 4px;
+  border-right: none;
+  border-bottom: none;
+}
+.bracketed::after {
+  bottom: 4px;
+  right: 4px;
+  border-left: none;
+  border-top: none;
+}
+.bracketed:hover::before,
+.bracketed:hover::after {
+  opacity: 1;
+}
+
+/* Reduced-motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Display font helper */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
 }

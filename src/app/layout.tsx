@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Audiowide } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import NeonAtmosphere from "@/components/atmosphere/NeonAtmosphere";
+import { CartProvider } from "@/lib/cart-context";
 import "./globals.css";
 
 const inter = Inter({
@@ -12,6 +14,13 @@ const inter = Inter({
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const audiowide = Audiowide({
+  variable: "--font-display",
+  weight: "400",
   subsets: ["latin"],
   display: "swap",
 });
@@ -59,14 +68,17 @@ export default function RootLayout({
 
   return (
     <html lang="en-ZA">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${audiowide.variable} font-sans antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
-        <Navbar />
-        <main className="min-h-screen pt-16">{children}</main>
-        <Footer />
+        <NeonAtmosphere />
+        <CartProvider>
+          <Navbar />
+          <main className="relative z-10 min-h-screen pt-16">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );
