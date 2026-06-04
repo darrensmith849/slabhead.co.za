@@ -127,55 +127,60 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile drawer + tap-out backdrop */}
-        <AnimatePresence>
-          {mobileOpen && (
-            <motion.div
-              key="drawer-backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => setMobileOpen(false)}
-              className="fixed inset-0 top-16 z-30 bg-slab-black/50 backdrop-blur-[2px] lg:hidden"
-              aria-hidden="true"
-            />
-          )}
-          {mobileOpen && (
-            <motion.div
-              key="drawer-panel"
-              initial={{ opacity: 0, x: "100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: "100%" }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="fixed top-16 right-0 bottom-0 z-40 flex w-72 flex-col gap-1 overflow-y-auto overscroll-contain border-l border-slab-neon-cyan/30 bg-slab-black/95 px-4 py-4 backdrop-blur-xl lg:hidden"
-            >
-              <span className="mb-2 px-3 font-mono text-[10px] uppercase tracking-widest text-slab-muted">
-                // CONSOLE_DRAWER
-              </span>
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="rounded px-3 py-2.5 font-mono text-sm uppercase tracking-widest text-slab-muted transition-colors hover:bg-slab-neon-cyan/10 hover:text-slab-neon-cyan"
-                >
-                  {">"} {link.label}
-                </Link>
-              ))}
-              <button
-                onClick={() => {
-                  setMobileOpen(false);
-                  setSearchOpen(true);
-                }}
-                className="mt-2 rounded px-3 py-2.5 text-left font-mono text-sm uppercase tracking-widest text-slab-muted transition-colors hover:bg-slab-neon-cyan/10 hover:text-slab-neon-cyan"
-              >
-                {">"} SEARCH
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </nav>
+
+      {/* Mobile drawer + tap-out backdrop — sibling of <nav>, NOT inside it.
+          A fixed+z-indexed <nav> creates its own stacking context; nesting
+          the drawer inside puts it under main (z-10) because the drawer's
+          z-40 is interpreted relative to nav, not body. Rendering as a
+          sibling restores normal body-level stacking (z-55 > main z-10). */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            key="drawer-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setMobileOpen(false)}
+            className="fixed inset-0 top-16 z-[55] bg-slab-black/50 backdrop-blur-[2px] lg:hidden"
+            aria-hidden="true"
+          />
+        )}
+        {mobileOpen && (
+          <motion.div
+            key="drawer-panel"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed top-16 right-0 bottom-0 z-[56] flex w-72 flex-col gap-1 overflow-y-auto overscroll-contain border-l border-slab-neon-cyan/30 bg-slab-black/95 px-4 py-4 backdrop-blur-xl lg:hidden"
+          >
+            <span className="mb-2 px-3 font-mono text-[10px] uppercase tracking-widest text-slab-muted">
+              // CONSOLE_DRAWER
+            </span>
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="rounded px-3 py-2.5 font-mono text-sm uppercase tracking-widest text-slab-muted transition-colors hover:bg-slab-neon-cyan/10 hover:text-slab-neon-cyan"
+              >
+                {">"} {link.label}
+              </Link>
+            ))}
+            <button
+              onClick={() => {
+                setMobileOpen(false);
+                setSearchOpen(true);
+              }}
+              className="mt-2 rounded px-3 py-2.5 text-left font-mono text-sm uppercase tracking-widest text-slab-muted transition-colors hover:bg-slab-neon-cyan/10 hover:text-slab-neon-cyan"
+            >
+              {">"} SEARCH
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Search overlay */}
       <AnimatePresence>
