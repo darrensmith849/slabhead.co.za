@@ -28,6 +28,7 @@ export default function SlabHunterPage() {
       ]}
       ctaText="Start a Hunt — Contact Us"
       ctaHref="/contact-us"
+      heroImage="/wp-uploads/2025/02/Slab-Hunter-Edit.jpg"
     />
   );
 }

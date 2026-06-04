@@ -28,6 +28,7 @@ export default function SlabTraderPage() {
       ]}
       ctaText="Start a Trade — Contact Us"
       ctaHref="/contact-us"
+      heroImage="/wp-uploads/2026/02/Screenshot-2026-02-19-at-15.00.36.png"
     />
   );
 }
