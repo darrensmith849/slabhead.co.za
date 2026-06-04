@@ -121,11 +121,11 @@ export default function AboutPage() {
         ))}
       </div>
 
-      <div className="mt-12 flex flex-wrap gap-3">
-        <Button href="/contact-us" variant="neon" terminalPrefix>
+      <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <Button href="/contact-us" variant="neon" terminalPrefix block>
           OPEN_TRANSMISSION
         </Button>
-        <Button href="/shop" variant="secondary">
+        <Button href="/shop" variant="secondary" block>
           BROWSE_INVENTORY
         </Button>
       </div>

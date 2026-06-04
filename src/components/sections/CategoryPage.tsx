@@ -127,7 +127,7 @@ export default function CategoryPage({
               {">"} NO SPECIMENS IN THIS CATEGORY YET
             </p>
             <div className="mt-6">
-              <Button href="/shop" variant="neon" terminalPrefix>
+              <Button href="/shop" variant="neon" terminalPrefix block>
                 BROWSE_INVENTORY
               </Button>
             </div>

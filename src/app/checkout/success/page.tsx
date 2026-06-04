@@ -74,8 +74,8 @@ export default async function CheckoutSuccessPage({
         {">"} You&apos;ll receive a tax invoice from Sage Pastel shortly at the email address provided. Tracking number will follow once dispatched.
       </p>
 
-      <div className="mt-10 flex justify-center">
-        <Button href="/shop" variant="neon" size="lg" terminalPrefix>
+      <div className="mt-10 sm:flex sm:justify-center">
+        <Button href="/shop" variant="neon" size="lg" terminalPrefix block>
           CONTINUE_EXPLORATION
         </Button>
       </div>

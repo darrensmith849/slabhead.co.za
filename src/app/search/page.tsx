@@ -70,7 +70,7 @@ export default async function SearchPage({
             // ADJUST QUERY PARAMETERS OR BROWSE_FULL_INVENTORY
           </p>
           <div className="mt-6">
-            <Button href="/shop" variant="neon" terminalPrefix>
+            <Button href="/shop" variant="neon" terminalPrefix block>
               BROWSE_INVENTORY
             </Button>
           </div>

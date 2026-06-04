@@ -119,8 +119,8 @@ export default function ServicePage({
         )}
 
         {/* CTA */}
-        <div className="mt-16 text-center">
-          <Button href={ctaHref} variant="neon" size="lg" terminalPrefix>
+        <div className="mt-16 sm:text-center">
+          <Button href={ctaHref} variant="neon" size="lg" terminalPrefix block>
             {ctaText}
           </Button>
         </div>

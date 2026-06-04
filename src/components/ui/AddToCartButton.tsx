@@ -34,7 +34,7 @@ export default function AddToCartButton({
 
   if (!available) {
     return (
-      <div className="inline-flex items-center gap-2 rounded-lg border border-slab-danger/40 bg-slab-danger/[0.06] px-6 py-3 font-mono text-sm uppercase tracking-widest text-slab-danger neon-glow-crimson">
+      <div className="flex w-full items-center justify-center gap-2 rounded-lg border border-slab-danger/40 bg-slab-danger/[0.06] px-6 py-3 font-mono text-sm uppercase tracking-widest text-slab-danger neon-glow-crimson sm:inline-flex sm:w-auto">
         <span
           className="h-1.5 w-1.5 rounded-full bg-slab-danger"
           style={{ boxShadow: "0 0 6px rgba(239, 68, 68, 0.7)" }}
@@ -57,7 +57,9 @@ export default function AddToCartButton({
       onClick={handleAdd}
       disabled={adding}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-mono text-sm uppercase tracking-widest transition-all disabled:opacity-60",
+        // Full-width on mobile, natural on >= sm — this is THE primary
+        // CTA on the product page, gives thumbs a clear tap surface.
+        "flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 font-mono text-sm uppercase tracking-widest transition-all disabled:opacity-60 sm:inline-flex sm:w-auto",
         added
           ? "border border-slab-success/60 bg-slab-success/[0.08] text-slab-success neon-glow-cyan"
           : "border border-slab-electric/60 bg-slab-electric/[0.04] text-slab-white hover:border-slab-neon-cyan hover:text-slab-neon-cyan electric-border",

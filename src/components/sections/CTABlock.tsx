@@ -29,7 +29,7 @@ export default function CTABlock({
         </h2>
         <p className="mt-3 text-slab-muted">{description}</p>
         <div className="mt-6">
-          <Button href={href} size="lg">
+          <Button href={href} size="lg" block>
             {buttonText}
           </Button>
         </div>

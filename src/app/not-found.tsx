@@ -24,11 +24,11 @@ export default function NotFound() {
           {">"} This specimen has slipped through the matrix
         </p>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <Button href="/" variant="neon" terminalPrefix>
+        <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+          <Button href="/" variant="neon" terminalPrefix block>
             RECONNECT
           </Button>
-          <Button href="/shop" variant="secondary">
+          <Button href="/shop" variant="secondary" block>
             ← RETURN_TO_VAULT
           </Button>
         </div>

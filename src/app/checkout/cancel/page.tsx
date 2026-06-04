@@ -29,11 +29,11 @@ export default function CheckoutCancelPage() {
         </p>
       </div>
 
-      <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <Button href="/cart" variant="neon" size="lg" terminalPrefix>
+      <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+        <Button href="/cart" variant="neon" size="lg" terminalPrefix block>
           RETRY_ACQUISITION
         </Button>
-        <Button href="/shop" variant="secondary" size="lg">
+        <Button href="/shop" variant="secondary" size="lg" block>
           ← BACK_TO_INVENTORY
         </Button>
       </div>

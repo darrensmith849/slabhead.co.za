@@ -59,7 +59,7 @@ export default function CartPage() {
             Browse the inventory to add specimens.
           </p>
           <div className="mt-6">
-            <Button href="/shop" variant="neon" size="lg" terminalPrefix>
+            <Button href="/shop" variant="neon" size="lg" terminalPrefix block>
               BROWSE_INVENTORY
             </Button>
           </div>

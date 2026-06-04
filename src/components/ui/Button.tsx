@@ -12,6 +12,15 @@ interface ButtonProps {
    */
   variant?: "primary" | "secondary" | "ghost" | "neon";
   size?: "sm" | "md" | "lg";
+  /**
+   * Full-width on mobile, natural width on >= sm.
+   * Set on PRIMARY CTAs (checkout submit, ACQUIRE, INITIATE_HUNT, hero
+   * actions, TRANSMIT_MESSAGE, etc.) — gives thumbs a proper tap surface
+   * + the right "this is the action" weight on narrow viewports.
+   *
+   * Leave OFF for inline / secondary links (back, view-all, INCR/DECR).
+   */
+  block?: boolean;
   className?: string;
   onClick?: () => void;
   type?: "button" | "submit";
@@ -41,6 +50,7 @@ export default function Button({
   href,
   variant = "primary",
   size = "md",
+  block = false,
   className,
   onClick,
   type = "button",
@@ -50,6 +60,9 @@ export default function Button({
     "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200",
     variants[variant],
     sizes[size],
+    // Full-width on mobile, natural on >=sm. Use flex when block so the
+    // button fills its container even inside an inline-flex parent.
+    block && "flex w-full sm:inline-flex sm:w-auto",
     className,
   );
 

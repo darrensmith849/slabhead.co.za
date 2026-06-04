@@ -130,7 +130,7 @@ export default function CheckoutPage() {
           {">"} NO SPECIMENS QUEUED // CANNOT_PROCEED
         </p>
         <div className="mt-6">
-          <Button href="/shop" variant="neon" terminalPrefix>
+          <Button href="/shop" variant="neon" terminalPrefix block>
             BROWSE_INVENTORY
           </Button>
         </div>
@@ -230,7 +230,7 @@ export default function CheckoutPage() {
           )}
 
           <div className="mt-8">
-            <Button type="submit" variant="neon" size="lg" terminalPrefix>
+            <Button type="submit" variant="neon" size="lg" terminalPrefix block>
               {submitting ? "EXECUTING…" : `EXECUTE_PAYMENT — ${formatPrice(total)}`}
             </Button>
           </div>

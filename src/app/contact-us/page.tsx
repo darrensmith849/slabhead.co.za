@@ -181,7 +181,7 @@ export default function ContactPage() {
             )}
 
             <div className="mt-6">
-              <Button type="submit" variant="neon" size="lg" terminalPrefix>
+              <Button type="submit" variant="neon" size="lg" terminalPrefix block>
                 {submitting ? "TRANSMITTING…" : "TRANSMIT_MESSAGE"}
               </Button>
             </div>

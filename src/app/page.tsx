@@ -66,11 +66,11 @@ export default async function Home() {
                 graded, securely shipped from Cape Town. Plus Japanese culture
                 collectables, books & art.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button href="/shop" variant="neon" size="lg" terminalPrefix>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Button href="/shop" variant="neon" size="lg" terminalPrefix block>
                   BROWSE_INVENTORY
                 </Button>
-                <Button href="/slabhunter" variant="secondary" size="lg">
+                <Button href="/slabhunter" variant="secondary" size="lg" block>
                   CAN&apos;T FIND IT? WE HUNT IT
                 </Button>
               </div>
@@ -352,8 +352,8 @@ export default async function Home() {
               </Link>
             ))}
           </RevealOnScroll>
-          <div className="mt-12 text-center">
-            <Button href="/grails" variant="neon" size="lg" terminalPrefix>
+          <div className="mt-12 sm:text-center">
+            <Button href="/grails" variant="neon" size="lg" terminalPrefix block>
               ENTER_VAULT
             </Button>
           </div>
@@ -444,7 +444,7 @@ export default async function Home() {
                 {">"} Japanese culture, art, books & stationery. The collector&apos;s world doesn&apos;t end at sleeves.
               </p>
               <div className="mt-6">
-                <Button href="/culture" variant="neon" size="md" terminalPrefix>
+                <Button href="/culture" variant="neon" size="md" terminalPrefix block>
                   EXPLORE_CULTURE
                 </Button>
               </div>
@@ -579,11 +579,11 @@ export default async function Home() {
             {">"} Our SlabHunter network can track down any card, anywhere in
             the world. Tell us what you&apos;re after and we&apos;ll make it happen.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <Button href="/slabhunter" variant="neon" size="lg" terminalPrefix>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+            <Button href="/slabhunter" variant="neon" size="lg" terminalPrefix block>
               START_A_HUNT
             </Button>
-            <Button href="/contact-us" variant="secondary" size="lg">
+            <Button href="/contact-us" variant="secondary" size="lg" block>
               GET IN TOUCH
             </Button>
           </div>
