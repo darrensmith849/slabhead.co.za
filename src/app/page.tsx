@@ -11,6 +11,7 @@ import TerminalText from "@/components/atmosphere/TerminalText";
 import NeonBadge from "@/components/atmosphere/NeonBadge";
 import MarqueeStrip from "@/components/atmosphere/MarqueeStrip";
 import CategoryHero from "@/components/atmosphere/CategoryHero";
+import PsaSlab from "@/components/atmosphere/PsaSlab";
 import {
   getNewDrops,
   getFeaturedProducts,
@@ -77,51 +78,10 @@ export default async function Home() {
             </RevealOnScroll>
           </div>
 
-          {/* Featured card showcase — abstract, no real imagery */}
+          {/* Hero anchor — stylized PSA grading slab (replaces the
+              abstract card-stack placeholder per client direction) */}
           <div className="hidden items-center justify-center lg:flex">
-            <div className="relative h-[420px] w-[300px]">
-              {[
-                { rotate: "-8deg", x: "-60px", y: "10px", z: 0, color: "from-slab-crimson/40 to-transparent" },
-                { rotate: "0deg", x: "0px", y: "0px", z: 10, color: "from-slab-neon-cyan/40 to-transparent" },
-                { rotate: "8deg", x: "60px", y: "10px", z: 0, color: "from-slab-electric/40 to-transparent" },
-              ].map((card, i) => (
-                <div
-                  key={i}
-                  className="absolute top-0 left-1/2 h-[400px] w-[280px] -translate-x-1/2"
-                  style={{
-                    transform: `translate(calc(-50% + ${card.x}), ${card.y}) rotate(${card.rotate})`,
-                    zIndex: card.z,
-                  }}
-                >
-                  <NeonFrame accent={i === 0 ? "crimson" : i === 1 ? "cyan" : "electric"}>
-                    <div className="relative h-[398px] w-[278px] overflow-hidden rounded-[11px] scanlines">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${card.color}`} />
-                      <div className="absolute inset-0 bg-slab-charcoal/60" />
-                      <div className="absolute inset-0 flex flex-col justify-between p-5">
-                        <div className="flex items-start justify-between">
-                          <span className="font-mono text-[10px] uppercase tracking-widest text-slab-neon-cyan/80">
-                            PSA · {10 - i}
-                          </span>
-                          <div
-                            className="h-2 w-2 rounded-full"
-                            style={{
-                              backgroundColor: ["#C9165A", "#00F0FF", "#A855F7"][i],
-                              boxShadow: `0 0 8px ${["rgba(201,22,90,0.7)", "rgba(0,240,255,0.7)", "rgba(168,85,247,0.7)"][i]}`,
-                            }}
-                          />
-                        </div>
-                        <div>
-                          <div className="font-mono text-[9px] uppercase tracking-widest text-slab-muted">
-                            // SPECIMEN_{(i + 1).toString().padStart(3, "0")}
-                          </div>
-                          <div className="mt-1 h-px w-full bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                        </div>
-                      </div>
-                    </div>
-                  </NeonFrame>
-                </div>
-              ))}
-            </div>
+            <PsaSlab />
           </div>
         </div>
 
