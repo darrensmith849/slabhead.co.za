@@ -146,11 +146,20 @@ export default function NeonAtmosphere() {
       const dt = Math.min(now - lastTime, 50);
       lastTime = now;
 
-      // Trail-fade: low-alpha overpaint for soft motion blur. Slightly
-      // stronger than before (0.22 vs 0.18) so trails reach effectively
-      // zero in <1s and don't compound over long browsing sessions.
-      ctx.fillStyle = "rgba(10, 10, 15, 0.22)";
-      ctx.fillRect(0, 0, width, height);
+      // Mobile / touch: clear fully each frame — no trail. At 30fps the
+      // alpha-overpaint approach leaves visible smudges between repaints
+      // (the overpaint only runs half as often per second as on desktop),
+      // and the cumulative effect looks like fingerprints on the screen.
+      // Particles still move + pulse, they just don't smear.
+      //
+      // Desktop / pointer:fine: keep the soft motion-blur overpaint —
+      // 60fps clears it fast enough that it reads as glow, not residue.
+      if (targetFrameMs > 0) {
+        ctx.clearRect(0, 0, width, height);
+      } else {
+        ctx.fillStyle = "rgba(10, 10, 15, 0.22)";
+        ctx.fillRect(0, 0, width, height);
+      }
 
       // Particles
       ctx.globalCompositeOperation = "lighter";
