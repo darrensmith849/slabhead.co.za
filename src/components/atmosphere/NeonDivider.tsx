@@ -40,7 +40,9 @@ const ACCENT: Record<
     line: "from-transparent via-slab-electric to-transparent",
     tick: "bg-slab-electric",
     glow: "neon-glow-cyan",
-    text: "text-slab-electric",
+    // electric (#A855F7) fails AA on dark backgrounds; bump to neon-cyan
+    // for contrast while keeping the purple line + tick as the accent.
+    text: "text-slab-neon-cyan",
   },
 };
 
