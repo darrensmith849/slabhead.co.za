@@ -79,9 +79,14 @@ export default async function Home() {
           </div>
 
           {/* Hero anchor — stylized PSA grading slab (replaces the
-              abstract card-stack placeholder per client direction) */}
-          <div className="hidden items-center justify-center lg:flex">
-            <PsaSlab />
+              abstract card-stack placeholder per client direction).
+              Scaled down on mobile + the negative margins absorb the
+              empty space transform:scale leaves in the layout box, so
+              the section doesn't grow taller than it needs to. */}
+          <div className="mt-8 flex items-center justify-center lg:mt-0">
+            <div className="origin-center scale-[0.62] -my-[107px] sm:scale-[0.78] sm:-my-[62px] lg:scale-100 lg:my-0">
+              <PsaSlab />
+            </div>
           </div>
         </div>
 
