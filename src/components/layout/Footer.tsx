@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NewsletterSignup from "./NewsletterSignup";
 
 const footerSections = [
   {
@@ -74,6 +75,8 @@ export default function Footer() {
             <span className="text-slab-success">SYSTEMS // ONLINE</span>
           </div>
         </div>
+
+        <NewsletterSignup />
 
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {footerSections.map((section) => (
