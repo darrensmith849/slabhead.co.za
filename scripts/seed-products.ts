@@ -1,15 +1,15 @@
 import { config } from "dotenv";
 config({ path: ".env.local" });
 
-import { neon } from "@neondatabase/serverless";
-import { drizzle } from "drizzle-orm/neon-http";
+import { Pool } from "pg";
+import { drizzle } from "drizzle-orm/node-postgres";
 import { eq } from "drizzle-orm";
 import * as schema from "../src/db/schema";
 import { products as productData } from "../src/data/products";
 
 async function seed() {
-  const sql = neon(process.env.DATABASE_URL!);
-  const db = drizzle(sql, { schema });
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
+  const db = drizzle(pool, { schema });
 
   console.log(`Seeding ${productData.length} products...\n`);
 
@@ -90,6 +90,7 @@ async function seed() {
   }
 
   console.log(`\nDone! ${productData.length} products seeded.`);
+  await pool.end();
 }
 
 seed().catch((err) => {
