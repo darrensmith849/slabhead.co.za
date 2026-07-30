@@ -4,9 +4,8 @@ import NeonBadge from "./NeonBadge";
 
 export type RoomTheme =
   | "pokemon"
-  | "yugioh"
-  | "mtg"
-  | "culture"
+  | "dragonball"
+  | "onepiece"
   | "collectables"
   | "hunter"
   | "trader"
@@ -94,7 +93,7 @@ function PokemonHeroScene() {
   );
 }
 
-function YugiohHeroScene() {
+function DragonBallHeroScene() {
   return (
     <>
       <div
@@ -137,7 +136,7 @@ function YugiohHeroScene() {
   );
 }
 
-function MtgHeroScene() {
+function NeutralAuraHeroScene() {
   return (
     <>
       <div
@@ -183,7 +182,7 @@ function MtgHeroScene() {
   );
 }
 
-function CultureHeroScene() {
+function OnePieceHeroScene() {
   return (
     <>
       <div
@@ -195,7 +194,7 @@ function CultureHeroScene() {
             "linear-gradient(135deg, #0F0518 0%, #0A0A0F 100%)",
         }}
       />
-      {/* Cherry blossom petals — varied trajectories */}
+      {/* Ocean spray drifting through the pirate-map field */}
       <div className="absolute inset-0 overflow-hidden">
         {Array.from({ length: 18 }).map((_, i) => (
           <div
@@ -217,13 +216,13 @@ function CultureHeroScene() {
                       : "rgba(245, 210, 230, 0.8)",
               boxShadow: "0 0 4px rgba(255, 195, 220, 0.4)",
               transform: `rotate(${i * 20}deg)`,
-              animation: `petal-fall-hero-${i % 6} ${14 + (i % 7) * 2}s linear infinite`,
+              animation: `sea-drift-${i % 6} ${14 + (i % 7) * 2}s linear infinite`,
               animationDelay: `${i * 1.2}s`,
             }}
           />
         ))}
       </div>
-      {/* Vertical washi-paper character strokes */}
+      {/* Fine chart-grid lines */}
       <div className="absolute inset-y-0 right-0 hidden w-2/5 opacity-15 lg:block">
         <div
           className="absolute inset-0"
@@ -234,12 +233,12 @@ function CultureHeroScene() {
         />
       </div>
       <style>{`
-        @keyframes petal-fall-hero-0 { to { transform: translate(20px, 80vh) rotate(360deg); opacity: 0; } }
-        @keyframes petal-fall-hero-1 { to { transform: translate(-30px, 80vh) rotate(-360deg); opacity: 0; } }
-        @keyframes petal-fall-hero-2 { to { transform: translate(10px, 80vh) rotate(540deg); opacity: 0; } }
-        @keyframes petal-fall-hero-3 { to { transform: translate(-15px, 80vh) rotate(-540deg); opacity: 0; } }
-        @keyframes petal-fall-hero-4 { to { transform: translate(25px, 80vh) rotate(720deg); opacity: 0; } }
-        @keyframes petal-fall-hero-5 { to { transform: translate(-25px, 80vh) rotate(-720deg); opacity: 0; } }
+        @keyframes sea-drift-0 { to { transform: translate(20px, 80vh) rotate(360deg); opacity: 0; } }
+        @keyframes sea-drift-1 { to { transform: translate(-30px, 80vh) rotate(-360deg); opacity: 0; } }
+        @keyframes sea-drift-2 { to { transform: translate(10px, 80vh) rotate(540deg); opacity: 0; } }
+        @keyframes sea-drift-3 { to { transform: translate(-15px, 80vh) rotate(-540deg); opacity: 0; } }
+        @keyframes sea-drift-4 { to { transform: translate(25px, 80vh) rotate(720deg); opacity: 0; } }
+        @keyframes sea-drift-5 { to { transform: translate(-25px, 80vh) rotate(-720deg); opacity: 0; } }
       `}</style>
     </>
   );
@@ -529,38 +528,23 @@ function UnderwritingHeroScene() {
   );
 }
 
-function NeutralHeroScene() {
-  return (
-    <div
-      className="absolute inset-0"
-      style={{
-        background:
-          "radial-gradient(ellipse at 50% 50%, rgba(168, 85, 247, 0.10) 0%, transparent 55%), " +
-          "linear-gradient(135deg, #0A0A0F 0%, #1A0F2E 100%)",
-      }}
-    />
-  );
-}
-
 const SCENES: Record<RoomTheme, () => ReactNode> = {
   pokemon: PokemonHeroScene,
-  yugioh: YugiohHeroScene,
-  mtg: MtgHeroScene,
-  culture: CultureHeroScene,
+  dragonball: DragonBallHeroScene,
+  onepiece: OnePieceHeroScene,
   collectables: CollectablesHeroScene,
   hunter: HunterHeroScene,
   trader: TraderHeroScene,
   liquidation: LiquidationHeroScene,
   lab: LabHeroScene,
   underwriting: UnderwritingHeroScene,
-  neutral: NeutralHeroScene,
+  neutral: NeutralAuraHeroScene,
 };
 
 const THEME_ACCENT: Record<RoomTheme, "cyan" | "magenta" | "gold" | "crimson" | "electric"> = {
   pokemon: "cyan",
-  yugioh: "gold",
-  mtg: "electric",
-  culture: "magenta",
+  dragonball: "gold",
+  onepiece: "magenta",
   collectables: "cyan",
   hunter: "cyan",
   trader: "electric",

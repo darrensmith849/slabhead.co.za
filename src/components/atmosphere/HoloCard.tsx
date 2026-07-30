@@ -41,11 +41,14 @@ export default function HoloCard({ children, noTilt = false, className }: HoloCa
     if (reduceMotion.matches) return;
 
     const pointerFine = window.matchMedia("(pointer: fine)");
-    setEnabled(pointerFine.matches);
+    const initialFrame = requestAnimationFrame(() => setEnabled(pointerFine.matches));
 
     const onChange = (e: MediaQueryListEvent) => setEnabled(e.matches);
     pointerFine.addEventListener("change", onChange);
-    return () => pointerFine.removeEventListener("change", onChange);
+    return () => {
+      cancelAnimationFrame(initialFrame);
+      pointerFine.removeEventListener("change", onChange);
+    };
   }, [noTilt]);
 
   if (enabled && !noTilt) {

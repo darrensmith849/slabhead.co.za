@@ -12,7 +12,7 @@ interface CategoryCardProps {
    * Code-rendered scene preset.
    * No image. Each scene is built from CSS gradients, SVG, and animations.
    */
-  scene?: "pokemon" | "yugioh" | "mtg" | "culture" | "default";
+  scene?: "pokemon" | "dragonball" | "onepiece" | "default";
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -65,7 +65,7 @@ function PokemonScene() {
   );
 }
 
-function YugiohScene() {
+function DragonBallScene() {
   return (
     <>
       <div
@@ -97,7 +97,7 @@ function YugiohScene() {
   );
 }
 
-function MtgScene() {
+function OnePieceScene() {
   return (
     <>
       <div
@@ -128,7 +128,7 @@ function MtgScene() {
   );
 }
 
-function CultureScene() {
+function CollectorScene() {
   return (
     <>
       <div
@@ -168,25 +168,11 @@ function CultureScene() {
   );
 }
 
-function DefaultScene() {
-  return (
-    <div
-      className="absolute inset-0"
-      style={{
-        background:
-          "radial-gradient(circle at 50% 50%, rgba(201, 22, 90, 0.20) 0%, transparent 60%), " +
-          "linear-gradient(135deg, #0A0A0F 0%, #1A0F2E 100%)",
-      }}
-    />
-  );
-}
-
 const SCENES = {
   pokemon: PokemonScene,
-  yugioh: YugiohScene,
-  mtg: MtgScene,
-  culture: CultureScene,
-  default: DefaultScene,
+  dragonball: DragonBallScene,
+  onepiece: OnePieceScene,
+  default: CollectorScene,
 };
 
 export default function CategoryCard({

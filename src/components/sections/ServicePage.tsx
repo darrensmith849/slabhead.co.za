@@ -25,7 +25,7 @@ interface ServicePageProps {
     RoomTheme,
     "hunter" | "trader" | "liquidation" | "lab" | "underwriting"
   >;
-  /** Optional regulatory disclosure (for loan broker / financial services) */
+  /** Optional service disclosure. */
   disclosure?: string;
 }
 

@@ -2,8 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/db";
 import { orders, orderItems, products, customers, cartItems, cartSessions } from "@/db/schema";
 import { eq } from "drizzle-orm";
-import { validateITN } from "@/lib/payfast";
+import {
+  validateITN,
+  validatePayFastMerchant,
+  validatePayFastServerConfirmation,
+} from "@/lib/payfast";
 import { createSageInvoice } from "@/lib/sage";
+import { notifyPaidOrderViaWhatsApp } from "@/lib/whatsapp";
 
 export async function POST(request: NextRequest) {
   const formData = await request.formData();
@@ -20,6 +25,16 @@ export async function POST(request: NextRequest) {
     return new NextResponse("Invalid signature", { status: 400 });
   }
 
+  if (!validatePayFastMerchant(data)) {
+    console.error("[PayFast ITN] Merchant mismatch");
+    return new NextResponse("Invalid merchant", { status: 400 });
+  }
+
+  if (!(await validatePayFastServerConfirmation(data))) {
+    console.error("[PayFast ITN] Server confirmation rejected");
+    return new NextResponse("Invalid server confirmation", { status: 400 });
+  }
+
   const orderId = Number(data.m_payment_id);
   if (!orderId) {
     return new NextResponse("Invalid order ID", { status: 400 });
@@ -33,10 +48,14 @@ export async function POST(request: NextRequest) {
   }
 
   // Verify payment amount matches
-  const expectedAmount = Number(order.total).toFixed(2);
-  if (data.amount_gross !== expectedAmount) {
+  const expectedAmount = Number(order.total);
+  if (Math.abs(Number(data.amount_gross) - expectedAmount) > 0.01) {
     console.error(`[PayFast ITN] Amount mismatch: expected ${expectedAmount}, got ${data.amount_gross}`);
     return new NextResponse("Amount mismatch", { status: 400 });
+  }
+
+  if (order.status === "paid") {
+    return new NextResponse("OK", { status: 200 });
   }
 
   if (data.payment_status === "COMPLETE") {
@@ -51,6 +70,7 @@ export async function POST(request: NextRequest) {
 
     const items = await db
       .select({
+        productId: orderItems.productId,
         name: products.name,
         quantity: orderItems.quantity,
         unitPrice: orderItems.unitPrice,
@@ -58,6 +78,15 @@ export async function POST(request: NextRequest) {
       .from(orderItems)
       .innerJoin(products, eq(orderItems.productId, products.id))
       .where(eq(orderItems.orderId, orderId));
+
+    // Each storefront listing represents a unique collectable. Mark every
+    // purchased listing unavailable immediately after verified payment.
+    for (const item of items) {
+      await db
+        .update(products)
+        .set({ availability: "OutOfStock", dateModified: new Date().toISOString().slice(0, 10) })
+        .where(eq(products.id, item.productId));
+    }
 
     // Create Sage Pastel invoice
     if (customer) {
@@ -88,6 +117,16 @@ export async function POST(request: NextRequest) {
 
     for (const session of sessions) {
       await db.delete(cartItems).where(eq(cartItems.cartSessionId, session.id));
+    }
+
+    if (customer) {
+      await notifyPaidOrderViaWhatsApp({
+        orderId,
+        total: expectedAmount,
+        customerName: `${customer.firstName} ${customer.lastName}`.trim(),
+        customerPhone: customer.phone,
+        itemSummary: items.map((item) => `${item.quantity}× ${item.name}`).join(", "),
+      });
     }
 
     console.log(`[PayFast ITN] Order ${orderId} paid successfully`);

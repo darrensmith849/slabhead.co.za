@@ -5,14 +5,12 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import CartButton from "@/components/ui/CartButton";
-import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "SHOP", href: "/shop" },
   { label: "POKÉMON", href: "/pokemon" },
-  { label: "YU-GI-OH", href: "/yu-gi-oh" },
-  { label: "MTG", href: "/mtg" },
-  { label: "CULTURE", href: "/culture" },
+  { label: "DRAGON BALL Z", href: "/dragon-ball-z" },
+  { label: "ONE PIECE", href: "/one-piece" },
   { label: "SERVICES", href: "/services-categories" },
   { label: "ABOUT", href: "/about-us" },
   { label: "CONTACT", href: "/contact-us" },
@@ -78,8 +76,7 @@ export default function Navbar() {
             href="/"
             className="flex shrink-0 items-center gap-2 font-display text-xl tracking-wider"
           >
-            <span className="text-slab-white">SLAB</span>
-            <span className="text-slab-neon-cyan neon-glow-cyan">HEAD</span>
+            <span className="brand-wordmark">SLABHEAD</span>
           </Link>
 
           {/* Desktop Nav */}

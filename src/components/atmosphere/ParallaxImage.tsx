@@ -25,7 +25,7 @@ interface ParallaxImageProps {
 /**
  * Framed image with subtle vertical parallax on scroll + optional scanlines.
  * Used for the ~4 real images we keep in the cyberpunk redesign —
- * homepage culture anchor, /pokemon hero, /culture hero, /slabhunter hero.
+ * homepage category anchors and service heroes.
  *
  * The image moves slightly slower than scroll, giving a depth effect.
  * Respects prefers-reduced-motion.

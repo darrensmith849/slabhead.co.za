@@ -1,26 +1,34 @@
-import type { Product, ProductCategory, GradeCompany } from "./types";
+import {
+  ACTIVE_PRODUCT_CATEGORIES,
+  type Product,
+  type ProductCategory,
+  type GradeCompany,
+} from "./types";
 
 // Static fallback data (used at build time when DATABASE_URL is not set)
 import { products as staticProducts } from "@/data/products";
 
-function useDb(): boolean {
+function hasDatabaseConfiguration(): boolean {
   return !!process.env.DATABASE_URL;
 }
 
 // ── Static data helpers (fallback) ──
 
 function staticGetAll(): Product[] {
-  return staticProducts;
+  return staticProducts.filter((product) => ACTIVE_PRODUCT_CATEGORIES.includes(product.category));
 }
 
 // ── Database helpers ──
 
 async function dbGetAll(): Promise<Product[]> {
   const { db } = await import("@/db");
-  const { products, productImages, productTags } = await import("@/db/schema");
-  const { sql } = await import("drizzle-orm");
+  const { products } = await import("@/db/schema");
+  const { inArray } = await import("drizzle-orm");
 
-  const rows = await db.select().from(products);
+  const rows = await db
+    .select()
+    .from(products)
+    .where(inArray(products.category, ACTIVE_PRODUCT_CATEGORIES));
   return hydrateFromDb(rows);
 }
 
@@ -75,25 +83,29 @@ async function hydrateFromDb(
 // ── Public API ──
 
 export async function getAllProducts(): Promise<Product[]> {
-  if (!useDb()) return staticGetAll();
+  if (!hasDatabaseConfiguration()) return staticGetAll();
   return dbGetAll();
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | undefined> {
-  if (!useDb()) return staticProducts.find((p) => p.slug === slug);
+  if (!hasDatabaseConfiguration()) return staticGetAll().find((p) => p.slug === slug);
 
   const { db } = await import("@/db");
   const { products } = await import("@/db/schema");
-  const { eq } = await import("drizzle-orm");
+  const { and, eq, inArray } = await import("drizzle-orm");
 
-  const rows = await db.select().from(products).where(eq(products.slug, slug)).limit(1);
+  const rows = await db
+    .select()
+    .from(products)
+    .where(and(eq(products.slug, slug), inArray(products.category, ACTIVE_PRODUCT_CATEGORIES)))
+    .limit(1);
   if (rows.length === 0) return undefined;
   const result = await hydrateFromDb(rows);
   return result[0];
 }
 
 export async function getProductsByCategory(category: ProductCategory): Promise<Product[]> {
-  if (!useDb()) return staticProducts.filter((p) => p.category === category);
+  if (!hasDatabaseConfiguration()) return staticProducts.filter((p) => p.category === category);
 
   const { db } = await import("@/db");
   const { products } = await import("@/db/schema");
@@ -104,8 +116,8 @@ export async function getProductsByCategory(category: ProductCategory): Promise<
 }
 
 export async function getFeaturedProducts(count = 8): Promise<Product[]> {
-  if (!useDb()) {
-    return staticProducts
+  if (!hasDatabaseConfiguration()) {
+    return staticGetAll()
       .filter((p) => p.availability === "InStock")
       .sort((a, b) => new Date(b.dateModified).getTime() - new Date(a.dateModified).getTime())
       .slice(0, count);
@@ -113,15 +125,20 @@ export async function getFeaturedProducts(count = 8): Promise<Product[]> {
 
   const { db } = await import("@/db");
   const { products } = await import("@/db/schema");
-  const { eq, desc } = await import("drizzle-orm");
+  const { and, eq, desc, inArray } = await import("drizzle-orm");
 
-  const rows = await db.select().from(products).where(eq(products.availability, "InStock")).orderBy(desc(products.dateModified)).limit(count);
+  const rows = await db
+    .select()
+    .from(products)
+    .where(and(eq(products.availability, "InStock"), inArray(products.category, ACTIVE_PRODUCT_CATEGORIES)))
+    .orderBy(desc(products.dateModified))
+    .limit(count);
   return hydrateFromDb(rows);
 }
 
 export async function getGrailProducts(count = 3): Promise<Product[]> {
-  if (!useDb()) {
-    return staticProducts
+  if (!hasDatabaseConfiguration()) {
+    return staticGetAll()
       .filter((p) => p.price >= 5000)
       .sort((a, b) => b.price - a.price)
       .slice(0, count);
@@ -129,54 +146,71 @@ export async function getGrailProducts(count = 3): Promise<Product[]> {
 
   const { db } = await import("@/db");
   const { products } = await import("@/db/schema");
-  const { gte, desc } = await import("drizzle-orm");
+  const { and, gte, desc, inArray } = await import("drizzle-orm");
 
-  const rows = await db.select().from(products).where(gte(products.price, "5000")).orderBy(desc(products.price)).limit(count);
+  const rows = await db
+    .select()
+    .from(products)
+    .where(and(gte(products.price, "5000"), inArray(products.category, ACTIVE_PRODUCT_CATEGORIES)))
+    .orderBy(desc(products.price))
+    .limit(count);
   return hydrateFromDb(rows);
 }
 
 export async function getNewDrops(count = 8): Promise<Product[]> {
-  if (!useDb()) {
-    return [...staticProducts]
+  if (!hasDatabaseConfiguration()) {
+    return [...staticGetAll()]
       .sort((a, b) => new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime())
       .slice(0, count);
   }
 
   const { db } = await import("@/db");
   const { products } = await import("@/db/schema");
-  const { desc } = await import("drizzle-orm");
+  const { desc, inArray } = await import("drizzle-orm");
 
-  const rows = await db.select().from(products).orderBy(desc(products.datePublished)).limit(count);
+  const rows = await db
+    .select()
+    .from(products)
+    .where(inArray(products.category, ACTIVE_PRODUCT_CATEGORIES))
+    .orderBy(desc(products.datePublished))
+    .limit(count);
   return hydrateFromDb(rows);
 }
 
 export async function getAllCategories(): Promise<ProductCategory[]> {
-  if (!useDb()) {
-    return Array.from(new Set(staticProducts.map((p) => p.category)));
+  if (!hasDatabaseConfiguration()) {
+    return Array.from(new Set(staticGetAll().map((p) => p.category)));
   }
 
   const { db } = await import("@/db");
   const { products } = await import("@/db/schema");
 
-  const rows = await db.selectDistinct({ category: products.category }).from(products);
+  const { inArray } = await import("drizzle-orm");
+  const rows = await db
+    .selectDistinct({ category: products.category })
+    .from(products)
+    .where(inArray(products.category, ACTIVE_PRODUCT_CATEGORIES));
   return rows.map((r) => r.category as ProductCategory);
 }
 
 export async function getAllGradeCompanies(): Promise<GradeCompany[]> {
-  if (!useDb()) {
-    return Array.from(new Set(staticProducts.filter((p) => p.gradeCompany).map((p) => p.gradeCompany as GradeCompany)));
+  if (!hasDatabaseConfiguration()) {
+    return Array.from(new Set(staticGetAll().filter((p) => p.gradeCompany).map((p) => p.gradeCompany as GradeCompany)));
   }
 
   const { db } = await import("@/db");
   const { products } = await import("@/db/schema");
-  const { sql } = await import("drizzle-orm");
+  const { and, inArray, isNotNull } = await import("drizzle-orm");
 
-  const rows = await db.selectDistinct({ gradeCompany: products.gradeCompany }).from(products).where(sql`${products.gradeCompany} IS NOT NULL`);
+  const rows = await db
+    .selectDistinct({ gradeCompany: products.gradeCompany })
+    .from(products)
+    .where(and(isNotNull(products.gradeCompany), inArray(products.category, ACTIVE_PRODUCT_CATEGORIES)));
   return rows.map((r) => r.gradeCompany as GradeCompany);
 }
 
 export async function getCategoryCounts(): Promise<Record<string, number>> {
-  if (!useDb()) {
+  if (!hasDatabaseConfiguration()) {
     const counts: Record<string, number> = {};
     for (const p of staticProducts) counts[p.category] = (counts[p.category] || 0) + 1;
     return counts;
@@ -186,15 +220,20 @@ export async function getCategoryCounts(): Promise<Record<string, number>> {
   const { products } = await import("@/db/schema");
   const { sql } = await import("drizzle-orm");
 
-  const rows = await db.select({ category: products.category, count: sql<number>`count(*)` }).from(products).groupBy(products.category);
+  const { inArray } = await import("drizzle-orm");
+  const rows = await db
+    .select({ category: products.category, count: sql<number>`count(*)` })
+    .from(products)
+    .where(inArray(products.category, ACTIVE_PRODUCT_CATEGORIES))
+    .groupBy(products.category);
   const counts: Record<string, number> = {};
   for (const row of rows) counts[row.category] = Number(row.count);
   return counts;
 }
 
 export async function getRelatedProducts(product: Product, count = 4): Promise<Product[]> {
-  if (!useDb()) {
-    return staticProducts
+  if (!hasDatabaseConfiguration()) {
+    return staticGetAll()
       .filter((p) => p.slug !== product.slug && p.category === product.category)
       .slice(0, count);
   }

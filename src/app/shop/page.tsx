@@ -7,7 +7,7 @@ import NeonDivider from "@/components/atmosphere/NeonDivider";
 export const metadata: Metadata = {
   title: "Shop",
   description:
-    "Browse graded Pokémon cards, Yu-Gi-Oh, Magic: The Gathering, Japanese culture books, stationery and art. PSA, CGC & BGS authenticated.",
+    "Browse graded Pokémon, Dragon Ball Z and One Piece cards. PSA, CGC & BGS authenticated.",
 };
 
 export default async function ShopPage() {

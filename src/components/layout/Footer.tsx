@@ -9,19 +9,16 @@ const footerSections = [
       { label: "Grail Vault", href: "/grails" },
       { label: "Latest Acquisitions", href: "/new" },
       { label: "Pokémon", href: "/pokemon" },
-      { label: "Yu-Gi-Oh", href: "/yu-gi-oh" },
-      { label: "MTG", href: "/mtg" },
-      { label: "Culture", href: "/culture" },
+      { label: "Dragon Ball Z", href: "/dragon-ball-z" },
+      { label: "One Piece", href: "/one-piece" },
     ],
   },
   {
     title: "// SERVICES",
     links: [
+      { label: "We Buy Cards", href: "/we-buy-cards" },
       { label: "SlabHunter", href: "/slabhunter" },
       { label: "SlabTrader", href: "/slabtrader" },
-      { label: "We Buy Cards", href: "/we-buy-cards" },
-      { label: "Slabbing", href: "/slabbing" },
-      { label: "Loan Broker", href: "/loan-broker" },
     ],
   },
   {
@@ -38,9 +35,9 @@ const footerSections = [
     links: [
       { label: "info@slabhead.co.za", href: "mailto:info@slabhead.co.za" },
       { label: "Cape Town · ZA", href: "/contact-us" },
-      { label: "Instagram", href: "#" },
-      { label: "X / Twitter", href: "#" },
-      { label: "Discord", href: "#" },
+      { label: "Instagram", href: "https://www.instagram.com/slabhead_collectables/" },
+      { label: "Heinrich on WhatsApp", href: "https://wa.me/27834549253" },
+      { label: "Joao on WhatsApp", href: "https://wa.me/27835018993" },
     ],
   },
 ];
@@ -60,8 +57,7 @@ export default function Footer() {
         {/* System status header */}
         <div className="mb-10 flex items-center justify-between gap-4 border-b border-white/[0.05] pb-4">
           <Link href="/" className="font-display text-2xl tracking-wider">
-            <span className="text-slab-white">SLAB</span>
-            <span className="text-slab-neon-cyan neon-glow-cyan">HEAD</span>
+            <span className="brand-wordmark">SLABHEAD</span>
           </Link>
           <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest">
             <span
@@ -106,7 +102,7 @@ export default function Footer() {
             © {new Date().getFullYear()} SLABHEAD · CAPE_TOWN.ZA · CURRENCY: ZAR
           </p>
           <p className="font-mono text-[10px] uppercase tracking-widest text-slab-muted">
-            BUILD: cyberpunk-2026.06 · PSA · CGC · BGS · BUDDYBOSS_FREE
+            BUILD: collectables-2026.07 · PSA · CGC · BGS · PAYFAST
           </p>
         </div>
       </div>

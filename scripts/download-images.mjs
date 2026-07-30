@@ -25,19 +25,6 @@ const imageMap = [
   // TCG Accessories
   { local: "images/products/tcg-accessories/professor-juniper-card-sleeves.jpeg", remote: "https://slabhead.co.za/wp-content/uploads/2025/01/JUNIPERCS.jpeg" },
   { local: "images/products/tcg-accessories/ultra-pro-charmander-playmat.jpeg", remote: "https://slabhead.co.za/wp-content/uploads/2025/01/Char.jpeg" },
-  // Yu-Gi-Oh
-  { local: "images/products/yu-gi-oh/ghosts-from-the-past-2.jpg", remote: "https://slabhead.co.za/wp-content/uploads/2025/01/Yu-Gi-Oh-Ghosts-from-the-Past-2.jpg" },
-  // MTG
-  { local: "images/products/mtg/mtg-zendikar-rising-collector-booster.jpg", remote: "https://slabhead.co.za/wp-content/uploads/2025/01/C75360000_1.jpg" },
-  // Books
-  { local: "images/products/books/japanese-culture.png", remote: "https://slabhead.co.za/wp-content/uploads/2025/01/e6f25570-de29-44cc-88fc-2a493ae84584.png" },
-  // Stationery
-  { local: "images/products/stationery/mangaka-pen.png", remote: "https://slabhead.co.za/wp-content/uploads/2025/01/bd0c82ac-1b9b-4c1c-bc4b-8bb6a99bec51.png" },
-  { local: "images/products/stationery/origami-paper-500-vibrant.jpg", remote: "https://slabhead.co.za/wp-content/uploads/2025/01/Untitled-1_9ff3dd3b-3c86-4af7-8226-24acffe5ea09.jpg" },
-  { local: "images/products/stationery/studio-ghibli-spirited-away-notebook.png", remote: "https://slabhead.co.za/wp-content/uploads/2025/01/60f152b5-1771-4435-88d1-aeb776c49e2a.png" },
-  // Art
-  { local: "images/products/art/spirit-of-steenberg.png", remote: "https://slabhead.co.za/wp-content/uploads/2025/01/de9d4407-a140-4609-a2aa-9acc70abac94.png" },
-  { local: "images/products/art/bronze-rhino-bust.png", remote: "https://slabhead.co.za/wp-content/uploads/2025/01/50e3edf9-0577-49ee-bdaa-738bf70fd197.png" },
 ];
 
 const manifest = {};

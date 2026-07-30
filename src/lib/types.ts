@@ -2,12 +2,16 @@ export type GradeCompany = "PSA" | "CGC" | "BGS" | "PCG" | "Beckett";
 
 export type ProductCategory =
   | "Pokemon"
-  | "Yu-Gi-Oh"
-  | "Magic the Gathering"
-  | "TCG Accessories"
-  | "Books"
-  | "Stationery"
-  | "Art";
+  | "Dragon Ball Z"
+  | "One Piece"
+  | "TCG Accessories";
+
+export const ACTIVE_PRODUCT_CATEGORIES: ProductCategory[] = [
+  "Pokemon",
+  "Dragon Ball Z",
+  "One Piece",
+  "TCG Accessories",
+];
 
 export type Availability = "InStock" | "OutOfStock";
 

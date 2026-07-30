@@ -10,7 +10,6 @@ import RevealOnScroll from "@/components/atmosphere/RevealOnScroll";
 import TerminalText from "@/components/atmosphere/TerminalText";
 import NeonBadge from "@/components/atmosphere/NeonBadge";
 import MarqueeStrip from "@/components/atmosphere/MarqueeStrip";
-import CategoryHero from "@/components/atmosphere/CategoryHero";
 import PsaSlab from "@/components/atmosphere/PsaSlab";
 import {
   getNewDrops,
@@ -21,12 +20,11 @@ import {
 import { formatPrice } from "@/lib/utils";
 
 export default async function Home() {
-  const [newDrops, hotProducts, grails, categoryCounts, cultureProducts] = await Promise.all([
+  const [newDrops, hotProducts, grails, categoryCounts] = await Promise.all([
     getNewDrops(8),
     getFeaturedProducts(6),
     getGrailProducts(3),
     getCategoryCounts(),
-    getNewDrops(28),
   ]);
 
   return (
@@ -63,16 +61,15 @@ export default async function Home() {
 
             <RevealOnScroll variant="fade-up" delay={1.8}>
               <p className="mt-6 max-w-lg font-mono text-sm leading-relaxed text-slab-muted">
-                {">"} Rare Pokémon, Yu-Gi-Oh & Magic: The Gathering cards — professionally
-                graded, securely shipped from Cape Town. Plus Japanese culture
-                collectables, books & art.
+                {">"} Rare Pokémon, Dragon Ball Z and One Piece cards — professionally
+                graded and securely shipped from Cape Town.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button href="/shop" variant="neon" size="lg" terminalPrefix block>
                   BROWSE_INVENTORY
                 </Button>
-                <Button href="/slabhunter" variant="secondary" size="lg" block>
-                  CAN&apos;T FIND IT? WE HUNT IT
+                <Button href="/we-buy-cards" variant="secondary" size="lg" block>
+                  WE BUY CARDS
                 </Button>
               </div>
             </RevealOnScroll>
@@ -155,7 +152,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ═══ 4. TRENDING CASES — magenta tint ═════════════════ */}
+      {/* ═══ 4. TRENDING SLABS — magenta tint ═════════════════ */}
       <section
         className="relative py-20 scanlines"
         style={{
@@ -166,8 +163,8 @@ export default async function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between gap-4">
             <div>
-              <NeonDivider label="// TRENDING_CASES" accent="magenta" className="mb-4" />
-              <h2 className="font-display text-3xl text-slab-white">Trending Cases</h2>
+              <NeonDivider label="// TRENDING_SLABS" accent="magenta" className="mb-4" />
+              <h2 className="font-display text-3xl text-slab-white">Trending Slabs</h2>
               <p className="mt-1 font-mono text-xs uppercase tracking-widest text-slab-muted">
                 {">"} STAFF PICKS & TOP SELLERS
               </p>
@@ -213,28 +210,20 @@ export default async function Home() {
               icon="⚡"
             />
             <CategoryCard
-              title="Yu-Gi-Oh"
-              description="Sealed boxes and structure decks"
-              href="/yu-gi-oh"
-              count={categoryCounts["Yu-Gi-Oh"] || 0}
-              scene="yugioh"
-              icon="◈"
+              title="Dragon Ball Z"
+              description="Graded cards, singles and sealed product"
+              href="/dragon-ball-z"
+              count={categoryCounts["Dragon Ball Z"] || 0}
+              scene="dragonball"
+              icon="★"
             />
             <CategoryCard
-              title="Magic: The Gathering"
-              description="Collector boosters & commander decks"
-              href="/mtg"
-              count={categoryCounts["Magic the Gathering"] || 0}
-              scene="mtg"
-              icon="◊"
-            />
-            <CategoryCard
-              title="Culture"
-              description="Japanese literature, art, zen & manga"
-              href="/culture"
-              count={(categoryCounts["Books"] || 0) + (categoryCounts["Stationery"] || 0) + (categoryCounts["Art"] || 0)}
-              scene="culture"
-              icon="花"
+              title="One Piece"
+              description="Graded cards, singles and sealed product"
+              href="/one-piece"
+              count={categoryCounts["One Piece"] || 0}
+              scene="onepiece"
+              icon="☠"
             />
           </RevealOnScroll>
         </div>
@@ -331,13 +320,23 @@ export default async function Home() {
           <NeonDivider label="// THE_NETWORK" accent="cyan" className="mb-4" />
           <h2 className="font-display text-3xl text-slab-white">Our Services</h2>
           <p className="mt-1 font-mono text-xs uppercase tracking-widest text-slab-muted">
-            {">"} 5 MODULES // ONLINE // READY FOR COMMANDS
+            {">"} 3 MODULES // ONLINE // READY FOR COMMANDS
           </p>
           <RevealOnScroll
             variant="fade-up"
             stagger={0.08}
-            className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5"
+            className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
           >
+            <ServiceCard
+              title="We Buy Cards"
+              description="Sell slabs, raw cards, sealed product or a full collection at a fair price."
+              href="/we-buy-cards"
+              icon={
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                </svg>
+              }
+            />
             <ServiceCard
               title="SlabHunter"
               description="Can&apos;t find it locally? We&apos;ll source it worldwide."
@@ -358,138 +357,7 @@ export default async function Home() {
                 </svg>
               }
             />
-            <ServiceCard
-              title="We Buy Cards"
-              description="Need cash? We&apos;ll buy your collection at a fair price."
-              href="/we-buy-cards"
-              icon={
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                </svg>
-              }
-            />
-            <ServiceCard
-              title="Slabbing"
-              description="Get cards professionally graded by PSA, CGC or BGS."
-              href="/slabbing"
-              icon={
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              }
-            />
-            <ServiceCard
-              title="Loan Broker"
-              description="Use your slabs as collateral for competitive-rate loans."
-              href="/loan-broker"
-              icon={
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-              }
-            />
           </RevealOnScroll>
-        </div>
-      </section>
-
-      {/* ═══ 8. BEYOND THE VAULT — culture anchor (one real image) ═ */}
-      <section
-        className="relative overflow-hidden py-20"
-        style={{
-          background:
-            "radial-gradient(ellipse 50% 40% at 30% 50%, rgba(255, 0, 200, 0.06) 0%, transparent 60%)",
-        }}
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <RevealOnScroll variant="slide-in-x">
-              <NeonDivider label="// EASTERN_WING" accent="magenta" className="mb-4" />
-              <h2 className="font-display text-3xl text-slab-white">Beyond the Cards</h2>
-              <p className="mt-3 max-w-md font-mono text-sm leading-relaxed text-slab-muted">
-                {">"} Japanese culture, art, books & stationery. The collector&apos;s world doesn&apos;t end at sleeves.
-              </p>
-              <div className="mt-6">
-                <Button href="/culture" variant="neon" size="md" terminalPrefix block>
-                  EXPLORE_CULTURE
-                </Button>
-              </div>
-            </RevealOnScroll>
-            <RevealOnScroll variant="fade-up">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-slab-neon-magenta/30 neon-box-magenta">
-                {/* Code-rendered Culture scene at preview scale */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "radial-gradient(ellipse at 50% 50%, rgba(255, 0, 200, 0.20) 0%, transparent 60%), " +
-                      "radial-gradient(ellipse at 30% 30%, rgba(168, 85, 247, 0.12) 0%, transparent 50%), " +
-                      "linear-gradient(135deg, #160828 0%, #0A0A0F 100%)",
-                  }}
-                />
-                {/* Cherry blossoms (preview) */}
-                <div className="absolute inset-0 overflow-hidden">
-                  {Array.from({ length: 12 }).map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute"
-                      style={{
-                        left: `${(i * 11 + 5) % 100}%`,
-                        top: `-6%`,
-                        width: "7px",
-                        height: "7px",
-                        borderRadius: "50% 0 50% 0",
-                        backgroundColor:
-                          i % 3 === 0
-                            ? "rgba(255, 195, 220, 0.85)"
-                            : i % 3 === 1
-                              ? "rgba(255, 170, 205, 0.7)"
-                              : "rgba(245, 210, 230, 0.8)",
-                        boxShadow: "0 0 5px rgba(255, 195, 220, 0.5)",
-                        transform: `rotate(${i * 25}deg)`,
-                        animation: `culture-petal-${i % 4} ${12 + i}s linear infinite`,
-                        animationDelay: `${i * 0.9}s`,
-                      }}
-                    />
-                  ))}
-                </div>
-                {/* Vertical paper strokes */}
-                <div
-                  className="absolute inset-y-0 right-0 w-1/3 opacity-25"
-                  style={{
-                    background:
-                      "repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(255, 195, 220, 0.18) 20px, rgba(255, 195, 220, 0.18) 21px)",
-                  }}
-                />
-                {/* Scanlines + vignette */}
-                <div className="absolute inset-0 scanlines opacity-40" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slab-black/70 via-transparent to-slab-black/30" />
-                {/* Center text */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="font-display text-5xl text-slab-white neon-glow-white">花</div>
-                    <div className="mt-3 font-mono text-[10px] uppercase tracking-widest text-slab-neon-magenta/80">
-                      // EASTERN_WING
-                    </div>
-                  </div>
-                </div>
-                <style>{`
-                  @keyframes culture-petal-0 { to { transform: translate(15px, 120%) rotate(360deg); opacity: 0; } }
-                  @keyframes culture-petal-1 { to { transform: translate(-20px, 120%) rotate(-360deg); opacity: 0; } }
-                  @keyframes culture-petal-2 { to { transform: translate(10px, 120%) rotate(540deg); opacity: 0; } }
-                  @keyframes culture-petal-3 { to { transform: translate(-12px, 120%) rotate(-540deg); opacity: 0; } }
-                `}</style>
-              </div>
-            </RevealOnScroll>
-          </div>
-
-          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-6">
-            {cultureProducts
-              .filter((p) => ["Books", "Stationery", "Art"].includes(p.category))
-              .slice(0, 4)
-              .map((product) => (
-                <ProductCard key={product.slug} product={product} />
-              ))}
-          </div>
         </div>
       </section>
 

@@ -3,8 +3,8 @@
 /* ── Slabhead Design Tokens ── */
 @theme inline {
   /* base + crimson (brightened for neon feel) */
-  --color-slab-crimson: #C9165A;
-  --color-slab-crimson-light: #FF1F73;
+  --color-slab-crimson: #F20DBA;
+  --color-slab-crimson-light: #FF36D1;
   --color-slab-black: #0A0A0F;
   --color-slab-charcoal: #12121A;
   --color-slab-surface: #1A1A2E;
@@ -17,10 +17,10 @@
   --color-slab-danger: #EF4444;
 
   /* cyberpunk neon palette */
-  --color-slab-neon-cyan: #00F0FF;
-  --color-slab-neon-magenta: #FF00C8;
+  --color-slab-neon-cyan: #19D9FF;
+  --color-slab-neon-magenta: #F20DBA;
   --color-slab-haze: #1A0F2E;
-  --color-slab-electric: #A855F7;
+  --color-slab-electric: #7C3CFF;
 
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -50,6 +50,14 @@ body {
   z-index: 1;
   /* Prevent rubber-band bounce + accidental nav pull-to-refresh on mobile */
   overscroll-behavior-y: contain;
+}
+
+.brand-wordmark {
+  color: transparent;
+  background: linear-gradient(90deg, #f20dba 0%, #7c3cff 48%, #19d9ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-shadow: 0 0 14px rgba(242, 13, 186, 0.35), 0 0 22px rgba(25, 217, 255, 0.25);
 }
 
 /* ── Scrollbar ── */

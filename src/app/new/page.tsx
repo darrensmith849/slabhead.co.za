@@ -8,7 +8,7 @@ import RevealOnScroll from "@/components/atmosphere/RevealOnScroll";
 export const metadata: Metadata = {
   title: "Latest Acquisitions",
   description:
-    "The newest graded slabs, sealed product and culture pieces just landed in the Slabhead vault.",
+    "The newest graded slabs and sealed products just landed in the Slabhead vault.",
 };
 
 export default async function NewDropsPage() {

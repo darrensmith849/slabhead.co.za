@@ -15,9 +15,9 @@ const SUBJECTS = [
   ["slabhunter", "SLABHUNTER_REQUEST"],
   ["slabtrader", "SLABTRADER"],
   ["sell", "SELL_MY_CARDS"],
-  ["slabbing", "GRADING_SERVICE"],
-  ["loan", "LOAN_ENQUIRY"],
 ];
+
+const WHATSAPP_GROUP_URL = process.env.NEXT_PUBLIC_WHATSAPP_GROUP_URL;
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -83,21 +83,23 @@ export default function ContactPage() {
             <ChannelRow label="LOCATION" value="CAPE_TOWN.ZA" />
             <ChannelRow label="RESPONSE_TIME" value="24h · BUSINESS_DAYS" />
             <ChannelRow label="CURRENCY" value="ZAR" />
+            <ChannelRow label="HEINRICH" value="+27 83 454 9253" href="https://wa.me/27834549253" />
+            <ChannelRow label="JOAO" value="+27 83 501 8993" href="https://wa.me/27835018993" />
+            {WHATSAPP_GROUP_URL && (
+              <ChannelRow label="WHATSAPP_GROUP" value="JOIN_COMMUNITY" href={WHATSAPP_GROUP_URL} />
+            )}
 
             <div className="border-t border-white/[0.05] pt-4">
-              <span className={cn(labelStyle, "block")}>// SOCIAL_NETWORKS</span>
-              <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-slab-muted">
-                // PENDING_CLIENT_PROVIDES_HANDLES
-              </p>
+              <span className={cn(labelStyle, "block")}>// SOCIAL_NETWORK</span>
               <div className="mt-3 flex gap-2">
-                {["IG", "X", "DC"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="inline-flex h-9 w-9 items-center justify-center rounded border border-white/10 bg-slab-black/40 font-mono text-[10px] uppercase tracking-widest text-slab-muted"
-                  >
-                    {tag}
-                  </span>
-                ))}
+                <a
+                  href="https://www.instagram.com/slabhead_collectables/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-9 items-center justify-center rounded border border-slab-neon-magenta/40 bg-slab-neon-magenta/[0.06] px-3 font-mono text-[10px] uppercase tracking-widest text-slab-neon-magenta transition-colors hover:bg-slab-neon-magenta/15"
+                >
+                  INSTAGRAM
+                </a>
               </div>
             </div>
           </div>

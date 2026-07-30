@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const SECTIONS = [
   {
     title: "Overview",
-    body: "These terms govern your use of slabhead.co.za and all our services — including the Shop, SlabHunter, SlabTrader, Slabbing, We Buy Cards, and Loan Broker. Using the site means you accept these terms.",
+    body: "These terms govern your use of slabhead.co.za and all our services, including the Shop, We Buy Cards, SlabHunter and SlabTrader. Using the site means you accept these terms.",
   },
   {
     title: "Products & Pricing",
@@ -27,7 +27,7 @@ const SECTIONS = [
   },
   {
     title: "Services",
-    body: "SlabHunter, SlabTrader, Slabbing, We Buy Cards, and Loan Broker are best-effort services. Specific terms — including timelines, fees, and any escrow arrangements — are confirmed in writing before you commit. Loan products are arranged through licensed lending partners under the NCA.",
+    body: "We Buy Cards, SlabHunter and SlabTrader are best-effort services. Specific terms, including timelines, fees and any collection arrangements, are confirmed in writing before you commit.",
   },
   {
     title: "Limitation of Liability",
@@ -53,7 +53,7 @@ export default function TermsPage() {
         Terms of Service
       </h1>
       <p className="mt-3 font-mono text-xs uppercase tracking-widest text-slab-muted">
-        {">"} LAST_UPDATED: 2026-03 · JURISDICTION: SOUTH_AFRICA
+        {">"} LAST_UPDATED: 2026-07 · JURISDICTION: SOUTH_AFRICA
       </p>
 
       <NeonDivider label="// ENGAGEMENT_TERMS" accent="cyan" className="mt-12 mb-8" />

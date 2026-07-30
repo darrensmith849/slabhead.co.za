@@ -43,13 +43,11 @@ export default function CategoryPage({
   const sold = products.filter((p) => p.availability === "OutOfStock");
 
   const accent =
-    roomTheme === "yugioh" || roomTheme === "liquidation" || roomTheme === "underwriting"
+    roomTheme === "dragonball" || roomTheme === "liquidation" || roomTheme === "underwriting"
       ? "gold"
-      : roomTheme === "culture"
+      : roomTheme === "onepiece"
         ? "magenta"
-        : roomTheme === "mtg"
-          ? "electric"
-          : "cyan";
+        : "cyan";
 
   return (
     <>

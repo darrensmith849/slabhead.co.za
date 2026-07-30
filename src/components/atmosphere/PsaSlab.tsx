@@ -89,11 +89,11 @@ export default function PsaSlab() {
               <div className="font-mono text-[9px] uppercase tracking-[0.2em] text-slab-neon-cyan/40">
                 // SPECIMEN_ON_DISPLAY
               </div>
-              <div className="mt-3 font-display text-4xl text-slab-white/55">
-                CHARIZARD
+              <div className="mt-3 font-display text-4xl text-slab-white/70">
+                SLABHEAD
               </div>
               <div className="mt-2 font-mono text-[9px] uppercase tracking-widest text-slab-muted">
-                BASE SET · 1ST EDITION · HOLO
+                COLLECTOR NETWORK · CAPE TOWN · ZA
               </div>
               <div className="mt-8 h-px w-16 bg-slab-neon-cyan/30" />
               <div className="mt-3 font-mono text-[8px] uppercase tracking-widest text-slab-muted/60">

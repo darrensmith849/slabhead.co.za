@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
  * Shared "card" used by /opengraph-image.tsx and /twitter-image.tsx.
  *
  * 1200×630 — the standard 1.91:1 ratio that FB / WhatsApp / iMessage /
- * LinkedIn / Twitter all render cleanly.
+ * Social and messaging apps render this size cleanly.
  *
  * Note on fonts: Satori (the renderer Next uses for ImageResponse) only
  * accepts TTF/OTF, not woff2. Google Fonts only serves woff2 for modern
@@ -170,7 +170,7 @@ export async function renderSlabheadOgImage() {
               letterSpacing: 8,
             }}
           >
-            PSA · CGC · BGS · POKEMON · YU-GI-OH · MTG · CULTURE
+            PSA · CGC · BGS · POKEMON · DRAGON BALL Z · ONE PIECE
           </div>
         </div>
 

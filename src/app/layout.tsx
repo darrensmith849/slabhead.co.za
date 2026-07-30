@@ -33,26 +33,23 @@ export const metadata: Metadata = {
     template: "%s | Slabhead",
   },
   description:
-    "Discover rare Pokémon cards, Yu-Gi-Oh, Magic: The Gathering and Japanese culture collectables. PSA, CGC & BGS authenticated. Shipped from Cape Town, South Africa.",
+    "Discover rare Pokémon, Dragon Ball Z and One Piece cards. PSA, CGC & BGS authenticated and shipped from Cape Town, South Africa.",
   metadataBase: new URL("https://slabhead.co.za"),
-  // OpenGraph + Twitter cards drive link previews on WhatsApp, FB,
-  // iMessage, LinkedIn, Slack, Discord, Twitter. The actual image is
-  // auto-injected by Next from src/app/opengraph-image.tsx +
-  // twitter-image.tsx — these fields supply the surrounding text.
+  // Social-card metadata surrounds the generated link-preview image.
   openGraph: {
     type: "website",
     locale: "en_ZA",
     siteName: "Slabhead",
     title: "Slabhead — South Africa's Home for Graded Cards",
     description:
-      "Rare Pokémon, Yu-Gi-Oh & Magic: The Gathering cards — professionally graded, securely shipped from Cape Town. Plus Japanese culture collectables.",
+      "Rare Pokémon, Dragon Ball Z and One Piece cards — professionally graded and securely shipped from Cape Town.",
     url: "https://slabhead.co.za",
   },
   twitter: {
     card: "summary_large_image",
     title: "Slabhead — South Africa's Home for Graded Cards",
     description:
-      "Rare Pokémon, Yu-Gi-Oh & Magic: The Gathering cards — professionally graded, securely shipped from Cape Town.",
+      "Rare Pokémon, Dragon Ball Z and One Piece cards — professionally graded and securely shipped from Cape Town.",
   },
   robots: {
     index: true,
@@ -71,7 +68,7 @@ export default function RootLayout({
     name: "Slabhead",
     url: "https://slabhead.co.za",
     description:
-      "South Africa's home for graded Pokémon, Yu-Gi-Oh and Magic: The Gathering cards, plus Japanese culture collectables.",
+      "South Africa's home for graded Pokémon, Dragon Ball Z and One Piece cards.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Cape Town",

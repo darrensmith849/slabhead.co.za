@@ -5,7 +5,7 @@ import CategoryPage from "@/components/sections/CategoryPage";
 export const metadata: Metadata = {
   title: "Collectables",
   description:
-    "From Pokémon cards to Yu-Gi-Oh, Magic: The Gathering, and Japanese culture — browse all collectables at Slabhead.",
+    "Browse Pokémon, Dragon Ball Z and One Piece collectables at Slabhead.",
 };
 
 export default async function CollectablesPage() {
@@ -14,15 +14,14 @@ export default async function CollectablesPage() {
   return (
     <CategoryPage
       title="The Full Inventory Hall"
-      description="Everything we carry — Pokémon, Yu-Gi-Oh, MTG, books, art, stationery. The whole vault in one room."
+      description="Everything we carry — Pokémon, Dragon Ball Z and One Piece. The whole vault in one room."
       heroLabel="// FULL_INVENTORY_HALL"
       roomTheme="collectables"
       products={products}
       subPortals={[
         { label: "POKÉMON", href: "/pokemon", count: counts["Pokemon"] || 0 },
-        { label: "YU-GI-OH", href: "/yu-gi-oh", count: counts["Yu-Gi-Oh"] || 0 },
-        { label: "MTG", href: "/mtg", count: counts["Magic the Gathering"] || 0 },
-        { label: "CULTURE", href: "/culture", count: (counts["Books"] || 0) + (counts["Stationery"] || 0) + (counts["Art"] || 0) },
+        { label: "DRAGON BALL Z", href: "/dragon-ball-z", count: counts["Dragon Ball Z"] || 0 },
+        { label: "ONE PIECE", href: "/one-piece", count: counts["One Piece"] || 0 },
       ]}
     />
   );

@@ -27,16 +27,6 @@ const LOG_ENTRIES = [
     ),
   },
   {
-    id: "ENTRY_002",
-    date: "2025_07_15",
-    title: "BEYOND_THE_CARDS",
-    body: (
-      <p>
-        We curate Japanese culture collectables — books, art, stationery — because the collecting spirit goes beyond TCGs. Our &ldquo;Culture&rdquo; section brings hand-picked items you won&apos;t find at your local bookshop.
-      </p>
-    ),
-  },
-  {
     id: "ENTRY_003",
     date: "2025_08_01",
     title: "OPERATING_PRINCIPLES",
@@ -65,10 +55,7 @@ const LOG_ENTRIES = [
     body: (
       <>
         <p>
-          Founded by Darren, Slabhead is run by a small team of collectors who eat, sleep and breathe TCGs. We&apos;re always happy to chat about cards — whether you&apos;re a seasoned collector or just pulled your first Charizard.
-        </p>
-        <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-slab-muted">
-          // FOUNDER_AVATAR_PENDING · TEAM_BIOS_PENDING · PLACEHOLDER_FOR_CLIENT
+          Founded by Heinrich and Joao, Slabhead is run by collectors who eat, sleep and breathe TCGs. We&apos;re always happy to chat about cards — whether you&apos;re a seasoned collector or just pulled your first Charizard.
         </p>
       </>
     ),
@@ -85,7 +72,7 @@ export default function AboutPage() {
         About Slabhead
       </h1>
       <p className="mt-3 font-mono text-xs uppercase tracking-widest text-slab-muted">
-        {">"} 4 LOG_ENTRIES · 2025-07_01 → 2026-01_01
+        {">"} 3 LOG_ENTRIES · 2025-07_01 → 2026-01_01
       </p>
 
       <NeonDivider label="// ARCHIVE" accent="cyan" className="mt-12 mb-8" />

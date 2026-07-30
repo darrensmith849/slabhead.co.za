@@ -50,7 +50,6 @@ async function findOrCreateContact(email: string, name: string) {
   }
 
   // Create new contact
-  const nameParts = name.split(" ");
   const contact = await sageRequest("/contacts", {
     method: "POST",
     body: JSON.stringify({

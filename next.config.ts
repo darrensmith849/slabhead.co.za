@@ -10,10 +10,10 @@ const nextConfig: NextConfig = {
       // Category slug cleanup
       { source: "/pokemon-categories", destination: "/pokemon", permanent: true },
       { source: "/pokemon-categories/", destination: "/pokemon", permanent: true },
-      { source: "/yu-gi-oh-categories", destination: "/yu-gi-oh", permanent: true },
-      { source: "/yu-gi-oh-categories/", destination: "/yu-gi-oh", permanent: true },
-      { source: "/magic-the-gathering-categories", destination: "/mtg", permanent: true },
-      { source: "/magic-the-gathering-categories/", destination: "/mtg", permanent: true },
+      { source: "/yu-gi-oh-categories", destination: "/dragon-ball-z", permanent: true },
+      { source: "/yu-gi-oh-categories/", destination: "/dragon-ball-z", permanent: true },
+      { source: "/magic-the-gathering-categories", destination: "/one-piece", permanent: true },
+      { source: "/magic-the-gathering-categories/", destination: "/one-piece", permanent: true },
       { source: "/product-category/pokemon", destination: "/pokemon", permanent: true },
       { source: "/product-category/pokemon/", destination: "/pokemon", permanent: true },
 
@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
       { source: "/home", destination: "/", permanent: true },
       { source: "/home/", destination: "/", permanent: true },
 
-      // BuddyBoss pages → relevant alternatives
+      // Retired community pages → relevant alternatives
       { source: "/members", destination: "/about-us", permanent: true },
       { source: "/members/", destination: "/about-us", permanent: true },
       { source: "/news-feed", destination: "/", permanent: true },

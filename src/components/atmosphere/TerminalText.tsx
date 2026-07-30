@@ -38,9 +38,13 @@ export default function TerminalText({
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
-      setShown(text);
-      setDone(true);
-      return;
+      tRef.current = requestAnimationFrame(() => {
+        setShown(text);
+        setDone(true);
+      });
+      return () => {
+        if (tRef.current != null) cancelAnimationFrame(tRef.current);
+      };
     }
 
     let i = 0;

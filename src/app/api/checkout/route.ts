@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/db";
-import { customers, orders, orderItems, cartSessions, cartItems, products, productImages } from "@/db/schema";
-import { eq, and, sql } from "drizzle-orm";
+import { customers, orders, orderItems, cartSessions, cartItems, products } from "@/db/schema";
+import { eq } from "drizzle-orm";
 import { cookies } from "next/headers";
 import { buildPayFastForm, getPayFastUrl } from "@/lib/payfast";
 
@@ -106,6 +106,7 @@ export async function POST(request: NextRequest) {
     customerFirstName: firstName,
     customerLastName: lastName,
     itemName: itemNames.length > 100 ? `${itemNames.slice(0, 97)}...` : itemNames,
+    customerPhone: phone,
   });
 
   return NextResponse.json({
