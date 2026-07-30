@@ -4,6 +4,7 @@ import { db } from "@/db";
 import { productImages, products } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { ADMIN_COOKIE_NAME, verifyAdminSessionToken } from "@/lib/admin-auth";
+import { storeProductImage } from "@/lib/product-image-storage";
 import { ACTIVE_PRODUCT_CATEGORIES, type Availability, type ProductCategory } from "@/lib/types";
 
 function authorised(request: NextRequest): boolean {
@@ -60,7 +61,10 @@ export async function POST(request: NextRequest) {
   if (!authorised(request)) return NextResponse.json({ error: "Unauthorised" }, { status: 401 });
   if (!databaseReady()) return NextResponse.json({ error: "Database is not configured" }, { status: 503 });
 
-  const body = (await request.json()) as {
+  let image: File | null = null;
+  let imageWidth = 0;
+  let imageHeight = 0;
+  let body: {
     name?: string;
     slug?: string;
     sku?: string;
@@ -68,11 +72,40 @@ export async function POST(request: NextRequest) {
     category?: ProductCategory;
     description?: string;
   };
+
+  if (request.headers.get("content-type")?.includes("multipart/form-data")) {
+    const formData = await request.formData();
+    const selectedImage = formData.get("image");
+    image = selectedImage instanceof File ? selectedImage : null;
+    imageWidth = Number(formData.get("imageWidth"));
+    imageHeight = Number(formData.get("imageHeight"));
+    body = {
+      name: String(formData.get("name") || ""),
+      slug: String(formData.get("slug") || ""),
+      sku: String(formData.get("sku") || ""),
+      price: Number(formData.get("price")),
+      category: String(formData.get("category") || "") as ProductCategory,
+      description: String(formData.get("description") || ""),
+    };
+  } else {
+    body = (await request.json()) as typeof body;
+  }
+
   if (!body.name?.trim() || !body.slug?.trim() || !body.sku?.trim() || body.price === undefined || !body.category) {
     return NextResponse.json({ error: "Name, slug, SKU, price and category are required" }, { status: 400 });
   }
   if (!ACTIVE_PRODUCT_CATEGORIES.includes(body.category) || !Number.isFinite(body.price) || body.price < 0) {
     return NextResponse.json({ error: "Invalid category or price" }, { status: 400 });
+  }
+
+  let storedImage = null;
+  try {
+    storedImage = image ? await storeProductImage(image, imageWidth, imageHeight) : null;
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Image upload failed" },
+      { status: 400 },
+    );
   }
 
   const today = new Date().toISOString().slice(0, 10);
@@ -96,9 +129,9 @@ export async function POST(request: NextRequest) {
   await db.insert(productImages).values({
     productId: created.id,
     url: "",
-    localPath: "/images/placeholder-specimen.svg",
-    width: 400,
-    height: 533,
+    localPath: storedImage?.localPath || "/images/placeholder-specimen.svg",
+    width: storedImage?.width || 400,
+    height: storedImage?.height || 533,
     sortOrder: 0,
   });
 
