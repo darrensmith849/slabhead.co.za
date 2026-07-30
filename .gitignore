@@ -19,6 +19,7 @@
 
 # production
 /build
+/.product-images/
 
 # misc
 .DS_Store
