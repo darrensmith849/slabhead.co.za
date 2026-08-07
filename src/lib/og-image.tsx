@@ -186,7 +186,7 @@ export async function renderSlabheadOgImage() {
             <span style={{ color: "rgba(168, 85, 247, 0.9)", marginRight: 12 }}>
               {">"}
             </span>
-            <span>Curated for collectors under Slabhead</span>
+            <span>For collectors, by collectors</span>
           </div>
 
           <div
