@@ -32,8 +32,8 @@ export async function renderSlabheadOgImage() {
           justifyContent: "space-between",
           background: "#0A0A0F",
           backgroundImage: [
-            "radial-gradient(ellipse 70% 60% at 25% 25%, rgba(0, 240, 255, 0.18), transparent 55%)",
-            "radial-gradient(ellipse 70% 60% at 80% 85%, rgba(255, 0, 200, 0.16), transparent 55%)",
+            "radial-gradient(ellipse 70% 60% at 25% 25%, rgba(168, 85, 247, 0.22), transparent 55%)",
+            "radial-gradient(ellipse 70% 60% at 80% 85%, rgba(236, 72, 153, 0.20), transparent 55%)",
             "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(26, 15, 46, 0.85), transparent 70%)",
           ].join(", "),
           padding: "60px 80px",
@@ -50,8 +50,8 @@ export async function renderSlabheadOgImage() {
             left: 40,
             width: 48,
             height: 48,
-            borderTop: "3px solid rgba(0, 240, 255, 0.9)",
-            borderLeft: "3px solid rgba(0, 240, 255, 0.9)",
+            borderTop: "3px solid rgba(168, 85, 247, 0.9)",
+            borderLeft: "3px solid rgba(168, 85, 247, 0.9)",
           }}
         />
         <div
@@ -61,8 +61,8 @@ export async function renderSlabheadOgImage() {
             right: 40,
             width: 48,
             height: 48,
-            borderTop: "3px solid rgba(0, 240, 255, 0.9)",
-            borderRight: "3px solid rgba(0, 240, 255, 0.9)",
+            borderTop: "3px solid rgba(168, 85, 247, 0.9)",
+            borderRight: "3px solid rgba(168, 85, 247, 0.9)",
           }}
         />
         <div
@@ -72,8 +72,8 @@ export async function renderSlabheadOgImage() {
             left: 40,
             width: 48,
             height: 48,
-            borderBottom: "3px solid rgba(0, 240, 255, 0.9)",
-            borderLeft: "3px solid rgba(0, 240, 255, 0.9)",
+            borderBottom: "3px solid rgba(168, 85, 247, 0.9)",
+            borderLeft: "3px solid rgba(168, 85, 247, 0.9)",
           }}
         />
         <div
@@ -83,8 +83,8 @@ export async function renderSlabheadOgImage() {
             right: 40,
             width: 48,
             height: 48,
-            borderBottom: "3px solid rgba(0, 240, 255, 0.9)",
-            borderRight: "3px solid rgba(0, 240, 255, 0.9)",
+            borderBottom: "3px solid rgba(168, 85, 247, 0.9)",
+            borderRight: "3px solid rgba(168, 85, 247, 0.9)",
           }}
         />
 
@@ -96,7 +96,7 @@ export async function renderSlabheadOgImage() {
             width: "100%",
             fontSize: 18,
             letterSpacing: 6,
-            color: "rgba(0, 240, 255, 0.85)",
+            color: "rgba(168, 85, 247, 0.85)",
           }}
         >
           <span>{"// CAPE_TOWN.ZA"}</span>
@@ -138,12 +138,39 @@ export async function renderSlabheadOgImage() {
             <span style={{ color: "#F8FAFC" }}>SLAB</span>
             <span
               style={{
-                color: "#00F0FF",
+                color: "#FF3DBE",
                 textShadow:
-                  "0 0 24px rgba(0, 240, 255, 0.85), 0 0 60px rgba(0, 240, 255, 0.45)",
+                  "0 0 24px rgba(255, 61, 190, 0.75), 0 0 60px rgba(255, 61, 190, 0.35)",
               }}
             >
-              HEAD
+              H
+            </span>
+            <span
+              style={{
+                color: "#E845D3",
+                textShadow:
+                  "0 0 24px rgba(232, 69, 211, 0.70), 0 0 60px rgba(232, 69, 211, 0.35)",
+              }}
+            >
+              E
+            </span>
+            <span
+              style={{
+                color: "#C158EC",
+                textShadow:
+                  "0 0 26px rgba(193, 88, 236, 0.70), 0 0 60px rgba(168, 85, 247, 0.40)",
+              }}
+            >
+              A
+            </span>
+            <span
+              style={{
+                color: "#A855F7",
+                textShadow:
+                  "0 0 30px rgba(168, 85, 247, 0.80), 0 0 64px rgba(168, 85, 247, 0.45)",
+              }}
+            >
+              D
             </span>
           </div>
 
@@ -156,17 +183,17 @@ export async function renderSlabheadOgImage() {
               display: "flex",
             }}
           >
-            <span style={{ color: "rgba(0, 240, 255, 0.9)", marginRight: 12 }}>
+            <span style={{ color: "rgba(168, 85, 247, 0.9)", marginRight: 12 }}>
               {">"}
             </span>
-            <span>SOUTH AFRICA&apos;S HOME FOR GRADED CARDS</span>
+            <span>Curated for collectors under Slabhead</span>
           </div>
 
           <div
             style={{
               marginTop: 18,
               fontSize: 18,
-              color: "rgba(168, 85, 247, 0.85)",
+              color: "rgba(236, 72, 153, 0.80)",
               letterSpacing: 8,
             }}
           >
